@@ -13,7 +13,7 @@
 }
 
 /* Force everything to use your Barlow font by default */
-body {
+.main-container {
   font-family: 'Barlow', sans-serif;
   -webkit-font-smoothing: antialiased;
   

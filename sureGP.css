@@ -1,0 +1,87 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Barlow+Condensed:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900');
+
+:root {
+  /* Change these Hex codes to your brand colors */
+  --bs-primary: #70cbff;       /* A nice custom Blue */
+  --bs-primary-rgb: 112, 203, 255; /* Must match the hex for transparency effects */
+  
+  --bs-success: #9fc7aa;       /* Custom Green */
+  --bs-success-rgb: 159, 199, 170;
+  
+  --bs-warning: #ffd699;       /* Custom Yellow */
+  --bs-warning-rgb: 255, 214, 153;
+}
+
+/* Force everything to use your Barlow font by default */
+.main-container {
+  font-family: 'Barlow', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  
+  /* The first layer is the gradient, the second is the image */
+  background-image: linear-gradient(
+    to right, 
+    rgba(255, 255, 255, 0) 0%,    /* Transparent on the far left */
+    rgba(224, 210, 188, 1) 25%,   /* Becomes solid white at 15% */
+    rgba(224, 210, 188, 1) 80%,   /* Stays solid white until 85% */
+    rgba(255, 255, 255, 0) 100%   /* Becomes transparent on the far right */
+  ), 
+  url('images/Carnegie-Primary-School-Gymnasium-04.jpg');
+
+  /* Ensure the image covers the screen and doesn't scroll away */
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.square {
+    position: relative;
+    width: 400px;  /* Example size */
+    height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: visible; /* Allows balls to pulse outside if needed */
+    border: #FF5722 2px solid; /* Optional: for visual reference of the square */
+}
+
+.ball {
+    width: 5rem;
+    height: 5rem;
+    background-color: #FFC107;
+    border-radius: 50%;
+    position: absolute;
+    /* This centers the ball perfectly regardless of parent size */
+    top: 50%;
+    left: 50%;
+    margin-top: -2.5rem; /* Half of height */
+    margin-left: -2.5rem; /* Half of width */
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: black;
+}
+
+.ball:hover {
+    background-color: #FF5722;
+    color: white;
+    cursor: pointer;
+}
+
+/* target the specific ID to avoid affecting other offcanvases */
+#offcanvasScrolling {
+    width: 50vw; /* Set your desired width */
+}
+
+/* OR use a percentage for responsiveness */
+.offcanvas-start {
+    width: 40% !important; 
+}
+
+/* On small screens (mobile), you might want it to be full width */
+@media (max-width: 576px) {
+    .offcanvas-start {
+        width: 100% !important;
+    }
+}

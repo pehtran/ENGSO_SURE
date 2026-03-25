@@ -1,0 +1,201 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>SURE</title>
+
+    <!-- BOOTSTRAP -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link rel="stylesheet" href="sureGP.css">
+    <!-- VUE -->
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <!-- ANIME.JS -->
+    <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js"></script>
+
+    <!-- Highcharts -->
+    <script src="https://cdn.jsdelivr.net/npm/highcharts@11.4.1/highcharts.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/highcharts@11.4.1/highcharts-more.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/highcharts@11.4.1/modules/accessibility.js"></script>
+</head>
+
+<body>
+
+    <div class="barlow-regular p-5 main-container" id="SUREappGP">
+        <h1 class="text-center fw-bold display-3">GOOD PRACTICE</h1>
+
+        <div>
+            <input type="text" class="form-control my-3 shadow-sm" placeholder="Search for good practices..."
+                v-model="searchQuery">
+        </div>
+        <div class="d-flex flex-wrap gap-2">
+            <div v-for="(tag, index) in return_all_tags()" :key="tag">
+                <input type="checkbox" class="btn-check" :id="'tag-' + index" :value="tag" v-model="selectedTags"
+                    autocomplete="off">
+                <label v-if="selectedTags.includes(tag)"
+                    class="btn btn-outline-secondary rounded-pill border-0 bg-dark-subtle text-muted px-3 py-1 fw-semibold shadow-sm"
+                    :for="'tag-' + index">
+                    {{ tag }}
+                </label>
+                <label v-else
+                    class="btn btn-outline-secondary rounded-pill border-0 bg-light-subtle text-muted px-3 py-1 fw-semibold shadow-sm"
+                    :for="'tag-' + index">
+                    {{ tag }}
+                </label>
+            </div>
+        </div>
+
+
+        <!-- ANIMATION -->
+        <div class="container">
+            <div class="square square1" @mouseover="handleBallHover" @mouseout="handleBallLeave"
+                @click="handleBallClick">
+                <div class="label">SOCIAL SUPPORT</div>
+                <div v-html="filtered_actions('SOCIAL SUPPORT')"></div>
+            </div>
+
+            <div class="square square2" @mouseover="handleBallHover" @mouseout="handleBallLeave"
+                @click="handleBallClick">
+                <div class="label">COACHING</div>
+                <div v-html="filtered_actions('COACHING')"></div>
+            </div>
+            <div class="square square3" @mouseover="handleBallHover" @mouseout="handleBallLeave"
+                @click="handleBallClick">
+                <div class="label">GOVERNANCE</div>
+                <div v-html="filtered_actions('GOVERNANCE')"></div>
+            </div>
+            <div class="square square4" @mouseover="handleBallHover" @mouseout="handleBallLeave"
+                @click="handleBallClick">
+                <div class="label">ACTIVITY</div>
+                <div v-html="filtered_actions('ACTIVITY')"></div>
+            </div>
+            <div class="square square5" @mouseover="handleBallHover" @mouseout="handleBallLeave"
+                @click="handleBallClick">
+                <div class="label">FINANCIAL STABILITY</div>
+                <div v-html="filtered_actions('FINANCIAL STABILITY')"></div>
+            </div>
+            <div class="square square6" @mouseover="handleBallHover" @mouseout="handleBallLeave"
+                @click="handleBallClick">
+                <div class="label">FACILITIES</div>
+                <div v-html="filtered_actions('FACILITIES')"></div>
+            </div>
+        </div>
+
+        <!-- OFFCANVAS -->
+        <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasScrolling"
+            aria-controls="offcanvasScrolling" hidden>GOOD PRACTICE BUTTON</button>
+
+        <div class="offcanvas offcanvas-start" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1"
+            id="offcanvasScrolling" aria-labelledby="offcanvasScrollingLabel">
+            <div class="offcanvas-header">
+                <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body">
+                <p></p>
+            </div>
+        </div>
+        <!-- END OF OFFCANVAS -->
+
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-xl">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="exampleModalLabel">GOOD PRACTICE</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div v-if="modal_data" class="modal-content border-0">
+                            <div class="mb-4">
+                                <div class="d-flex justify-content-between align-items-start">
+                                    <div>
+                                        <span class="badge rounded-pill bg-primary-subtle text-primary mb-2">
+                                            {{ modal_data.category }}
+                                        </span>
+                                        <h2 class="fw-bold h3">{{ modal_data.title }}</h2>
+                                    </div>
+                                    <div class="text-end">
+                                        <small class="text-muted d-block">Action Type</small>
+                                        <span class="fw-bold text-uppercase text-primary">{{ modal_data.suggested_action
+                                            }}</span>
+                                    </div>
+                                </div>
+
+                                <div class="mt-2">
+                                    <span v-for="tag in modal_data.tags" :key="tag" class="me-2 text-muted small">
+                                        {{ tag }}
+                                    </span>
+                                </div>
+                            </div>
+
+                            <hr class="my-4 opacity-25">
+
+                            <div class="mb-5">
+                                <h5 class="fw-bold mb-3 text-secondary">The Approach</h5>
+                                <p class="lead text-dark" style="font-size: 1.1rem; line-height: 1.6;">
+                                    {{ modal_data.description }}
+                                </p>
+                            </div>
+
+                            <div class="mb-5">
+                                <h5 class="fw-bold mb-3 d-flex align-items-center">
+                                    <i class="bi bi-check2-circle me-2 text-success"></i> Practical Implementation Tips
+                                </h5>
+                                <div class="list-group list-group-flush shadow-sm rounded-3 border">
+                                    <div v-for="tip in modal_data.tips" :key="tip" class="list-group-item py-3">
+                                        <div class="d-flex gap-3">
+                                            <i class="bi bi-arrow-right-short text-primary fs-4"></i>
+                                            <span>{{ tip }}</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="card border-0 bg-light rounded-4 overflow-hidden">
+                                <div class="card-body p-4">
+                                    <div class="d-flex align-items-center mb-3">
+                                        <div class="bg-success text-white rounded-circle p-2 me-3 d-flex align-items-center justify-content-center"
+                                            style="width: 40px; height: 40px;">
+                                            <i class="bi bi-journal-check"></i>
+                                        </div>
+                                        <h5 class="card-title mb-0 fw-bold">Case Example</h5>
+                                    </div>
+
+                                    <p class="text-muted mb-4"><em>{{ modal_data.case_example.context }}</em></p>
+
+                                    <ul class="list-unstyled">
+                                        <li v-for="bullet in modal_data.case_example.bullets" :key="bullet"
+                                            class="mb-3 d-flex align-items-start">
+                                            <i class="bi bi-dot text-success fs-3 lh-1 me-1"></i>
+                                            <span class="small text-dark">{{ bullet }}</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-outline-secondary w-100"
+                            data-bs-dismiss="modal">Close</button>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+        crossorigin="anonymous"></script>
+    <script src="sureGPVUE.js"></script>
+
+    <script type="module" src="sureANIMATIONS.js"></script>
+
+
+</body>
+
+</html>

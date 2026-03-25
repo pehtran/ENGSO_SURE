@@ -1,0 +1,127 @@
+[
+  {
+    "id": "ss-equip-01",
+    "category": "Social Support",
+    "suggested_action": "B",
+    "tags": ["#vulnerable groups", "#accessibility", "#peer support", "#low-income"],
+    "title": "Community Equipment Library",
+    "description": "Establish a lending library for high-cost sports gear to remove financial barriers for low-income members.",
+    "tips": [
+      "Set up a dedicated storage area or locker for donated gear.",
+      "Ensure all donated equipment is cleaned and safety-checked before redistribution.",
+      "Promote the initiative as a 'Sustainability/Circular Economy' project to normalize participation.",
+      "Allow for anonymous requests to protect the dignity of participants.",
+      "Partner with local businesses for discounted repairs on donated items."
+    ],
+    "case_example": {
+      "context": "A community cycling club in London established a 'Bike Library' to help residents from low-income backgrounds commute and exercise safely.",
+      "bullets": [
+        "We collected 40 donated bicycles from the local community and refurbished them using volunteer mechanics.",
+        "We provided a long-term loan system where participants can keep a bike for 6 months at no cost.",
+        "We included a 'Starter Kit' with every loan, featuring a helmet, a high-visibility vest, and a heavy-duty lock.",
+        "We hosted monthly 'Fix-It' workshops where borrowers learn basic maintenance to build a sense of ownership.",
+        "We saw a 60% increase in participation from minority groups who previously cited equipment cost as their main barrier."
+      ]
+    }
+  },
+  {
+    "id": "ss-equip-02",
+    "category": "Social Support",
+    "suggested_action": "B",
+    "tags": ["#vulnerable groups", "#circular economy", "#sustainability"],
+    "title": "Seasonal Gear Swap Shop",
+    "description": "Organize bi-annual events where members can trade outgrown or unused equipment, specifically targeting families with growing children.",
+    "tips": [
+      "Schedule swaps before the start of major seasons (Spring/Autumn).",
+      "Use a token system to ensure fair exchange of value.",
+      "Donate leftover items to local schools or shelters.",
+      "Set up a 'repair station' during the swap to extend gear life.",
+      "Encourage senior members to donate legacy gear to new juniors."
+    ],
+    "case_example": {
+      "context": "A youth football club reduced annual parent costs by 30% through a permanent 'boot bin' and seasonal kit exchange.",
+      "bullets": [
+        "Established a 'Take a Pair, Leave a Pair' bin in the clubhouse.",
+        "Facilitated the exchange of over 200 pairs of cleats in one year.",
+        "Reduced landfill waste by approximately 150kg of synthetic materials.",
+        "Improved team uniformity as lower-income players could access official club kits.",
+        "Increased 'participation satisfaction' surveys among parents by 45%."
+      ]
+    }
+  },
+  {
+    "id": "ss-equip-03",
+    "category": "Social Support",
+    "suggested_action": "B",
+    "tags": ["#inclusion", "#subsidies", "#local business"],
+    "title": "Voucher-Based Gear Subsidies",
+    "description": "Partner with local sports retailers to provide discounted or subsidized equipment vouchers for members receiving social assistance.",
+    "tips": [
+      "Negotiate bulk discounts with local vendors in exchange for club promotion.",
+      "Maintain a confidential list of eligible families to avoid social stigma.",
+      "Apply for small community grants to fund the voucher pool.",
+      "Focus vouchers on safety equipment (helmets, pads) first.",
+      "Create a 'Sponsor a Player' program for local businesses."
+    ],
+    "case_example": {
+      "context": "A regional hockey league partnered with a sports outlet to provide 'New Starter Kits' for refugee families.",
+      "bullets": [
+        "Secured a 50% discount on all entry-level protective equipment.",
+        "Distributed 25 full sets of gear via private vouchers.",
+        "Partnered with a local laundry service to sanitize used donations.",
+        "Reduced the 'entry cost' barrier from €400 to €50 per player.",
+        "Successful integration of 15 new families into the league social structure."
+      ]
+    }
+  },
+  {
+    "id": "ss-mentor-01",
+    "category": "Social Support",
+    "suggested_action": "C",
+    "tags": ["#intergenerational", "#social cohesion", "#elderly", "#youth"],
+    "title": "Intergenerational Mentorship",
+    "description": "Connecting younger and older members of a club through mentorship programs can bridge social gaps and combat isolation for both age groups...",
+    "tips": [
+      "Pair mentors based on shared interests outside of the sport.",
+      "Organize 'Storytelling Circles' where older members share the club's history.",
+      "Schedule low-impact joint activities like walking football.",
+      "Provide 'Communication 101' tips for younger members.",
+      "Host a year-end celebration to highlight the success of the pairings."
+    ],
+    "case_example": {
+      "context": "A rowing club in Amsterdam paired retired members with teenage athletes to provide academic tutoring and career advice.",
+      "bullets": [
+        "Created a 'Study & Splash' program for homework help after practice.",
+        "Youth members taught 'Digital Literacy' to help seniors use the booking app.",
+        "Monthly social brunches resulted in senior members feeling 40% less lonely.",
+        "Improved academic performance among youth competitive teams.",
+        "Higher retention rates observed across both age demographics."
+      ]
+    }
+  },
+  {
+    "id": "fac-lang-01",
+    "category": "Facilities",
+    "suggested_action": "D",
+    "tags": ["#cultural diversity", "#integration", "#language learning", "#newcomers"],
+    "title": "Language Integrated Sports Sessions",
+    "description": "Offer 'Language-Light' training sessions where basic local vocabulary is taught through movement and play for newcomers and refugees.",
+    "tips": [
+      "Use visual aids like colored cones to explain drills without complex sentences.",
+      "Focus on 'Action Verbs' during training to build basic vocabulary.",
+      "Assign a 'Language Buddy' to each newcomer for team huddles.",
+      "Create a bilingual 'Club Handbook' with common phrases.",
+      "Encourage native speakers to learn welcoming phrases in other languages."
+    ],
+    "case_example": {
+      "context": "A football club in Berlin integrated German language basics into youth training for asylum seekers.",
+      "bullets": [
+        "Started each session with a 'Word of the Day' related to teamwork.",
+        "Used multilingual coaching staff as cultural bridges.",
+        "Organized 'Cook & Kick' nights for food-related vocabulary exchange.",
+        "Partnered with a local language school for formal learning credits.",
+        "50+ participants gained confidence for local job applications via conversational play."
+      ]
+    }
+  }
+]
