@@ -7,34 +7,19 @@ const squares = document.querySelectorAll(".square1, .square2, .square3, .square
 
 squares.forEach((square, index) => {
   // Main square movement
-  animate(square, {
-    // Calculate center: (Half screen width) - (Half element width) - (Element's starting X)
-    x: () => {
-      const rect = square.getBoundingClientRect();
-      const screenCenter = window.innerWidth / 2;
-      const elementHalf = rect.width / 2;
-      // We subtract the current left position to get the relative move distance
-      return screenCenter - elementHalf - rect.left;
-    },
-    // If you also want it centered vertically:
-    /*
-    y: () => {
-      const rect = square.getBoundingClientRect();
-      const screenCenter = window.innerHeight / 2;
-      const elementHalf = rect.height / 2;
-      return screenCenter - elementHalf - rect.top;
-    },
-    */
-    delay: index * 100,
-    easing: "easeInOutSine",
-    duration: 1000, // Adjust speed as needed
-  });
 
   const balls = square.querySelectorAll(".ball");
   const totalBalls = balls.length;
-  const circleRadius = 100;
+  const circleRadius = 150; // how far from the center the balls will float (adjust as needed)
   balls.forEach((ball, ballIndex) => {
-    const angle = (ballIndex / totalBalls) * 2 * Math.PI;
+    // 1. Calculate the base mathematical position
+    const baseAngle = (ballIndex / balls.length) * 2 * Math.PI;
+
+    // 2. Add a random offset (e.g., +/- 10 degrees)
+    // 0.17 radians is roughly 10 degrees
+    const randomOffset2 = (Math.random() - 0.5) * 0.3;
+
+    const angle = baseAngle + randomOffset2;
 
     // 1. "Home" Position (On the circle)
     const startX = Math.cos(angle) * circleRadius;
@@ -42,8 +27,16 @@ squares.forEach((square, index) => {
 
     // 2. "Float" Position (Slightly further out)
     const floatDistance = 15;
-    const endX = Math.cos(angle) * (circleRadius + floatDistance);
-    const endY = Math.sin(angle) * (circleRadius + floatDistance);
+    // Define your "jitter" range in degrees
+    const jitterDegrees = 5;
+
+    // Convert jitter to radians and apply randomly: (Math.random() * 2 - 1) gives a range of -1 to 1
+    const randomOffset = (Math.random() * 2 - 1) * ((jitterDegrees * Math.PI) / 180);
+
+    const finalAngle = angle + randomOffset;
+
+    const endX = Math.cos(finalAngle) * (circleRadius + floatDistance);
+    const endY = Math.sin(finalAngle) * (circleRadius + floatDistance);
 
     // 3. IMPORTANT: Set the initial position immediately
     // This prevents the "leap" from the center (0,0)

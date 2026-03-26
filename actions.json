@@ -1,9 +1,9 @@
 [
   {
     "id": "ss-equip-01",
-    "category": "Social Support",
+    "category": "SOCIAL SUPPORT",
     "suggested_action": "B",
-    "tags": ["#vulnerable groups", "#accessibility", "#peer support", "#low-income"],
+    "tags": ["#vulnerable groups"],
     "title": "Community Equipment Library",
     "description": "Establish a lending library for high-cost sports gear to remove financial barriers for low-income members.",
     "tips": [
@@ -16,111 +16,638 @@
     "case_example": {
       "context": "A community cycling club in London established a 'Bike Library' to help residents from low-income backgrounds commute and exercise safely.",
       "bullets": [
-        "We collected 40 donated bicycles from the local community and refurbished them using volunteer mechanics.",
-        "We provided a long-term loan system where participants can keep a bike for 6 months at no cost.",
-        "We included a 'Starter Kit' with every loan, featuring a helmet, a high-visibility vest, and a heavy-duty lock.",
-        "We hosted monthly 'Fix-It' workshops where borrowers learn basic maintenance to build a sense of ownership.",
-        "We saw a 60% increase in participation from minority groups who previously cited equipment cost as their main barrier."
-      ]
-    }
-  },
-  {
-    "id": "ss-equip-02",
-    "category": "Social Support",
-    "suggested_action": "B",
-    "tags": ["#vulnerable groups", "#circular economy", "#sustainability"],
-    "title": "Seasonal Gear Swap Shop",
-    "description": "Organize bi-annual events where members can trade outgrown or unused equipment, specifically targeting families with growing children.",
-    "tips": [
-      "Schedule swaps before the start of major seasons (Spring/Autumn).",
-      "Use a token system to ensure fair exchange of value.",
-      "Donate leftover items to local schools or shelters.",
-      "Set up a 'repair station' during the swap to extend gear life.",
-      "Encourage senior members to donate legacy gear to new juniors."
-    ],
-    "case_example": {
-      "context": "A youth football club reduced annual parent costs by 30% through a permanent 'boot bin' and seasonal kit exchange.",
-      "bullets": [
-        "Established a 'Take a Pair, Leave a Pair' bin in the clubhouse.",
-        "Facilitated the exchange of over 200 pairs of cleats in one year.",
-        "Reduced landfill waste by approximately 150kg of synthetic materials.",
-        "Improved team uniformity as lower-income players could access official club kits.",
-        "Increased 'participation satisfaction' surveys among parents by 45%."
-      ]
-    }
-  },
-  {
-    "id": "ss-equip-03",
-    "category": "Social Support",
-    "suggested_action": "B",
-    "tags": ["#inclusion", "#subsidies", "#local business"],
-    "title": "Voucher-Based Gear Subsidies",
-    "description": "Partner with local sports retailers to provide discounted or subsidized equipment vouchers for members receiving social assistance.",
-    "tips": [
-      "Negotiate bulk discounts with local vendors in exchange for club promotion.",
-      "Maintain a confidential list of eligible families to avoid social stigma.",
-      "Apply for small community grants to fund the voucher pool.",
-      "Focus vouchers on safety equipment (helmets, pads) first.",
-      "Create a 'Sponsor a Player' program for local businesses."
-    ],
-    "case_example": {
-      "context": "A regional hockey league partnered with a sports outlet to provide 'New Starter Kits' for refugee families.",
-      "bullets": [
-        "Secured a 50% discount on all entry-level protective equipment.",
-        "Distributed 25 full sets of gear via private vouchers.",
-        "Partnered with a local laundry service to sanitize used donations.",
-        "Reduced the 'entry cost' barrier from €400 to €50 per player.",
-        "Successful integration of 15 new families into the league social structure."
+        "Collected 40 donated bicycles and refurbished them using volunteer mechanics.",
+        "Provided a long-term loan system (6 months) at no cost.",
+        "Included a 'Starter Kit' with every loan (helmet, vest, lock).",
+        "Hosted monthly 'Fix-It' workshops for basic maintenance skills.",
+        "Saw a 60% increase in participation from minority groups."
       ]
     }
   },
   {
     "id": "ss-mentor-01",
-    "category": "Social Support",
+    "category": "SOCIAL SUPPORT",
     "suggested_action": "C",
-    "tags": ["#intergenerational", "#social cohesion", "#elderly", "#youth"],
+    "tags": ["#intergenerational"],
     "title": "Intergenerational Mentorship",
-    "description": "Connecting younger and older members of a club through mentorship programs can bridge social gaps and combat isolation for both age groups...",
+    "description": "Connecting younger and older members through mentorship programs to bridge social gaps and combat isolation.",
     "tips": [
       "Pair mentors based on shared interests outside of the sport.",
       "Organize 'Storytelling Circles' where older members share the club's history.",
       "Schedule low-impact joint activities like walking football.",
-      "Provide 'Communication 101' tips for younger members.",
-      "Host a year-end celebration to highlight the success of the pairings."
+      "Provide 'Communication 101' tips for younger members."
     ],
     "case_example": {
-      "context": "A rowing club in Amsterdam paired retired members with teenage athletes to provide academic tutoring and career advice.",
+      "context": "A rowing club in Amsterdam paired retired members with teenage athletes for academic tutoring and career advice.",
       "bullets": [
         "Created a 'Study & Splash' program for homework help after practice.",
-        "Youth members taught 'Digital Literacy' to help seniors use the booking app.",
-        "Monthly social brunches resulted in senior members feeling 40% less lonely.",
-        "Improved academic performance among youth competitive teams.",
-        "Higher retention rates observed across both age demographics."
+        "Youth members taught 'Digital Literacy' to seniors.",
+        "Senior members reported feeling 40% less lonely.",
+        "Improved academic performance among youth competitive teams."
       ]
     }
   },
   {
-    "id": "fac-lang-01",
-    "category": "Facilities",
-    "suggested_action": "D",
-    "tags": ["#cultural diversity", "#integration", "#language learning", "#newcomers"],
-    "title": "Language Integrated Sports Sessions",
-    "description": "Offer 'Language-Light' training sessions where basic local vocabulary is taught through movement and play for newcomers and refugees.",
+    "id": "coach-inc-01",
+    "category": "COACHING",
+    "tags": ["#disability"],
+    "title": "Adaptive Coaching Certification",
+    "description": "Fund specialized training for coaches to work with athletes who have physical or intellectual disabilities.",
     "tips": [
-      "Use visual aids like colored cones to explain drills without complex sentences.",
-      "Focus on 'Action Verbs' during training to build basic vocabulary.",
-      "Assign a 'Language Buddy' to each newcomer for team huddles.",
-      "Create a bilingual 'Club Handbook' with common phrases.",
-      "Encourage native speakers to learn welcoming phrases in other languages."
+      "Partner with national paralympic committees for curriculum.",
+      "Offer 'Shadowing' opportunities with experienced adaptive coaches.",
+      "Focus on communication styles for neurodivergent athletes."
     ],
     "case_example": {
-      "context": "A football club in Berlin integrated German language basics into youth training for asylum seekers.",
+      "context": "A tennis academy trained 5 coaches in wheelchair tennis techniques.",
       "bullets": [
-        "Started each session with a 'Word of the Day' related to teamwork.",
-        "Used multilingual coaching staff as cultural bridges.",
-        "Organized 'Cook & Kick' nights for food-related vocabulary exchange.",
-        "Partnered with a local language school for formal learning credits.",
-        "50+ participants gained confidence for local job applications via conversational play."
+        "Opened the first dedicated wheelchair league in the county.",
+        "Received a €5,000 grant for specialized sports wheelchairs.",
+        "Increased total club membership by 12% in one year."
+      ]
+    }
+  },
+  {
+    "id": "gov-div-01",
+    "category": "GOVERNANCE",
+    "tags": ["#representation"],
+    "title": "Inclusive Board Recruitment",
+    "description": "Implement a 'Shadow Board' for youth and minority members to influence club decision-making.",
+    "tips": [
+      "Reserve at least two board seats for representatives from underrepresented groups.",
+      "Publish annual transparency reports on club diversity metrics.",
+      "Use 'Plain English' in board minutes to ensure accessibility."
+    ],
+    "case_example": {
+      "context": "A regional rugby union created a Youth Board (ages 16-21) with direct voting power on social events.",
+      "bullets": [
+        "Youth board successfully launched a 'Clean Seas' environmental campaign.",
+        "Increased junior retention rates by 25%.",
+        "Two youth members eventually transitioned to the full senior board."
+      ]
+    }
+  },
+  {
+    "id": "act-walk-01",
+    "category": "ACTIVITY",
+    "tags": ["#rehabilitation"],
+    "title": "Walking Sports Initiatives",
+    "description": "Modify high-intensity sports into 'walking' versions to include those with limited mobility or chronic health issues.",
+    "tips": [
+      "Enforce a strict 'no running' rule to maintain safety.",
+      "Keep sessions short (30-45 mins) with frequent hydration breaks.",
+      "Market sessions as 'Social First, Sport Second'."
+    ],
+    "case_example": {
+      "context": "A football club introduced 'Walking Football' for men over 60 with heart conditions.",
+      "bullets": [
+        "Started with 6 participants, grew to 40 in three months.",
+        "Local doctors now 'socially prescribe' the sessions to patients.",
+        "90% of participants reported improved mental well-being."
+      ]
+    }
+  },
+  {
+    "id": "fin-sub-01",
+    "category": "FINANCIAL STABILITY",
+    "tags": ["#scholarships"],
+    "title": "The 'Penny-a-Point' Hardship Fund",
+    "description": "Create a fund where members can donate small amounts to cover membership fees for families in crisis.",
+    "tips": [
+      "Allow donors to round up their monthly fees to the nearest dollar.",
+      "Keep the application process for the fund 100% confidential.",
+      "Set clear, objective criteria for financial need."
+    ],
+    "case_example": {
+      "context": "A gymnastics club raised €3,000 through a 'Round Up' app integrated into their payment system.",
+      "bullets": [
+        "Funded full annual fees for 8 children from low-income families.",
+        "Zero drop-outs due to financial hardship recorded in 2023.",
+        "The community felt a stronger sense of 'looking out for their own'."
+      ]
+    }
+  },
+  {
+    "id": "fac-safe-01",
+    "category": "FACILITIES",
+    "tags": ["#safety"],
+    "title": "Safe-Access Lighting Upgrade",
+    "description": "Improve lighting in parking lots and walkways to ensure the facility feels safe for women and girls during evening sessions.",
+    "tips": [
+      "Use motion-activated LED lights to save energy while maintaining safety.",
+      "Conduct 'Safety Walks' at night with female members to identify dark spots.",
+      "Ensure signage is reflective and clearly visible at night."
+    ],
+    "case_example": {
+      "context": "A suburban athletics track saw female attendance drop by 30% during winter months due to poor lighting.",
+      "bullets": [
+        "Installed 15 new solar-powered LED floodlights along the perimeter.",
+        "Attendance stabilized and actually grew by 10% the following winter.",
+        "Reduced vandalism incidents by 50% due to increased visibility."
+      ]
+    }
+  },
+  {
+    "id": "ss-trans-01",
+    "category": "SOCIAL SUPPORT",
+    "tags": ["#transport"],
+    "title": "Team Carpool Coordinator",
+    "description": "Designate a volunteer to match families without cars with those living nearby to ensure all kids can reach practice.",
+    "tips": [
+      "Use a simple WhatsApp group or dedicated app for coordination.",
+      "Incentivize drivers with 'preferred parking' or coffee vouchers.",
+      "Vetting: Ensure all drivers have appropriate background checks."
+    ],
+    "case_example": {
+      "context": "A rural swimming club used a carpool system to bring kids from three different villages to the central pool.",
+      "bullets": [
+        "Reduced the carbon footprint of the club by 20%.",
+        "Enabled 12 children who had no transport to participate in morning training.",
+        "Parents formed new social bonds, increasing volunteerism for club galas."
+      ]
+    }
+  },
+  {
+    "id": "coach-fem-01",
+    "category": "COACHING",
+    "tags": ["#female coaching"],
+    "title": "Female Coaching Pathway",
+    "description": "Specific workshops and fast-track pathways to encourage female athletes to transition into coaching roles.",
+    "tips": [
+      "Provide free childcare during coaching certification courses.",
+      "Assign a senior female coach as a formal mentor to newcomers.",
+      "Highlight female coaching successes in every club newsletter."
+    ],
+    "case_example": {
+      "context": "A basketball club noticed they had zero female coaches despite having 50% female players.",
+      "bullets": [
+        "Offered 5 free coaching spots to graduating U18 players.",
+        "Now have 4 female head coaches across junior teams.",
+        "Girl's team participation increased as they saw 'people like them' leading."
+      ]
+    }
+  },
+  {
+    "id": "gov-eth-01",
+    "category": "GOVERNANCE",
+    "tags": ["#ethics"],
+    "title": "Open-Door Ethics Committee",
+    "description": "Establish an independent group within the club where members can report bullying or exclusion without fear of bias.",
+    "tips": [
+      "Ensure the committee includes at least one person not on the main board.",
+      "Create an anonymous online reporting portal.",
+      "Define clear timelines for resolving any reported issues (e.g., 7 days)."
+    ],
+    "case_example": {
+      "context": "A large multi-sport club established an 'Integrity Officer' role to handle internal disputes.",
+      "bullets": [
+        "Resolved 12 minor bullying incidents before they escalated to legal issues.",
+        "Members reported feeling 70% safer and more respected.",
+        "Club awarded 'Gold Status' for safeguarding by the national body."
+      ]
+    }
+  },
+  {
+    "id": "act-pop-01",
+    "category": "ACTIVITY",
+    "tags": ["#urban"],
+    "title": "Pop-Up Street Sports",
+    "description": "Take the sport to the people by hosting mini-sessions in public squares, housing estates, or shopping centers.",
+    "tips": [
+      "Keep equipment portable (portable hoops, inflatable goals).",
+      "Offer 5-minute 'taster' sessions to passersby.",
+      "Have flyers ready with a 'First Month Free' QR code."
+    ],
+    "case_example": {
+      "context": "A volleyball club set up a portable net in a local park every Saturday for a month.",
+      "bullets": [
+        "Engaged over 200 people who had never visited the club's facility.",
+        "Signed up 25 new members directly from the park sessions.",
+        "Most new members were from the immediate, diverse neighborhood."
+      ]
+    }
+  },
+  {
+    "id": "fin-work-01",
+    "category": "FINANCIAL STABILITY",
+    "tags": ["#skills"],
+    "title": "Club Job Board & Skills Swap",
+    "description": "Partner with sponsors to provide part-time jobs or internships for club members, especially youth.",
+    "tips": [
+      "Ask local business sponsors to list their vacancies at the clubhouse.",
+      "Organize 'CV Workshops' for athletes looking for their first job.",
+      "Create a 'Skills Directory' (e.g., who is a plumber, who is an accountant)."
+    ],
+    "case_example": {
+      "context": "A cricket club partnered with a local construction firm (the main sponsor).",
+      "bullets": [
+        "The firm provided 3 apprenticeships to U19 players.",
+        "Players remained loyal to the club as it helped their career.",
+        "Sponsor saw a direct return on their investment via skilled labor."
+      ]
+    }
+  },
+  {
+    "id": "fac-mult-01",
+    "category": "FACILITIES",
+    "tags": ["#inclusion"],
+    "title": "Multi-Faith Quiet Rooms",
+    "description": "Designate a small, private area within the facility for prayer or reflection during training hours.",
+    "tips": [
+      "Ensure the room is clean, quiet, and neutrally decorated.",
+      "Include a sign-up sheet to manage usage during peak hours.",
+      "Consult with local faith leaders on basic requirements (e.g., wash basins)."
+    ],
+    "case_example": {
+      "context": "An indoor athletics center converted an old storage closet into a 'Quiet Room'.",
+      "bullets": [
+        "Enabled Muslim athletes to train through Ramadan without missing prayers.",
+        "Increased participation from local religious communities by 15%.",
+        "Also used by neurodivergent members as a 'sensory de-compression' zone."
+      ]
+    }
+  },
+  {
+    "id": "ss-lang-01",
+    "category": "SOCIAL SUPPORT",
+    "tags": ["#integration"],
+    "title": "The 'Sport-Glossary' Initiative",
+    "description": "Create visual translation cards for sports terms to help non-native speakers follow coaching instructions.",
+    "tips": [
+      "Use icons and diagrams for common drills (e.g., 'Pass', 'Shoot', 'Run').",
+      "Translate cards into the top 3 languages spoken in the neighborhood.",
+      "Laminate the cards for use on the field in the rain."
+    ],
+    "case_example": {
+      "context": "A handball club in Sweden used 'Picture Coaching' for a team of 10 different nationalities.",
+      "bullets": [
+        "Coaches used whistles and hand signals linked to the cards.",
+        "Newcomers learned local language terms 3x faster through movement.",
+        "Team cohesion scores (internal survey) rose from 4/10 to 9/10."
+      ]
+    }
+  },
+  {
+    "id": "coach-peer-01",
+    "category": "COACHING",
+    "tags": ["#leadership"],
+    "title": "Junior Coaching Academy",
+    "description": "Train older teenagers to assist with U8/U10 sessions, building leadership skills and providing more individual attention.",
+    "tips": [
+      "Focus on 'Fun and Safety' rather than technical perfection.",
+      "Provide a specific 'Junior Coach' uniform to build pride.",
+      "Use this as a credit for school-based volunteer requirements."
+    ],
+    "case_example": {
+      "context": "A gymnastics club created a 'Leadership Level' for 14-year-olds.",
+      "bullets": [
+        "12 teens stayed in the sport instead of quitting during high school.",
+        "Head coaches could manage 20% more kids per session.",
+        "Parents reported high satisfaction with the 'big brother/sister' dynamic."
+      ]
+    }
+  },
+  {
+    "id": "gov-envi-01",
+    "category": "GOVERNANCE",
+    "tags": ["#green"],
+    "title": "Sustainability Committee",
+    "description": "A dedicated board sub-group focused on reducing the club's environmental impact to attract 'eco-conscious' members.",
+    "tips": [
+      "Perform a 'Waste Audit' of the clubhouse trash bins.",
+      "Ban single-use plastic bottles; install a high-speed water refilling station.",
+      "Partner with local 'Green' businesses for sponsorship."
+    ],
+    "case_example": {
+      "context": "A golf club aimed to be the 'Greenest in the Region'.",
+      "bullets": [
+        "Switched to 100% electric mowers and golf carts.",
+        "Reduced water usage by 30% through drought-resistant grass.",
+        "Signed 10 new corporate sponsors who only partner with sustainable orgs."
+      ]
+    }
+  },
+  {
+    "id": "act-virt-01",
+    "category": "ACTIVITY",
+    "tags": ["#remote"],
+    "title": "Hybrid Training Options",
+    "description": "Stream live training sessions or record drills for members who cannot travel to the facility every day.",
+    "tips": [
+      "Use a simple tripod and smartphone for live-streaming.",
+      "Focus on drills that can be done in a small backyard or living room.",
+      "Host a monthly 'Virtual Challenge' with an online leaderboard."
+    ],
+    "case_example": {
+      "context": "A martial arts dojo offered 1 'Zoom Session' per week for busy parents.",
+      "bullets": [
+        "Retention of members aged 30-45 increased by 40%.",
+        "Lowered the 'perceived time commitment' barrier for new signups.",
+        "Revenue increased as they could sell 'Digital-Only' memberships."
+      ]
+    }
+  },
+  {
+    "id": "fin-pay-01",
+    "category": "FINANCIAL STABILITY",
+    "tags": ["#flexibility"],
+    "title": "Flexible Payment 'Sliders'",
+    "description": "Allow members to choose their payment frequency (weekly vs. annually) to better match their income cycles.",
+    "tips": [
+      "Do not charge extra 'interest' for weekly payments.",
+      "Use automated SMS reminders for upcoming payments.",
+      "Offer a 'Holiday Pause' for seasonal workers."
+    ],
+    "case_example": {
+      "context": "A boxing gym switched from 'Annual Only' to a 'Pay-as-you-can-afford' weekly model.",
+      "bullets": [
+        "Reduced debt collection issues by 60%.",
+        "Increased total annual revenue by 15% due to higher volume.",
+        "Made the gym accessible to those on zero-hour contracts."
+      ]
+    }
+  },
+  {
+    "id": "fac-sens-01",
+    "category": "FACILITIES",
+    "tags": ["#autism"],
+    "title": "Sensory-Friendly Hours",
+    "description": "Designate times where music is turned off, crowds are limited, and whistles are not used.",
+    "tips": [
+      "Provide 'Sensory Bags' with noise-canceling headphones at the front desk.",
+      "Use visual timers instead of loud buzzers or whistles.",
+      "Create a 'Visual Map' of the facility so members know what to expect."
+    ],
+    "case_example": {
+      "context": "A community pool introduced 'Quiet Sundays' for two hours each week.",
+      "bullets": [
+        "Welcomed 30 families with autistic children who previously couldn't visit.",
+        "Local autism society now promotes the facility as a 'Preferred Venue'.",
+        "Staff reported a much calmer working environment during these hours."
+      ]
+    }
+  },
+  {
+    "id": "ss-fest-01",
+    "category": "SOCIAL SUPPORT",
+    "tags": ["#culture"],
+    "title": "Cultural Heritage Potluck",
+    "description": "Host an annual event where every member brings a dish from their family's culture to share after a game.",
+    "tips": [
+      "Ask people to provide a small card listing the ingredients (for allergies).",
+      "Combine the food with a 'Friendly' tournament using mixed-ability teams.",
+      "Invite the local mayor or press to show off the club's diversity."
+    ],
+    "case_example": {
+      "context": "A cricket club in a diverse suburb held a 'World Food & Wickets' day.",
+      "bullets": [
+        "Attracted 500 visitors from the local neighborhood.",
+        "Broke down social cliques that had formed between different ethnic groups.",
+        "The club is now seen as a 'Community Hub', not just a sports club."
+      ]
+    }
+  },
+  {
+    "id": "act-gen-01",
+    "category": "ACTIVITY",
+    "tags": ["#women"],
+    "title": "Girls-Only 'No-Pressure' Hubs",
+    "description": "Create weekly sessions for teenage girls that focus on social play and music rather than competition to combat high dropout rates.",
+    "tips": [
+      "Let the participants choose the playlist for the session.",
+      "Remove scoreboards and formal refereeing.",
+      "Include a 15-minute 'social hang' at the end with healthy snacks."
+    ],
+    "case_example": {
+      "context": "A netball club saw a 50% drop in players aged 14-16.",
+      "bullets": [
+        "Launched 'Friday Night Lights' with music and neon bibs.",
+        "Retained 90% of the 'at-risk' age group over one season.",
+        "Participants reported feeling 'less judged' and 'more seen'."
+      ]
+    }
+  },
+  {
+    "id": "ss-mh-01",
+    "category": "SOCIAL SUPPORT",
+    "tags": ["#mental health"],
+    "title": "Mental Health First-Aiders",
+    "description": "Train select coaches and volunteers to recognize signs of mental distress and provide a 'listening ear' and resource signposting.",
+    "tips": [
+      "Provide First-Aiders with a visible but subtle badge or lanyard.",
+      "Ensure they have a private space available for sensitive conversations.",
+      "Create a 'Resource Wall' with local helpline numbers."
+    ],
+    "case_example": {
+      "context": "A semi-pro football club trained 4 staff members in Mental Health First Aid.",
+      "bullets": [
+        "Successfully supported 3 players through personal crises.",
+        "Reduced 'stigma' scores in player surveys by 65%.",
+        "The local health board now uses the club as a model for community care."
+      ]
+    }
+  },
+  {
+    "id": "gov-digi-01",
+    "category": "GOVERNANCE",
+    "tags": ["#digital inclusion"],
+    "title": "Digital Assistance Kiosk",
+    "description": "Set up a physical station at the club to help members who struggle with online registrations or app-based booking.",
+    "tips": [
+      "Staff the kiosk with tech-savvy youth volunteers during peak hours.",
+      "Provide printed 'How-To' guides with large text and screenshots.",
+      "Allow for 'In-Person' cash payments alongside digital options."
+    ],
+    "case_example": {
+      "context": "A bowls club switched to a 100% digital booking system, causing frustration among older members.",
+      "bullets": [
+        "Introduced 'Tech Tuesdays' where juniors helped seniors with their phones.",
+        "Online booking adoption reached 100% within two months.",
+        "Improved intergenerational bonding across the club."
+      ]
+    }
+  },
+  {
+    "id": "fac-env-01",
+    "category": "FACILITIES",
+    "tags": ["#wildlife"],
+    "title": "Clubhouse Community Garden",
+    "description": "Convert unused perimeter land into a community garden or wildflower meadow to improve local biodiversity and member wellbeing.",
+    "tips": [
+      "Install 'Bug Hotels' made by junior members.",
+      "Grow herbs or vegetables that can be used in the club cafe.",
+      "Apply for 'Green Space' grants from local councils."
+    ],
+    "case_example": {
+      "context": "A tennis club transformed a derelict corner into a pollinator garden.",
+      "bullets": [
+        "Observed a 40% increase in local butterfly and bee species.",
+        "Garden became a 'quiet zone' for members to de-stress between matches.",
+        "Won a 'Beautiful Britain' award, boosting local reputation."
+      ]
+    }
+  },
+  {
+    "id": "coach-vols-01",
+    "category": "COACHING",
+    "tags": ["#volunteering"],
+    "title": "The 'Parent-to-Coach' Bridge",
+    "description": "A low-stakes 'Intro to Coaching' workshop designed specifically for parents to help them move from the sidelines to assisting on the field.",
+    "tips": [
+      "Focus on 'Game Management' and 'Safety' rather than deep tactics.",
+      "Provide a 'Coaching Starter Pack' (whistle, clipboard, session plans).",
+      "Pair new parent-coaches with a 'Mentor Coach' for their first month."
+    ],
+    "case_example": {
+      "context": "A youth soccer club struggled with a shortage of coaches for the U6 division.",
+      "bullets": [
+        "Hosted a 2-hour 'Saturday Morning Helper' workshop.",
+        "Recruited 15 new parent volunteers as assistant coaches.",
+        "Decreased the player-to-coach ratio from 15:1 to 6:1."
+      ]
+    }
+  },
+  {
+    "id": "fin-equip-01",
+    "category": "FINANCIAL STABILITY",
+    "tags": ["#micro-grants", "#local", "#support"],
+    "title": "The 'Small-Wins' Micro-Grant",
+    "description": "A simplified internal grant process where members can request up to €50 for small needs like new laces, transport, or a meal.",
+    "tips": [
+      "Create a 1-page application form that takes 2 minutes to fill out.",
+      "Approve requests within 48 hours to ensure timely help.",
+      "Use 'No-Questions-Asked' logic to build trust."
+    ],
+    "case_example": {
+      "context": "A regional athletics club created a 'Quick-Fund' for traveling athletes.",
+      "bullets": [
+        "Distributed 20 small grants for train tickets to competitions.",
+        "Enabled 5 athletes to attend National Finals who otherwise couldn't afford it.",
+        "Funded entirely by a small jar of 'spare change' donations at the bar."
+      ]
+    }
+  },
+  {
+    "id": "ss-new-01",
+    "category": "SOCIAL SUPPORT",
+    "tags": ["#onboarding"],
+    "title": "The 'New Member' Concierge",
+    "description": "Assign a dedicated 'Welcome Buddy' to every new member for their first 3 visits to ensure they find their way and meet people.",
+    "tips": [
+      "Match buddies based on age or location.",
+      "The 'Buddy' introduces the newcomer to at least 5 other people.",
+      "Provide the Buddy with a free drink voucher to share with the newcomer."
+    ],
+    "case_example": {
+      "context": "A large gym noticed that 40% of new signups quit within 30 days.",
+      "bullets": [
+        "Launched the 'Welcome Buddy' program.",
+        "First-month retention jumped from 60% to 85%.",
+        "New members reported feeling 'part of the family' much faster."
+      ]
+    }
+  },
+  {
+    "id": "act-fam-01",
+    "category": "ACTIVITY",
+    "tags": ["#family"],
+    "title": "Family 'Try-It' Sundays",
+    "description": "Monthly events where parents and children play together on the same team, breaking down traditional age barriers in sport.",
+    "tips": [
+      "Adjust the rules to ensure children can compete safely with adults.",
+      "Focus on relay races or target-based games.",
+      "Provide a 'Family Certificate' for everyone who participates."
+    ],
+    "case_example": {
+      "context": "A cricket club held 'Mums & Sons' and 'Dads & Daughters' match days.",
+      "bullets": [
+        "Increased 'Family Memberships' by 20% over the summer.",
+        "Created a more respectful atmosphere on the sidelines during junior games.",
+        "Strengthened the club's position as a 'Weekend Destination' for locals."
+      ]
+    }
+  },
+  {
+    "id": "gov-eth-02",
+    "category": "GOVERNANCE",
+    "tags": ["#fairness"],
+    "title": "Blind Selection Protocols",
+    "description": "Review and update selection policies to ensure talent from all backgrounds has an equal chance of making elite teams.",
+    "tips": [
+      "Use 'Anonymous' skill scoring during trials where possible.",
+      "Have at least one external observer during major team selections.",
+      "Provide clear, written feedback to everyone who isn't selected."
+    ],
+    "case_example": {
+      "context": "A regional basketball academy was accused of favoring players from 'wealthy' schools.",
+      "bullets": [
+        "Adopted a numbered-bib system for trials (names hidden from scouts).",
+        "Increased the diversity of the elite squad by 35%.",
+        "Parental complaints regarding 'bias' dropped to zero."
+      ]
+    }
+  },
+  {
+    "id": "fac-ref-01",
+    "category": "FACILITIES",
+    "tags": ["#nutrition"],
+    "title": "The 'Healthy-Choice' Clubhouse",
+    "description": "Revamp the clubhouse menu to offer affordable, nutritious meals and remove sugary energy drinks from vending machines.",
+    "tips": [
+      "Price healthy options lower than 'junk' food to incentivize choice.",
+      "Partner with a local fruit vendor for fresh snacks.",
+      "Offer free fruit for all junior players after training."
+    ],
+    "case_example": {
+      "context": "A rugby clubhouse replaced fried snacks with wraps and fruit bowls.",
+      "bullets": [
+        "Average member spend at the cafe increased by 15%.",
+        "Players reported better recovery and energy levels.",
+        "The club received a 'Healthy Hearts' accreditation from the local council."
+      ]
+    }
+  },
+  {
+    "id": "coach-vids-01",
+    "category": "COACHING",
+    "tags": ["#video analysis"],
+    "title": "Silent Video Feedback Loops",
+    "description": "Use tablet-based slow-motion replays during practice to provide visual feedback, which is often more effective for neurodivergent athletes or those with hearing impairments than verbal instructions.",
+    "tips": [
+      "Use free delay apps that replay footage on a 10-second loop.",
+      "Focus on one specific movement (e.g., foot placement) per clip.",
+      "Allow the athlete to watch the clip privately to reduce performance anxiety.",
+      "Encourage athletes to 'self-correct' after seeing their own footage."
+    ],
+    "case_example": {
+      "context": "A regional gymnastics center introduced 'Visual Feedback Stations' at each apparatus.",
+      "bullets": [
+        "Reduced coaching 'talking time' by 30%, increasing active practice time.",
+        "Helped three athletes with auditory processing disorders master complex vaults.",
+        "Created a digital library of 'perfect form' clips for home study.",
+        "Improved athlete satisfaction scores regarding 'clarity of instruction' by 50%."
+      ]
+    }
+  },
+  {
+    "id": "fin-equip-02",
+    "category": "FINANCIAL STABILITY",
+    "tags": ["#sponsorship"],
+    "title": "Individual Player Sponsorships",
+    "description": "A structured program where local micro-businesses (cafes, barbers, shops) can sponsor a specific player's kit and fees for a small, tax-deductible monthly fee.",
+    "tips": [
+      "Create a 'Sponsor Pack' that includes a photo of the team and a window sticker for the business.",
+      "Feature the sponsor's logo on the specific player's social media 'Player of the Match' posts.",
+      "Set the entry price low (e.g., €15/month) to attract small local shops.",
+      "Ensure all sponsorship funds go directly into a 'hardship pot' to keep it ethical."
+    ],
+    "case_example": {
+      "context": "A grassroots football club launched 'Sponsor a Local Legend' for their U14 team.",
+      "bullets": [
+        "Recruited 20 local businesses (barbers, pizza shops) as individual sponsors.",
+        "Covered 100% of the kit and travel costs for the entire squad.",
+        "Generated €3,600 in new annual revenue from businesses that previously never donated.",
+        "Increased local community 'buy-in' and attendance at home games by 20%."
       ]
     }
   }

@@ -10,6 +10,15 @@ createApp({
       all_tags: [], // To store the unique tags for filtering
       selectedTags: [], // To track which tags are currently selected for filtering
       searchQuery: "", // For the search bar input
+      toggleTags: false,
+      categoryColors: {
+        "SOCIAL SUPPORT": "linear-gradient(145deg, #ffcc33, #edb92e)",
+        COACHING: "linear-gradient(145deg, #70cbff, #4facfe)",
+        GOVERNANCE: "linear-gradient(145deg, #a8edea, #fed6e3)",
+        ACTIVITY: "linear-gradient(145deg, #84fab0, #8fd3f4)",
+        "FINANCIAL STABILITY": "linear-gradient(145deg, #f6d365, #fda085)",
+        FACILITIES: "linear-gradient(145deg, #e0c3fc, #8ec5fc)",
+      },
     };
   },
   async created() {
@@ -42,8 +51,17 @@ createApp({
       },
       deep: true, // Essential for watching arrays
     },
+    searchQuery() {
+      this.$nextTick(() => {
+        this.initAnimations();
+      });
+    },
   },
   methods: {
+    getPillStyle(category) {
+      const bg = this.categoryColors[category.toUpperCase()] || "#70cbff";
+      return { background: bg };
+    },
     // <--- Only one methods object!
     async loadActions() {
       try {
@@ -57,25 +75,33 @@ createApp({
     filtered_actions(category) {
       const query = this.searchQuery ? this.searchQuery.toLowerCase().trim() : "";
 
+      // Define colors inside or as a global constant
+      const categoryColors = {
+        "SOCIAL SUPPORT": "linear-gradient(145deg, #ffcc33, #edb92e)",
+        COACHING: "linear-gradient(145deg, #70cbff, #4facfe)",
+        GOVERNANCE: "linear-gradient(145deg, #a8edea, #fed6e3)",
+        ACTIVITY: "linear-gradient(145deg, #84fab0, #8fd3f4)",
+        "FINANCIAL STABILITY": "linear-gradient(145deg, #f6d365, #fda085)",
+        FACILITIES: "linear-gradient(145deg, #e0c3fc, #8ec5fc)",
+      };
+
       return this.actions
         .filter((action) => {
-          // 1. Category Match
-          const categoryMatch = action.category.toUpperCase() === category.toUpperCase();
-
-          // 2. Exclusion Tag Match (Show only if NO selected tags are present in action)
-          const tagMatch = this.selectedTags.length === 0 || action.tags.every((tag) => !this.selectedTags.includes(tag));
-
-          // 3. Global Search Match
-          // We check title, description, and tags
+          const catKey = action.category.toUpperCase();
+          const categoryMatch = catKey === category.toUpperCase();
+          const tagMatch = this.selectedTags.length === 0 || action.tags.some((tag) => !this.selectedTags.includes(tag));
           const searchFields = [action.title, action.description, action.category, ...action.tags].join(" ").toLowerCase();
-
           const searchMatch = query === "" || searchFields.includes(query);
 
           return categoryMatch && tagMatch && searchMatch;
         })
         .map((action) => {
+          // Get the specific gradient for this category
+          const bgStyle = categoryColors[action.category.toUpperCase()] || "#ccc";
+
           return `<div class="ball" 
                    id="${action.id}" 
+                   style="background: ${bgStyle}; font-size: 0.7rem; display: flex; align-items: center; justify-content: center; text-align: center; padding: 5px; border-radius: 50%; width: 80px; height: 80px; cursor: pointer; box-shadow: 0 4px 6px rgba(0,0,0,0.1);" 
                    data-bs-toggle="modal" 
                    data-bs-target="#exampleModal">
                 ${action.title}
@@ -85,11 +111,11 @@ createApp({
     },
 
     handleBallHover(event) {
-      if (event.target.classList.contains("ball")) {
+      const ball = event.target; // Reference the specific ball
+      if (ball.classList.contains("ball")) {
         clearTimeout(this.hideTimeout);
 
-        // Added .trim() here just in case of extra spaces in your HTML
-        const action = this.actions.find((a) => a.title.trim() === event.target.innerText.trim());
+        const action = this.actions.find((a) => a.title.trim() === ball.innerText.trim());
         const body = document.querySelector(".offcanvas-body");
 
         if (action && body) {
@@ -117,7 +143,15 @@ createApp({
                 </div>
             </div>`;
 
-          if (this.bsOffcanvas) this.bsOffcanvas.show();
+          // 2. Start the timer
+          setTimeout(() => {
+            // 3. CHECK: Is the mouse still over THIS specific ball?
+            const isStillHovered = ball.matches(":hover");
+
+            if (isStillHovered && this.bsOffcanvas) {
+              this.bsOffcanvas.show();
+            }
+          }, 3000); // 3-second delay
         }
       }
     },
@@ -163,32 +197,37 @@ createApp({
       // 1. ALWAYS stop previous animations before starting new ones
       // This prevents multiple loops from fighting over the same elements
       anime.remove(".ball");
-      anime.remove(".square");
+      //anime.remove(".square");
 
       const squares = document.querySelectorAll(".square");
 
       squares.forEach((square, index) => {
-        // Main square centering (only if you want them to move on load)
-        anime({
-          targets: square,
-          translateX: () => {
-            const rect = square.getBoundingClientRect();
-            return window.innerWidth / 2 - rect.width / 2 - rect.left;
-          },
-          easing: "easeInOutSine",
-          duration: 1000,
-          delay: index * 100,
-        });
-
         const balls = square.querySelectorAll(".ball");
-        const circleRadius = 120; // Increased slightly for better spacing
+        const circleRadius = 150; // Increased slightly for better spacing
 
         balls.forEach((ball, ballIndex) => {
-          const angle = (ballIndex / balls.length) * 2 * Math.PI;
+          // 1. Calculate the base mathematical position
+          const baseAngle = (ballIndex / balls.length) * 2 * Math.PI;
+
+          // 2. Add a random offset (e.g., +/- 10 degrees)
+          // 0.17 radians is roughly 10 degrees
+          const randomOffset2 = (Math.random() - 0.5) * 0.3;
+
+          const angle = baseAngle + randomOffset2;
           const startX = Math.cos(angle) * circleRadius;
           const startY = Math.sin(angle) * circleRadius;
-          const endX = Math.cos(angle) * (circleRadius + 15);
-          const endY = Math.sin(angle) * (circleRadius + 15);
+          // 2. "Float" Position (Slightly further out)
+          const floatDistance = 15;
+          // Define your "jitter" range in degrees
+          const jitterDegrees = 5;
+
+          // Convert jitter to radians and apply randomly: (Math.random() * 2 - 1) gives a range of -1 to 1
+          const randomOffset = (Math.random() * 2 - 1) * ((jitterDegrees * Math.PI) / 180);
+
+          const finalAngle = angle + randomOffset;
+
+          const endX = Math.cos(finalAngle) * (circleRadius + floatDistance);
+          const endY = Math.sin(finalAngle) * (circleRadius + floatDistance);
 
           // Snap to circle immediately
           anime.set(ball, { translateX: startX, translateY: startY });
@@ -218,6 +257,13 @@ createApp({
         loop: true,
         delay: Math.random() * 1000,
       });
+    },
+    toggleAllTags() {
+      if (!this.toggleTags) {
+        this.selectedTags = [...this.all_tags];
+      } else {
+        this.selectedTags = [];
+      }
     },
   }, // <--- End of methods
 }).mount("#SUREappGP");

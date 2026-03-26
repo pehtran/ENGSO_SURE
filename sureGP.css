@@ -35,20 +35,32 @@
 }
 
 .square {
-    position: relative;
-    width: 400px;  /* Example size */
+    position: relative;   
     height: 400px;
     display: flex;
     align-items: center;
     justify-content: center;
     overflow: visible; /* Allows balls to pulse outside if needed */
-    border: #FF5722 2px solid; /* Optional: for visual reference of the square */
+    
+}
+
+.main_pill {
+    background: linear-gradient(180deg, #91a0a8 0%, #4facfe 100%);
+    color: white;
+    font-size: large;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-weight: bold;
+    z-index: 2;
+    border: white 3px solid;
+    box-shadow: 0 10px 15px rgba(112, 203, 255, 0.3); /* Optional glow */
+
 }
 
 .ball {
     width: 5rem;
     height: 5rem;
-    background-color: #FFC107;
+    box-shadow: 0 15px 15px rgba(237, 185, 46, 0.4);
     border-radius: 50%;
     position: absolute;
     /* This centers the ball perfectly regardless of parent size */
@@ -61,12 +73,14 @@
     align-items: center;
     justify-content: center;
     color: black;
+    border: white 3px solid;
 }
 
 .ball:hover {
     background-color: #FF5722;
     color: white;
     cursor: pointer;
+    border: white 3px solid;
 }
 
 /* target the specific ID to avoid affecting other offcanvases */

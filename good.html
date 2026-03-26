@@ -24,62 +24,78 @@
 <body>
 
     <div class="barlow-regular p-5 main-container" id="SUREappGP">
-        <h1 class="text-center fw-bold display-3">GOOD PRACTICE</h1>
+        <div class="container">
+            <h1 class="text-center fw-bold display-3">GOOD PRACTICE</h1>
 
-        <div>
-            <input type="text" class="form-control my-3 shadow-sm" placeholder="Search for good practices..."
-                v-model="searchQuery">
-        </div>
-        <div class="d-flex flex-wrap gap-2">
-            <div v-for="(tag, index) in return_all_tags()" :key="tag">
-                <input type="checkbox" class="btn-check" :id="'tag-' + index" :value="tag" v-model="selectedTags"
-                    autocomplete="off">
-                <label v-if="selectedTags.includes(tag)"
-                    class="btn btn-outline-secondary rounded-pill border-0 bg-dark-subtle text-muted px-3 py-1 fw-semibold shadow-sm"
-                    :for="'tag-' + index">
-                    {{ tag }}
+            <div>
+                <input type="text" class="form-control form-control-lg my-3 shadow-sm" placeholder="Search for good practices..."
+                    v-model="searchQuery">
+            </div>
+            <div class="d-flex flex-wrap gap-2">
+                <input type="checkbox" class="btn-check" id="toggleTags" value="tagToggle" v-model="toggleTags"
+                    autocomplete="off" @click="toggleAllTags()">
+                <label v-if="toggleTags"
+                    class="btn btn-outline-secondary rounded-pill border-0 bg-dark-subtle text-primary px-3 py-1 fw-semibold shadow-sm"
+                    for="toggleTags">
+                    Toggle all tags
                 </label>
                 <label v-else
-                    class="btn btn-outline-secondary rounded-pill border-0 bg-light-subtle text-muted px-3 py-1 fw-semibold shadow-sm"
-                    :for="'tag-' + index">
-                    {{ tag }}
+                    class="btn btn-outline-secondary rounded-pill border-0 bg-light-subtle text-primary px-3 py-1 fw-semibold shadow-sm"
+                    for="toggleTags">
+                    Toggle all tags
                 </label>
+                <div v-for="(tag, index) in return_all_tags()" :key="tag">
+                    <input type="checkbox" class="btn-check" :id="'tag-' + index" :value="tag" v-model="selectedTags"
+                        autocomplete="off">
+                    <label v-if="selectedTags.includes(tag)"
+                        class="btn btn-outline-secondary rounded-pill border-0 bg-dark-subtle text-muted px-3 py-1 fw-semibold shadow-sm"
+                        :for="'tag-' + index">
+                        {{ tag }}
+                    </label>
+                    <label v-else
+                        class="btn btn-outline-secondary rounded-pill border-0 bg-light-subtle text-muted px-3 py-1 fw-semibold shadow-sm"
+                        :for="'tag-' + index">
+                        {{ tag }}
+                    </label>
+                </div>
             </div>
         </div>
 
 
         <!-- ANIMATION -->
-        <div class="container">
-            <div class="square square1" @mouseover="handleBallHover" @mouseout="handleBallLeave"
-                @click="handleBallClick">
-                <div class="label">SOCIAL SUPPORT</div>
-                <div v-html="filtered_actions('SOCIAL SUPPORT')"></div>
-            </div>
+        <div class="container mt-5">
+            <div class="row">
+                <div class="col-12 col-lg-4 square square1" @mouseover="handleBallHover" @mouseout="handleBallLeave"
+                    @click="handleBallClick">
+                    <div class="label main_pill" :style="getPillStyle('SOCIAL SUPPORT')">SOCIAL SUPPORT</div>
+                    <div v-html="filtered_actions('SOCIAL SUPPORT')"></div>
+                </div>
 
-            <div class="square square2" @mouseover="handleBallHover" @mouseout="handleBallLeave"
-                @click="handleBallClick">
-                <div class="label">COACHING</div>
-                <div v-html="filtered_actions('COACHING')"></div>
-            </div>
-            <div class="square square3" @mouseover="handleBallHover" @mouseout="handleBallLeave"
-                @click="handleBallClick">
-                <div class="label">GOVERNANCE</div>
-                <div v-html="filtered_actions('GOVERNANCE')"></div>
-            </div>
-            <div class="square square4" @mouseover="handleBallHover" @mouseout="handleBallLeave"
-                @click="handleBallClick">
-                <div class="label">ACTIVITY</div>
-                <div v-html="filtered_actions('ACTIVITY')"></div>
-            </div>
-            <div class="square square5" @mouseover="handleBallHover" @mouseout="handleBallLeave"
-                @click="handleBallClick">
-                <div class="label">FINANCIAL STABILITY</div>
-                <div v-html="filtered_actions('FINANCIAL STABILITY')"></div>
-            </div>
-            <div class="square square6" @mouseover="handleBallHover" @mouseout="handleBallLeave"
-                @click="handleBallClick">
-                <div class="label">FACILITIES</div>
-                <div v-html="filtered_actions('FACILITIES')"></div>
+                <div class="col-12 col-lg-4 square square2" @mouseover="handleBallHover" @mouseout="handleBallLeave"
+                    @click="handleBallClick">
+                    <div class="label main_pill" :style="getPillStyle('COACHING')">COACHING</div>
+                    <div v-html="filtered_actions('COACHING')"></div>
+                </div>
+                <div class="col-12 col-lg-4 square square3" @mouseover="handleBallHover" @mouseout="handleBallLeave"
+                    @click="handleBallClick">
+                    <div class="label main_pill" :style="getPillStyle('GOVERNANCE')">GOVERNANCE</div>
+                    <div v-html="filtered_actions('GOVERNANCE')"></div>
+                </div>
+                <div class="col-12 col-lg-4 square square4" @mouseover="handleBallHover" @mouseout="handleBallLeave"
+                    @click="handleBallClick">
+                    <div class="label main_pill" :style="getPillStyle('ACTIVITY')">ACTIVITY</div>
+                    <div v-html="filtered_actions('ACTIVITY')"></div>
+                </div>
+                <div class="col-12 col-lg-4 square square5" @mouseover="handleBallHover" @mouseout="handleBallLeave"
+                    @click="handleBallClick">
+                    <div class="label main_pill" :style="getPillStyle('FINANCIAL STABILITY')">FINANCIAL STABILITY</div>
+                    <div v-html="filtered_actions('FINANCIAL STABILITY')"></div>
+                </div>
+                <div class="col-12 col-lg-4 square square6" @mouseover="handleBallHover" @mouseout="handleBallLeave"
+                    @click="handleBallClick">
+                    <div class="label main_pill" :style="getPillStyle('FACILITIES')">FACILITIES</div>
+                    <div v-html="filtered_actions('FACILITIES')"></div>
+                </div>
             </div>
         </div>
 
