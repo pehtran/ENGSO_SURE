@@ -44,10 +44,15 @@
                                 <div v-for="n in 5" :key="n" class="form-check form-check-inline">
                                     <input class="btn-check" type="radio" :name="'q'+index" :id="'q'+index+'n'+n"
                                         :value="n" v-model="q.Result" @change="nextQuestion">
-                                    <label class="btn btn-outline-success px-4 py-2 fs-3 fw-bold rounded-5" :for="'q'+index+'n'+n">
+                                    <label class="btn btn-outline-success px-4 py-2 fs-3 fw-bold rounded-5"
+                                        :for="'q'+index+'n'+n">
                                         {{ n }}
                                     </label>
                                 </div>
+                            </div>
+                            <div class="d-flex justify-content-between mt-3">
+                                <div>Strongly disagree</div>
+                                <div>Strongly agree</div>
                             </div>
                         </div>
                     </div>
@@ -59,7 +64,8 @@
                         <div id="container"></div>
                     </figure>
                     <div v-html="renderResultSummary()"></div>
-                    <button class="btn btn-lg fw-bold btn-success mt-3 w-100" @click="reset_form(); currentStep = 0">RESTART</button>
+                    <button class="btn btn-lg fw-bold btn-success mt-3 w-100"
+                        @click="reset_form(); currentStep = 0">RESTART</button>
                 </div>
 
             </div>

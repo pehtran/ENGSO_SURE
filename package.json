@@ -1,5 +1,7 @@
 {
   "dependencies": {
-    "animejs": "^4.3.6"
+    "animejs": "^4.3.6",
+    "express": "^5.2.1",
+    "puppeteer": "^24.42.0"
   }
 }
