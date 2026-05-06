@@ -58,15 +58,25 @@
                     </div>
                 </div>
 
+
+
                 <div v-if="currentStep >= questions.length && questions.length > 0" class="text-center">
                     <h2>Your Assessment Results</h2>
                     <figure class="highcharts-figure">
                         <div id="container"></div>
                     </figure>
+
+                    <div>
+                        <button class="btn btn-sm w-100 btn-danger" @click="downloadResults()">Download Results</button>
+                    </div>
+
                     <div v-html="renderResultSummary()"></div>
                     <button class="btn btn-lg fw-bold btn-success mt-3 w-100"
                         @click="reset_form(); currentStep = 0">RESTART</button>
                 </div>
+
+               
+        
 
             </div>
         </div>
@@ -75,6 +85,7 @@
 
 
     </div>
+
 
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"

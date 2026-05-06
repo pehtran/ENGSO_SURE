@@ -190,10 +190,64 @@ createApp({
       html += `</div></div>`;
       return html;
     },
+    downloadResults() {
+      // 1. Extract unique categories (matching your render logic)
+      const categories = [...new Set(this.questions.map((q) => q.Competency))];
+
+      // 2. Map questions to the summarized format
+      const summaryData = categories.map((cat) => {
+        const group = this.questions.filter((q) => q.Competency === cat);
+        const sum = group.reduce((acc, q) => acc + (q.Result || 0), 0);
+        const avg = parseFloat((sum / group.length).toFixed(1));
+
+        // Determine status/feedback based on the same thresholds as the UI
+        let status = "Needs Improvement";
+        let performingWell = false;
+
+        if (avg >= 4) {
+          status = "Strong";
+          performingWell = true;
+        } else if (avg >= 2.5) {
+          status = "Average";
+        }
+
+        return {
+          competency: cat,
+          averageScore: avg,
+          questionCount: group.length,
+          status: status,
+          performingWell: performingWell,
+          recommendation: performingWell ? "Keep up the great work!" : `Suggesting resources for ${cat}. View the online guide for details.`,
+        };
+      });
+
+      // 3. Create the final object to download
+      const exportBlob = {
+        exportDate: new Date().toISOString(),
+        overallResults: summaryData,
+        rawDetails: this.questions, // Optional: keeping raw data for reference
+      };
+
+      // Create a hidden form to send data via POST to a new tab
+      const form = document.createElement("form");
+      form.method = "POST";
+      form.action = "utilities/test.php";
+      form.target = "_blank"; // This forces the new tab
+
+      const input = document.createElement("input");
+      input.type = "textarea";
+      input.name = "payload";
+      input.value = JSON.stringify(exportBlob);
+
+      form.appendChild(input);
+      document.body.appendChild(form);
+      form.submit();
+      document.body.removeChild(form);
+    },
     reset_form() {
       this.questions.forEach((q) => {
         q.Result = null;
       });
-    }
+    },
   },
 }).mount("#SUREapp");
