@@ -143,54 +143,6 @@
       "Weight": 15,
       "Max_Score": "RS_5_STANDARD",
       "Result": null
-    },
-    {
-      "Question_ID": "1.3",
-      "Competency": "Cooperation",
-      "Question_Text": "The organisation has strong partnerships with local schools and/or other public or social service providers.",
-      "Weight": 15,
-      "Max_Score": "RS_5_STANDARD",
-      "Result": null
-    },
-    {
-      "Question_ID": "2.3",
-      "Competency": "Cooperation",
-      "Question_Text": "Coaches have regular facilitated opportunities to debrief or exchange with other coaches or staff about their work.",
-      "Weight": 15,
-      "Max_Score": "RS_5_STANDARD",
-      "Result": null
-    },
-    {
-      "Question_ID": "3.3",
-      "Competency": "Cooperation",
-      "Question_Text": "The organisation has strong partnerships with local community groups and organisations.",
-      "Weight": 15,
-      "Max_Score": "RS_5_STANDARD",
-      "Result": null
-    },
-    {
-      "Question_ID": "4.3",
-      "Competency": "Cooperation",
-      "Question_Text": "The organisation has strong partnerships with funders and/or sponsors.",
-      "Weight": 15,
-      "Max_Score": "RS_5_STANDARD",
-      "Result": null
-    },
-    {
-      "Question_ID": "5.3",
-      "Competency": "Cooperation",
-      "Question_Text": "The organisation has strong partnerships with, or is a member of, governance and advisory bodies both inside and outside the sport sector who they are accountable to.",
-      "Weight": 15,
-      "Max_Score": "RS_5_STANDARD",
-      "Result": null
-    },
-    {
-      "Question_ID": "6.3",
-      "Competency": "Cooperation",
-      "Question_Text": "The organisation has strong partnerships with other sport clubs and facility providers.",
-      "Weight": 15,
-      "Max_Score": "RS_5_STANDARD",
-      "Result": null
     }
   ]
 }

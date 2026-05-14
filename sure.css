@@ -12,6 +12,14 @@
   --bs-warning-rgb: 255, 214, 153;
 }
 
+@media (max-width: 450px) {
+  /* Force items to take up roughly 30% width so 3 fit on row one, and 2 fit on row two */
+  .custom-rating-wrapper .rating-item {
+    flex: 0 0 calc(33.33% - 10px); 
+    text-align: center;
+  }
+}
+
 /* Force everything to use your Barlow font by default */
 .main-container {
   font-family: 'Barlow', sans-serif;
@@ -21,11 +29,11 @@
   background-image: linear-gradient(
     to right, 
     rgba(255, 255, 255, 0) 0%,    /* Transparent on the far left */
-    rgba(224, 210, 188, 1) 25%,   /* Becomes solid white at 15% */
-    rgba(224, 210, 188, 1) 80%,   /* Stays solid white until 85% */
+    rgba(159, 199, 170, 1) 30%,   /* Becomes solid white at 15% */
+    rgba(159, 199, 170, 1) 70%,   /* Stays solid white until 85% */
     rgba(255, 255, 255, 0) 100%   /* Becomes transparent on the far right */
   ), 
-  url('images/Carnegie-Primary-School-Gymnasium-04.jpg');
+  url('images/pexels-andreevaleksandar-25748907.jpg');
 
   /* Ensure the image covers the screen and doesn't scroll away */
   background-attachment: fixed;
