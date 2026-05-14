@@ -23,15 +23,38 @@
 
 <body>
 
+        <div class="bg-white pb-5 d-flex flex-column align-items-center">
+        <div class="container row pt-5">
+            <div class="col-sm-6">
+                <img src="images/EN Co-Funded by the EU_POS.png" alt="ENGSO Logo" height="70vh">
+            </div>
+            <div class="col-sm-6 text-end">
+                <img src="images/SURE_LOGO.png" alt="ENGSO Logo" height="100vh">
+            </div>
+        </div>
+        <div class="container py-5 barlow-regular fs-5" style="color: #333;">
+            Welcome to the <strong>SURE Search Tool,</strong> an interactive platform developed under the
+            <em>Erasmus+ Sport for Unity,
+                Resilience and Empowerment (SURE) project (2024–2026).</em> This tool is designed to help grassroots
+            sports
+            organisations assess and strengthen their capacity across key operational areas. Based on extensive academic
+            research and practical guidelines compiled by a global consortium of 11 partners across 13 countries, the
+            evaluation will measure your organisation's current performance in fostering inclusivity for vulnerable
+            groups, building community partnerships, and preparing for major crises like energy shortages, displacement,
+            or pandemics. Use this assessment to identify structural gaps, improve community access, and ensure your
+            club remains resilient through challenging times.
+        </div>
+    </div>
+    <!-- PILLS -->
     <div class="barlow-regular p-5 main-container" id="SUREappGP">
         <div class="container">
-            <h1 class="text-center fw-bold display-3">GOOD PRACTICE</h1>
+            <h1 class="text-center fw-bold display-3 text-white">SEARCH FOR GOOD PRACTICE</h1>
 
-            <div>
+            <div class="container px-5">
                 <input type="text" class="form-control form-control-lg my-3 shadow-sm" placeholder="Search for good practices..."
                     v-model="searchQuery">
             </div>
-            <div class="d-flex flex-wrap gap-2">
+            <div class="d-flex flex-wrap gap-2 px-5">
                 <input type="checkbox" class="btn-check" id="toggleTags" value="tagToggle" v-model="toggleTags"
                     autocomplete="off" @click="toggleAllTags()">
                 <label v-if="toggleTags"

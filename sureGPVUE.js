@@ -77,8 +77,8 @@ createApp({
 
       // Define colors inside or as a global constant
       const categoryColors = {
-        "SOCIAL SUPPORT": "linear-gradient(145deg, #ffcc33, #edb92e)",
-        COACHING: "linear-gradient(145deg, #70cbff, #4facfe)",
+        "SOCIAL SUPPORT": "linear-gradient(145deg, #fade8b, #edb92e)",
+        COACHING: "linear-gradient(145deg, #70cbff, #157ad3)",
         GOVERNANCE: "linear-gradient(145deg, #a8edea, #fed6e3)",
         ACTIVITY: "linear-gradient(145deg, #84fab0, #8fd3f4)",
         "FINANCIAL STABILITY": "linear-gradient(145deg, #f6d365, #fda085)",
@@ -101,7 +101,8 @@ createApp({
 
           return `<div class="ball" 
                    id="${action.id}" 
-                   style="background: ${bgStyle}; font-size: 0.7rem; display: flex; align-items: center; justify-content: center; text-align: center; padding: 5px; border-radius: 50%; width: 80px; height: 80px; cursor: pointer; box-shadow: 0 4px 6px rgba(0,0,0,0.1);" 
+                   style="background: ${bgStyle}; font-size: 1.2rem; display: flex; align-items: center; justify-content: center; 
+                   text-align: center; padding: 5px; border-radius: 50%; min-width: 140px; min-height: 140px; cursor: pointer; box-shadow: 0 4px 6px rgba(97, 97, 97, 0.5);" 
                    data-bs-toggle="modal" 
                    data-bs-target="#exampleModal">
                 ${action.title}

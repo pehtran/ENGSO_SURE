@@ -11,12 +11,13 @@ $data = json_decode($payload, true);
 class PDF extends tFPDF
 {
     function Header() {
+        $this->Image('../images/SURE_LOGO.png', 10, 10, 30); // Adjust path and size as needed
         $this->Ln(10);
     }
     function Footer() {
         $this->SetY(-15);
         $this->SetFont('Arial', 'I', 8);
-        $this->Cell(0, 10, 'Stran ' . $this->PageNo(), 0, 0, 'C');
+        $this->Cell(0, 10, 'Page ' . $this->PageNo(), 0, 0, 'C');
     }
 }
 
@@ -68,5 +69,5 @@ if ($data) {
 }
 
 // 3. Output to Browser Tab
-// 'I' = Inline (open in tab), 'potrdilo.pdf' = default filename
-$pdf->Output('I', 'potrdilo.pdf');
+// 'I' = Inline (open in tab), 'SURE_results.pdf' = default filename
+$pdf->Output('I', 'SURE_results.pdf');

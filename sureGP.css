@@ -21,11 +21,11 @@
   background-image: linear-gradient(
     to right, 
     rgba(255, 255, 255, 0) 0%,    /* Transparent on the far left */
-    rgba(224, 210, 188, 1) 25%,   /* Becomes solid white at 15% */
-    rgba(224, 210, 188, 1) 80%,   /* Stays solid white until 85% */
+    rgba(159, 199, 170, 1) 30%,   /* Becomes solid white at 15% */
+    rgba(159, 199, 170, 1) 70%,   /* Stays solid white until 85% */
     rgba(255, 255, 255, 0) 100%   /* Becomes transparent on the far right */
   ), 
-  url('images/Carnegie-Primary-School-Gymnasium-04.jpg');
+  url('images/pexels-kampus-8813582.jpg');
 
   /* Ensure the image covers the screen and doesn't scroll away */
   background-attachment: fixed;
