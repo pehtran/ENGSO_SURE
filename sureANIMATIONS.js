@@ -1,60 +1,94 @@
 import { animate } from "https://esm.sh/animejs";
 
-// Fetch and loop through squares as before
-const response = await fetch("./actions.json");
-const data = await response.json();
+// 1. Kill any existing animation tracking
+anime.remove(".ball");
+
 const squares = document.querySelectorAll(".square1, .square2, .square3, .square4, .square5, .square6");
 
-squares.forEach((square, index) => {
-  // Main square movement
+squares.forEach((square) => {
+  const balls = Array.from(square.querySelectorAll(".ball"));
+  if (balls.length === 0) return;
 
-  const balls = square.querySelectorAll(".ball");
-  const totalBalls = balls.length;
-  const circleRadius = 150; // how far from the center the balls will float (adjust as needed)
-  balls.forEach((ball, ballIndex) => {
-    // 1. Calculate the base mathematical position
-    const baseAngle = (ballIndex / balls.length) * 2 * Math.PI;
+  // Configuration settings
+  const ballRadiusPx = 70; // Half of your 140px width/height
+  const containerWidth = square.clientWidth || 600;
+  const containerHeight = square.clientHeight || 600;
 
-    // 2. Add a random offset (e.g., +/- 10 degrees)
-    // 0.17 radians is roughly 10 degrees
-    const randomOffset2 = (Math.random() - 0.5) * 0.3;
+  // 2. Set highly scattered, completely random initial pixel positions
+  const physicsObjects = balls.map((ball) => {
+    const posX = Math.random() * (containerWidth - 200) + 100;
+    const posY = Math.random() * (containerHeight - 200) + 100;
 
-    const angle = baseAngle + randomOffset2;
+    ball.style.position = "absolute";
+    ball.style.left = "0px";
+    ball.style.top = "0px";
+    ball.style.transform = `translate(${posX - ballRadiusPx}px, ${posY - ballRadiusPx}px)`;
 
-    // 1. "Home" Position (On the circle)
-    const startX = Math.cos(angle) * circleRadius;
-    const startY = Math.sin(angle) * circleRadius;
-
-    // 2. "Float" Position (Slightly further out)
-    const floatDistance = 15;
-    // Define your "jitter" range in degrees
-    const jitterDegrees = 5;
-
-    // Convert jitter to radians and apply randomly: (Math.random() * 2 - 1) gives a range of -1 to 1
-    const randomOffset = (Math.random() * 2 - 1) * ((jitterDegrees * Math.PI) / 180);
-
-    const finalAngle = angle + randomOffset;
-
-    const endX = Math.cos(finalAngle) * (circleRadius + floatDistance);
-    const endY = Math.sin(finalAngle) * (circleRadius + floatDistance);
-
-    // 3. IMPORTANT: Set the initial position immediately
-    // This prevents the "leap" from the center (0,0)
-    anime.set(ball, {
-      translateX: startX,
-      translateY: startY,
-    });
-
-    // 4. The Infinite Loop
-    anime({
-      targets: ball,
-      translateX: [startX, endX],
-      translateY: [startY, endY],
-      duration: 3000 + Math.random() * 2000, // Slower for a "floating" feel
-      easing: "easeInOutQuad",
-      direction: "alternate", // This is the "yoyo" back and forth
-      loop: true,
-      delay: Math.random() * 2000, // Stagger the start so they aren't in sync
-    });
+    return {
+      element: ball,
+      x: posX,
+      y: posY,
+      radius: ballRadiusPx,
+      baseX: posX,
+      baseY: posY,
+      angleOffset: Math.random() * Math.PI * 2,
+      // --- SLOWED DOWN HERE ---
+      // Changed from (0.001 + random * 0.002) to a much smaller increment
+      driftSpeed: 0.0003 + Math.random() * 0.0005 
+    };
   });
+
+  // 3. Continuous Physics Engine Loop (Keeps separation instant, doesn't slow down collision fixes)
+  function resolvePhysics() {
+    for (let pass = 0; pass < 4; pass++) {
+      for (let i = 0; i < physicsObjects.length; i++) {
+        for (let j = i + 1; j < physicsObjects.length; j++) {
+          const b1 = physicsObjects[i];
+          const b2 = physicsObjects[j];
+
+          const dx = b2.x - b1.x;
+          const dy = b2.y - b1.y;
+          const distance = Math.sqrt(dx * dx + dy * dy);
+          const minDist = b1.radius + b2.radius + 8; // 8px cushion
+
+          if (distance < minDist) {
+            const overlap = minDist - distance;
+            const nx = distance > 0 ? dx / distance : 1;
+            const ny = distance > 0 ? dy / distance : 0;
+
+            const separationX = nx * overlap * 0.5;
+            const separationY = ny * overlap * 0.5;
+
+            b1.x -= separationX;
+            b1.y -= separationY;
+            b2.x += separationX;
+            b2.y += separationY;
+
+            b1.baseX -= separationX * 0.1;
+            b1.baseY -= separationY * 0.1;
+            b2.baseX += separationX * 0.1;
+            b2.baseY += separationY * 0.1;
+          }
+        }
+      }
+    }
+
+    // 4. Update DOM elements with slower ambient floating movement
+    const time = Date.now();
+    physicsObjects.forEach((b) => {
+      // --- SLOWED DOWN HERE ---
+      // Changed the multiplier from 6 down to 3 so the distance they float is shorter and gentler
+      const driftX = Math.cos(time * b.driftSpeed + b.angleOffset) * 6;
+      const driftY = Math.sin(time * b.driftSpeed + b.angleOffset) * 6;
+
+      const renderX = b.x + driftX - b.radius;
+      const renderY = b.y + driftY - b.radius;
+
+      b.element.style.transform = `translate(${renderX}px, ${renderY}px)`;
+    });
+
+    requestAnimationFrame(resolvePhysics);
+  }
+
+  requestAnimationFrame(resolvePhysics);
 });

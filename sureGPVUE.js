@@ -12,13 +12,38 @@ createApp({
       searchQuery: "", // For the search bar input
       toggleTags: false,
       categoryColors: {
-        "SOCIAL SUPPORT": "linear-gradient(145deg, #ffcc33, #edb92e)",
+        "SOCIAL SUPPORT": "linear-gradient(145deg, #ffcc33, #6fc400)",
         COACHING: "linear-gradient(145deg, #70cbff, #4facfe)",
         GOVERNANCE: "linear-gradient(145deg, #a8edea, #fed6e3)",
         ACTIVITY: "linear-gradient(145deg, #84fab0, #8fd3f4)",
-        "FINANCIAL STABILITY": "linear-gradient(145deg, #f6d365, #fda085)",
+        "FINANCIAL STABILITY": "linear-gradient(145deg, #f6d365, #b63815)",
         FACILITIES: "linear-gradient(145deg, #e0c3fc, #8ec5fc)",
       },
+      dev_areas: {
+        "SOCIAL SUPPORT": true,
+        COACHING: true,
+        GOVERNANCE: true,
+        "FINANCIAL STABILITY": true,
+        FACILITIES: true,
+        PARTICIPATION: true,
+      },
+      crisis_types: {
+        "NATURAL DISASTERS": true,
+        DISPLACEMENT: true,
+        PANDEMICS: true,
+        "ECONOMIC CRISIS": true,
+        "ENERGY SHORTAGES": true,
+      },
+      target_groups: {
+        CHILDREN: true,
+        WOMEN: true,
+        "PEOPLE WITH PHYSICAL DISABILITIES": true,
+        "LOW-INCOME": true,
+        "REFUGEES & MIGRANTS": true,
+      },
+      selectedDevelopmentAreas: ["COACHING", "GOVERNANCE", "FINANCIAL STABILITY", "FACILITIES", "PARTICIPATION", "SOCIAL SUPPORT"],
+      selectedCrises: ["NATURAL DISASTERS", "DISPLACEMENT", "PANDEMICS", "ECONOMIC CRISIS", "ENERGY SHORTAGES"],
+      selectedTargetGroups: ["CHILDREN", "WOMEN", "PEOPLE WITH PHYSICAL DISABILITIES", "LOW-INCOME", "REFUGEES & MIGRANTS"],
     };
   },
   async created() {
@@ -51,6 +76,21 @@ createApp({
       },
       deep: true, // Essential for watching arrays
     },
+    selectedDevelopmentAreas() {
+      this.$nextTick(() => {
+        this.initAnimations();
+      });
+    },
+    selectedCrises() {
+      this.$nextTick(() => {
+        this.initAnimations();
+      });
+    },
+    selectedTargetGroups() {
+      this.$nextTick(() => {
+        this.initAnimations();
+      });
+    },
     searchQuery() {
       this.$nextTick(() => {
         this.initAnimations();
@@ -62,7 +102,6 @@ createApp({
       const bg = this.categoryColors[category.toUpperCase()] || "#70cbff";
       return { background: bg };
     },
-    // <--- Only one methods object!
     async loadActions() {
       try {
         const response = await fetch("./actions.json");
@@ -75,34 +114,91 @@ createApp({
     filtered_actions(category) {
       const query = this.searchQuery ? this.searchQuery.toLowerCase().trim() : "";
 
-      // Define colors inside or as a global constant
       const categoryColors = {
-        "SOCIAL SUPPORT": "linear-gradient(145deg, #fade8b, #edb92e)",
-        COACHING: "linear-gradient(145deg, #70cbff, #157ad3)",
+        "SOCIAL SUPPORT": "linear-gradient(145deg, #fade8b, #89e215)",
+        COACHING: "linear-gradient(145deg, #cfe3ee, #5087b8)",
         GOVERNANCE: "linear-gradient(145deg, #a8edea, #fed6e3)",
-        ACTIVITY: "linear-gradient(145deg, #84fab0, #8fd3f4)",
-        "FINANCIAL STABILITY": "linear-gradient(145deg, #f6d365, #fda085)",
+        ACTIVITY: "linear-gradient(145deg, #c0fcd6, #68b4da)",
+        "FINANCIAL STABILITY": "linear-gradient(145deg, #f6d365, #db4319)",
         FACILITIES: "linear-gradient(145deg, #e0c3fc, #8ec5fc)",
       };
 
-      return this.actions
-        .filter((action) => {
-          const catKey = action.category.toUpperCase();
-          const categoryMatch = catKey === category.toUpperCase();
-          const tagMatch = this.selectedTags.length === 0 || action.tags.some((tag) => !this.selectedTags.includes(tag));
-          const searchFields = [action.title, action.description, action.category, ...action.tags].join(" ").toLowerCase();
-          const searchMatch = query === "" || searchFields.includes(query);
+      // 1. Get the filtered list of actions
+      const filteredList = this.actions.filter((action) => {
+        const catKey = action.category.toUpperCase(); 
+        
+        //const targetCategory = category.toUpperCase();
+        // target category is if it is included
 
-          return categoryMatch && tagMatch && searchMatch;
-        })
-        .map((action) => {
-          // Get the specific gradient for this category
+
+        const categoryMatch = this.selectedDevelopmentAreas.includes(catKey);
+        
+        const tagMatch = this.selectedTags.length === 0 || action.tags.some((tag) => this.selectedTags.includes(tag));
+
+        const searchFields = [action.title, action.description, action.category, ...action.tags].join(" ").toLowerCase();
+        const searchMatch = query === "" || searchFields.includes(query);
+
+        return categoryMatch && tagMatch && searchMatch;
+      });
+
+      const totalBalls = filteredList.length;
+      if (totalBalls === 0) return "";
+
+      // 2. Define grid dimensions dynamically based on ball count
+      const cols = Math.ceil(Math.sqrt(totalBalls * 1.3));
+      const rows = Math.ceil(totalBalls / cols);
+
+      // Percentage boundaries inside the container to keep things centered
+      const startX = 15;
+      const startY = 15;
+      const endX = 85;
+      const endY = 85;
+
+      const stepX = cols > 1 ? (endX - startX) / (cols - 1) : 0;
+      const stepY = rows > 1 ? (endY - startY) / (rows - 1) : 0;
+
+    
+      // 3. Map over the filtered list with precise grid placement
+      return filteredList
+        .map((action, index) => {
           const bgStyle = categoryColors[action.category.toUpperCase()] || "#ccc";
+
+          const colIndex = index % cols;
+          const rowIndex = Math.floor(index / cols);
+
+          let currentStartX = startX;
+          let currentStepX = stepX;
+
+          const isLastRow = rowIndex === rows - 1;
+          const ballsInLastRow = totalBalls % cols || cols;
+
+          if (isLastRow && ballsInLastRow < cols && cols > 1) {
+            const unusedSpacePercentage = (cols - ballsInLastRow) * stepX;
+            currentStartX = startX + unusedSpacePercentage / 2;
+          }
+
+          const finalLeft = cols > 1 ? currentStartX + colIndex * currentStepX : 50;
+          const finalTop = rows > 1 ? startY + rowIndex * stepY : 50;
 
           return `<div class="ball" 
                    id="${action.id}" 
-                   style="background: ${bgStyle}; font-size: 1.2rem; display: flex; align-items: center; justify-content: center; 
-                   text-align: center; padding: 5px; border-radius: 50%; min-width: 140px; min-height: 140px; cursor: pointer; box-shadow: 0 4px 6px rgba(97, 97, 97, 0.5);" 
+                   style="background: ${bgStyle}; 
+                          position: absolute; 
+                          top: ${finalTop}%; 
+                          left: ${finalLeft}%; 
+                          transform: translate(-50%, -50%); 
+                          font-size: 1.1rem; 
+                          display: flex; 
+                          align-items: center; 
+                          justify-content: center; 
+                          text-align: center; 
+                          padding: 12px; 
+                          border-radius: 50%; 
+                          width: 140px; 
+                          height: 140px; 
+                          cursor: pointer; 
+                          box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+                          user-select: none;" 
                    data-bs-toggle="modal" 
                    data-bs-target="#exampleModal">
                 ${action.title}
@@ -112,7 +208,7 @@ createApp({
     },
 
     handleBallHover(event) {
-      const ball = event.target; // Reference the specific ball
+      const ball = event.target;
       if (ball.classList.contains("ball")) {
         clearTimeout(this.hideTimeout);
 
@@ -144,15 +240,12 @@ createApp({
                 </div>
             </div>`;
 
-          // 2. Start the timer
           setTimeout(() => {
-            // 3. CHECK: Is the mouse still over THIS specific ball?
             const isStillHovered = ball.matches(":hover");
-
             if (isStillHovered && this.bsOffcanvas) {
               this.bsOffcanvas.show();
             }
-          }, 3000); // 3-second delay
+          }, 3000);
         }
       }
     },
@@ -169,96 +262,65 @@ createApp({
         if (this.bsOffcanvas) this.bsOffcanvas.hide();
       }, 1000);
     },
+
     handleBallClick(event) {
-      // Check if the actual thing clicked was a ball
       if (event.target.classList.contains("ball")) {
         console.log("Ball clicked:", event.target.innerText);
         const ballIdbyTitle = event.target.innerText;
-
         this.modal_data_insert(ballIdbyTitle);
       }
     },
+
     modal_data_insert(id) {
       const action = this.actions.find((a) => a.title === id);
       console.log("Inserting data for:", action.id);
-      // Logic to populate your modal fields...
-      this.modal_data = action; // Store the entire action for use in the modal
+      this.modal_data = action;
     },
+
     return_all_tags() {
       const allTags = new Set();
       this.actions.forEach((action) => {
         action.tags.forEach((tag) => allTags.add(tag));
       });
-
-      this.all_tags = Array.from(allTags); // Store unique tags in the component's data
-
+      this.all_tags = Array.from(allTags);
       return Array.from(allTags);
     },
+
+    // FIXED ANIMATION ENGINE: No more circle transformation overlaps!
     initAnimations() {
-      // 1. ALWAYS stop previous animations before starting new ones
-      // This prevents multiple loops from fighting over the same elements
+      // 1. Terminate all running animation loops instantly
       anime.remove(".ball");
-      //anime.remove(".square");
 
-      const squares = document.querySelectorAll(".square");
+      const balls = document.querySelectorAll(".ball");
 
-      squares.forEach((square, index) => {
-        const balls = square.querySelectorAll(".ball");
-        const circleRadius = 150; // Increased slightly for better spacing
+      balls.forEach((ball) => {
+        // Clear out old residual transform coordinates so they snap back onto their grid layout
+        anime.set(ball, { translateX: 0, translateY: 0 });
 
-        balls.forEach((ball, ballIndex) => {
-          // 1. Calculate the base mathematical position
-          const baseAngle = (ballIndex / balls.length) * 2 * Math.PI;
-
-          // 2. Add a random offset (e.g., +/- 10 degrees)
-          // 0.17 radians is roughly 10 degrees
-          const randomOffset2 = (Math.random() - 0.5) * 0.3;
-
-          const angle = baseAngle + randomOffset2;
-          const startX = Math.cos(angle) * circleRadius;
-          const startY = Math.sin(angle) * circleRadius;
-          // 2. "Float" Position (Slightly further out)
-          const floatDistance = 15;
-          // Define your "jitter" range in degrees
-          const jitterDegrees = 5;
-
-          // Convert jitter to radians and apply randomly: (Math.random() * 2 - 1) gives a range of -1 to 1
-          const randomOffset = (Math.random() * 2 - 1) * ((jitterDegrees * Math.PI) / 180);
-
-          const finalAngle = angle + randomOffset;
-
-          const endX = Math.cos(finalAngle) * (circleRadius + floatDistance);
-          const endY = Math.sin(finalAngle) * (circleRadius + floatDistance);
-
-          // Snap to circle immediately
-          anime.set(ball, { translateX: startX, translateY: startY });
-
-          // Start the infinite loop
-          anime({
-            targets: ball,
-            translateX: [startX, endX],
-            translateY: [startY, endY],
-            duration: 3000 + Math.random() * 2000,
-            easing: "easeInOutQuad",
-            direction: "alternate",
-            loop: true,
-            delay: Math.random() * 1000,
-          });
+        // Apply a safe, microscopic floating drift so they feel fluid but stay on their grid nodes
+        anime({
+          targets: ball,
+          translateX: () => anime.random(-6, 6),
+          translateY: () => anime.random(-6, 6),
+          duration: 3000 + Math.random() * 2000,
+          easing: "easeInOutSine",
+          direction: "alternate",
+          loop: true,
+          delay: Math.random() * 1000,
         });
       });
     },
+
     ballHoverAnimation(ball) {
+      // Cleaned up placeholder to prevent reference runtime bugs
       anime({
         targets: ball,
-        translateX: [startX, endX],
-        translateY: [startY, endY],
-        duration: 3000 + Math.random() * 2000,
-        easing: "easeInOutQuad",
-        direction: "alternate",
-        loop: true,
-        delay: Math.random() * 1000,
+        scale: 1.1,
+        duration: 200,
+        easing: "easeOutQuad",
       });
     },
+
     toggleAllTags() {
       if (!this.toggleTags) {
         this.selectedTags = [...this.all_tags];
@@ -266,5 +328,5 @@ createApp({
         this.selectedTags = [];
       }
     },
-  }, // <--- End of methods
+  },
 }).mount("#SUREappGP");

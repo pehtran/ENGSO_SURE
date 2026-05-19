@@ -23,13 +23,13 @@
 
 <body>
 
-        <div class="bg-white pb-5 d-flex flex-column align-items-center">
+    <div class="bg-white pb-5 d-flex flex-column align-items-center">
         <div class="container row pt-5">
             <div class="col-sm-6">
                 <img src="images/EN Co-Funded by the EU_POS.png" alt="ENGSO Logo" height="70vh">
             </div>
             <div class="col-sm-6 text-end">
-                <img src="images/SURE_LOGO.png" alt="ENGSO Logo" height="100vh">
+                <a href="https://engso.eu/"><img src="images/SURE_LOGO.png" alt="ENGSO Logo" height="100vh"></a>
             </div>
         </div>
         <div class="container py-5 barlow-regular fs-5" style="color: #333;">
@@ -48,12 +48,71 @@
     <!-- PILLS -->
     <div class="barlow-regular p-5 main-container" id="SUREappGP">
         <div class="container">
-            <h1 class="text-center fw-bold display-3 text-white">SEARCH FOR GOOD PRACTICE</h1>
+            <h1 class="text-center fw-bold display-3 text-white">CRISIS RESILIENT: CLUB GUIDE</h1>
 
-            <div class="container px-5">
-                <input type="text" class="form-control form-control-lg my-3 shadow-sm" placeholder="Search for good practices..."
-                    v-model="searchQuery">
+            <!-- text input -->
+            <div class="container px-5" hidden>
+                <input type="text" class="form-control form-control-sm my-3 shadow-sm"
+                    placeholder="Search for good practices..." v-model="searchQuery">
             </div>
+            <div class="mb-5 px-5">
+                <div class="row">
+                    <div class="col-sm-4 text-center">
+                        <div class="fw-bold text-danger fs-2">
+                        DEVELOPMENT AREA
+                        </div>
+                        <!-- checkbox -->
+                        <!-- Checkbox Button Group wrapper -->
+                        <div class="btn-group gap-2 flex-wrap" role="group" aria-label="Category filters">
+                            <template v-for="c in Object.keys(dev_areas)" :key="c">
+                                <!-- The hidden checkbox input -->
+                                <input type="checkbox" class="btn-check" :id="'cat-' + c" :value="c"
+                                    v-model="selectedDevelopmentAreas" autocomplete="off">
+
+                                <!-- The visible styled button label (CRITICAL) -->
+                                <label class="btn btn-outline-warning rounded-pill" :for="'cat-' + c">
+                                    {{ c }}
+                                </label>
+                            </template>
+                        </div>
+                    </div>
+                    <div class="col-sm-4 text-center">
+                        <div class="fw-bold text-danger fs-2">
+                        CRISIS TYPE
+                        </div>
+                              <div class="btn-group gap-2 flex-wrap" role="group" aria-label="Category filters">
+                            <template v-for="c in Object.keys(crisis_types)" :key="c">
+                                <!-- The hidden checkbox input -->
+                                <input type="checkbox" class="btn-check" :id="'cat-' + c" :value="c"
+                                    v-model="selectedCrises" autocomplete="off">
+
+                                <!-- The visible styled button label (CRITICAL) -->
+                                <label class="btn btn-outline-info rounded-pill" :for="'cat-' + c">
+                                    {{ c }}
+                                </label>
+                            </template>
+                        </div>
+                    </div>
+                    <div class="col-sm-4 text-center">
+                        <div class="fw-bold text-danger fs-2">
+                        TARGET GROUP
+                        </div>
+                              <div class="btn-group gap-2 flex-wrap" role="group" aria-label="Category filters">
+                            <template v-for="c in Object.keys(target_groups)" :key="c">
+                                <!-- The hidden checkbox input -->
+                                <input type="checkbox" class="btn-check" :id="'cat-' + c" :value="c"
+                                    v-model="selectedTargetGroups" autocomplete="off">
+
+                                <!-- The visible styled button label (CRITICAL) -->
+                                <label class="btn btn-outline-primary rounded-pill" :for="'cat-' + c">
+                                    {{ c }}
+                                </label>
+                            </template>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--
             <div class="d-flex flex-wrap gap-2 px-5">
                 <input type="checkbox" class="btn-check" id="toggleTags" value="tagToggle" v-model="toggleTags"
                     autocomplete="off" @click="toggleAllTags()">
@@ -82,12 +141,20 @@
                     </label>
                 </div>
             </div>
+            -->
         </div>
+        <div class="my-5">&nbsp;</div>
 
 
         <!-- ANIMATION -->
         <div class="container mt-5">
             <div class="row">
+                <!-- ALL PILLS -->
+                <div class="col-12 col-lg-12 square square1" @mouseover="handleBallHover" @mouseout="handleBallLeave"
+                    @click="handleBallClick">
+                    <div v-html="filtered_actions('ALL PILLS')"></div>
+                </div>
+                <!--
                 <div class="col-12 col-lg-4 square square1" @mouseover="handleBallHover" @mouseout="handleBallLeave"
                     @click="handleBallClick">
                     <div class="label main_pill" :style="getPillStyle('SOCIAL SUPPORT')">SOCIAL SUPPORT</div>
@@ -119,8 +186,11 @@
                     <div class="label main_pill" :style="getPillStyle('FACILITIES')">FACILITIES</div>
                     <div v-html="filtered_actions('FACILITIES')"></div>
                 </div>
+                -->
             </div>
         </div>
+
+
 
         <!-- OFFCANVAS -->
         <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasScrolling"
