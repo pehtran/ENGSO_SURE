@@ -158,11 +158,21 @@ createApp({
 
         // --- NEW LOGIC START ---
         let feedbackHTML = "";
-        if (avg < 4) {
+        if (avg < 2.5) {
+          feedbackHTML = `
+        <div class="mt-2 small p-2 bg-light border-start border-danger border-4 rounded">
+          
+          <div>Prioritise strengthening this part of your organisation to be more resilient and crisis ready. Here are some recommended actions you can take or explore the Digital Club Guide via the links below.</div>
+          <strong>Here are some resources for <em>${cat}</em>:</strong> 
+          <a href="good.html?category=${cat}" class="text-decoration-none">View sources</a>
+        </div>`;
+        } else if (avg < 4) {
           feedbackHTML = `
         <div class="mt-2 small p-2 bg-light border-start border-warning border-4 rounded">
-          <strong>Need a boost?</strong> Suggesting resources for <em>${cat}</em>... 
-          <a href="#" class="text-decoration-none">View Guide</a>
+          <div>Your club has already made important preparations in this area. Consider strengthening this part of your organisation even further to be more resilient and crisis ready. Here are some recommended actions you can take or explore the Digital Club Guide via the links below.
+          </div>
+          <strong>Here are some resources for <em>${cat}</em>:</strong> 
+          <a href="good.html?category=${cat}" class="text-decoration-none">View sources</a>
         </div>`;
         } else {
           feedbackHTML = `

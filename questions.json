@@ -35,7 +35,7 @@
     {
       "Question_ID": "2.2",
       "Competency": "Coaching",
-      "Question_Text": "Coaches have received specific training relevant to working with the vulnerable groups in our community",
+      "Question_Text": "Coaches have received specific training relevant to working with the vulnerable groups in our community.",
       "Weight": 15,
       "Max_Score": "RS_5_STANDARD",
       "Result": null

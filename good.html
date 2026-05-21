@@ -23,6 +23,12 @@
 
 <body>
 
+    <div class="bg-white d-flex justify-content-end me-5">
+
+        <a href="index.html" class="btn btn-sm fw-bold btn-light mt-3 shadow border-1 border-dark"
+            target="_blank">CRISIS RESILIENT:
+            SURE EVALUATION TOOL</a>
+    </div>
     <div class="bg-white pb-5 d-flex flex-column align-items-center">
         <div class="container row pt-5">
 
@@ -31,27 +37,20 @@
             </div>
         </div>
         <div class="container py-5 barlow-regular fs-5" style="color: #333;">
-            Welcome to the <strong>SURE Search Tool,</strong> an interactive platform developed under the
-            <em>Erasmus+ Sport for Unity,
-                Resilience and Empowerment (SURE) project (2024–2026).</em> This tool is designed to help grassroots
-            sports
-            organisations assess and strengthen their capacity across key operational areas. Based on extensive academic
-            research and practical guidelines compiled by a global consortium of 11 partners across 13 countries, the
-            evaluation will measure your organisation's current performance in fostering inclusivity for vulnerable
-            groups, building community partnerships, and preparing for major crises like energy shortages, displacement,
-            or pandemics. Use this assessment to identify structural gaps, improve community access, and ensure your
-            club remains resilient through challenging times.
+            <p>A <strong>digital map</strong> of recommended actions for sport clubs to be crisis-ready and/or to respond to crises.
+                Sport clubs must stay resilient during times of crisis in order to provide sport, continuity and social
+                support to their community during difficult times and/or when the crisis is
+                over.<br /><br />Complete the Self-Evaluation Tool before starting. Once you know
+                which area of your sport club you need to strengthen, explore the tool below for recommended
+                actions.<br /><br />Alternatively, filter the map of recommendations below, by selecting the target
+                group and/or crisis relevant for your club and explore the recommended actions.</p>
         </div>
 
-        <div>
-            <a href="index.html" class="btn btn-sm fw-bold btn-success mt-3 w-100" target="_blank">CRISIS RESILIENT:
-                SURE EVALUATION TOOL</a>
-        </div>
     </div>
     <!-- PILLS -->
-    <div class="barlow-regular p-5 main-container" id="SUREappGP">
+    <div class="barlow-regular p-5 main-container" style="min-height: 140vh;" id="SUREappGP">
         <div class="container">
-            <h1 class="text-center fw-bold display-3 text-white">CRISIS RESILIENT: CLUB GUIDE</h1>
+            <h1 class="text-center fw-bold display-1 text-white mb-5">CRISIS RESILIENT: CLUB GUIDE</h1>
 
             <!-- text input -->
             <div class="container px-5" hidden>
@@ -62,7 +61,7 @@
                 <div class="row">
                     <div class="col-sm-4 text-center">
                         <div class="fw-bold text-danger fs-2">
-                            DEVELOPMENT AREA
+
                         </div>
                         <!-- checkbox -->
                         <!-- Checkbox Button Group wrapper -->
@@ -73,7 +72,7 @@
                                     v-model="selectedDevelopmentAreas" autocomplete="off">
 
                                 <!-- The visible styled button label (CRITICAL) -->
-                                <label class="btn btn-outline-warning rounded-pill" :for="'cat-' + c">
+                                <label class="btn btn-outline-light rounded-pill" :for="'cat-' + c">
                                     {{ c }}
                                 </label>
                             </template>
@@ -81,7 +80,7 @@
                     </div>
                     <div class="col-sm-4 text-center">
                         <div class="fw-bold text-danger fs-2">
-                            CRISIS TYPE
+
                         </div>
                         <div class="btn-group gap-2 flex-wrap" role="group" aria-label="Category filters">
                             <template v-for="c in Object.keys(crisis_types)" :key="c">
@@ -90,7 +89,7 @@
                                     v-model="selectedCrises" autocomplete="off">
 
                                 <!-- The visible styled button label (CRITICAL) -->
-                                <label class="btn btn-outline-info rounded-pill" :for="'cat-' + c">
+                                <label class="btn btn-outline-secondary rounded-pill" :for="'cat-' + c">
                                     {{ c }}
                                 </label>
                             </template>
@@ -98,7 +97,7 @@
                     </div>
                     <div class="col-sm-4 text-center">
                         <div class="fw-bold text-danger fs-2">
-                            TARGET GROUP
+
                         </div>
                         <div class="btn-group gap-2 flex-wrap" role="group" aria-label="Category filters">
                             <template v-for="c in Object.keys(target_groups)" :key="c">
@@ -107,7 +106,7 @@
                                     v-model="selectedTargetGroups" autocomplete="off">
 
                                 <!-- The visible styled button label (CRITICAL) -->
-                                <label class="btn btn-outline-primary rounded-pill" :for="'cat-' + c">
+                                <label class="btn btn-outline-light rounded-pill" :for="'cat-' + c">
                                     {{ c }}
                                 </label>
                             </template>
@@ -204,7 +203,8 @@
             <div class="modal-dialog modal-dialog-centered modal-xl">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h1 class="modal-title fs-5 fst-italic text-muted" id="exampleModalLabel">{{ modal_data.title }}</h1>
+                        <h1 class="modal-title fs-5 fst-italic text-muted" id="exampleModalLabel">{{ modal_data.title }}
+                        </h1>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
@@ -212,11 +212,12 @@
                             <div class="mb-4">
                                 <div class="d-flex justify-content-between align-items-start">
                                     <div>
-                                        <span v-for="tag in modal_data.crysis_type" :key="tag"
-                                            class="badge rounded-pill text-white p-2 me-2 fs-5" :style="getPillStyle(tag)">
+                                        <span v-for="tag in modal_data.development_area" :key="tag"
+                                            class="badge rounded-pill text-white p-2 me-2 fs-5"
+                                            :style="getPillStyle(tag)">
                                             {{ tag }}
                                         </span>
-                                        <h2 class="fw-bold display-4 mt-3">{{ modal_data.title }}</h2>
+                                        <h2 class="fw-bold display-6 mt-3">{{ modal_data.title }}</h2>
                                     </div>
 
                                 </div>
@@ -239,9 +240,10 @@
 
                             <hr>
                             <div>
-                                <img v-if="modal_data.image_url" :src="modal_data.image_url" alt="Action Image" class="img-fluid rounded mb-4">
+                                <img v-if="modal_data.image_url" :src="modal_data.image_url" alt="Action Image"
+                                    class="img-fluid rounded mb-4">
                             </div>
-                            
+
 
                             <div class="mb-1">
                                 <h5 class="fw-bold mb-3 fs-3 d-flex align-items-center">
@@ -273,7 +275,8 @@
                                 <div class="card-body p-4">
                                     <div class="d-flex align-items-center mb-3">
                                         <div class="bg-success text-white rounded-circle p-2 me-3 d-flex align-items-center justify-content-center"
-                                            style="width: 40px; height: 40px;"  :style="getPillStyle(modal_data.category)">
+                                            style="width: 40px; height: 40px;"
+                                            :style="getPillStyle(modal_data.category)">
                                             <i class="bi bi-journal-check"></i>
                                         </div>
                                         <h5 class="card-title mb-0 fw-bold">Case Example</h5>
@@ -298,11 +301,24 @@
                                     </ul>
                                 </div>
                             </div>
+
+                            <hr>
+
+                            <div class="mb-1">
+                                <h5 class="fw-bold mb-3 fs-3 d-flex align-items-center">
+                                    Sources and resources
+                                </h5>
+                                <ul class="mb-0 ps-4">
+                                    <li v-for="tip in modal_data.sources_and_resources" :key="tip" class="py-2">
+                                        <a :href="tip.url" target="_blank" class="text-decoration-underline">{{
+                                            tip.title }}</a>
+                                    </li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary w-100"
-                            data-bs-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-secondary w-100" data-bs-dismiss="modal">Close</button>
 
                     </div>
                 </div>
@@ -311,9 +327,16 @@
 
 
     </div>
+    <div class="bg-white mt-5 py-5 d-flex justify-content-center">
+        <div class="col-sm-6">
+            <img src="images/EN Co-Funded by the EU_POS.png" alt="ENGSO Logo" height="70vh">
+            <div class="text-small small text-sm text-muted fst-italic py-3">
+                Funded by the European Union. Views and opinions expressed are however those of the author(s) only and
+                do not necessarily reflect those of the European Union or the European Education and Culture Executive
+                Agency (EACEA). Neither the European Union nor EACEA can be held responsible for them.
+            </div>
+        </div>
 
-    <div class="col-sm-12 py-5 text-center">
-        <img src="images/EN Co-Funded by the EU_POS.png" alt="ENGSO Logo" height="70vh">
     </div>
 
 

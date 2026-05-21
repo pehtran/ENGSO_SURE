@@ -28,10 +28,10 @@
   /* The first layer is the gradient, the second is the image */
   background-image: linear-gradient(
     to right, 
-    rgba(255, 255, 255, 0) 0%,    /* Transparent on the far left */
+    rgba(255, 255, 255, 0.8) 0%,    /* Transparent on the far left */
     rgba(159, 199, 170, 1) 10%,   /* Becomes solid white at 15% */
     rgba(159, 199, 170, 1) 90%,   /* Stays solid white until 85% */
-    rgba(255, 255, 255, 0) 100%   /* Becomes transparent on the far right */
+    rgba(255, 255, 255, 0.8) 100%   /* Becomes transparent on the far right */
   ), 
   url('images/pexels-andreevaleksandar-25748907.jpg');
 

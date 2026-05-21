@@ -39,17 +39,26 @@ createApp({
         WOMEN: true,
         "PEOPLE WITH PHYSICAL DISABILITIES": true,
         "LOW-INCOME": true,
-        "REFUGEES & MIGRANTS": true,
+        "REFUGEES AND MIGRANTS": true,
       },
       selectedDevelopmentAreas: ["COACHING", "GOVERNANCE", "FINANCIAL STABILITY", "FACILITIES", "PARTICIPATION", "SOCIAL SUPPORT"],
       selectedCrises: ["NATURAL DISASTERS", "DISPLACEMENT", "PANDEMICS", "ECONOMIC CRISIS", "ENERGY SHORTAGES"],
-      selectedTargetGroups: ["CHILDREN", "WOMEN", "PEOPLE WITH PHYSICAL DISABILITIES", "LOW-INCOME", "REFUGEES & MIGRANTS"],
+      selectedTargetGroups: ["CHILDREN", "WOMEN", "PEOPLE WITH PHYSICAL DISABILITIES", "LOW-INCOME", "REFUGEES AND MIGRANTS"],
     };
   },
   async created() {
     await this.loadActions();
   },
   mounted() {
+    // read category from URL query parameters
+    // Read category from URL query parameters
+    const urlParams = new URLSearchParams(window.location.search);
+    const category_param = urlParams.get("category");
+
+    if (category_param) {
+      this.selectedDevelopmentAreas = [category_param.toUpperCase()];
+    }
+
     const offcanvasElement = document.getElementById("offcanvasScrolling");
     if (offcanvasElement) {
       this.bsOffcanvas = new bootstrap.Offcanvas(offcanvasElement);
@@ -125,6 +134,7 @@ createApp({
 
       // 1. Get the filtered list of actions
       const filteredList = this.actions.filter((action) => {
+        console.log("Evaluating action:", action.title);
         const catKey = action.crysis_type.map((type) => type.toUpperCase());
         const targetKey = action.target_group.map((group) => group.toUpperCase());
         const devAreaKey = action.development_area.map((area) => area.toUpperCase());
@@ -133,16 +143,14 @@ createApp({
         // target category is if it is included
 
         // 1. Standardize your selected areas to uppercase once
-        const selectedUpper = this.selectedDevelopmentAreas.map((area) => area?.toUpperCase()); 
-        const selectedCrisesUpper = this.selectedCrises.map((crisis) => crisis?.toUpperCase());
+        const selectedUpper = this.selectedCrises.map((area) => area?.toUpperCase());
+        const selectedCrisesUpper = this.selectedDevelopmentAreas.map((crisis) => crisis?.toUpperCase());
         const selectedTargetUpper = this.selectedTargetGroups.map((group) => group?.toUpperCase());
 
         // 2. Check if any key (converted to uppercase) is included
         const categoryMatch = catKey.some((key) => selectedUpper.includes(key?.toUpperCase()));
-        const crisisMatch = devAreaKey.some((key) => selectedCrisesUpper.includes(key?.toUpperCase())); 
-        const targetMatch = targetKey.some((key) => selectedTargetUpper.includes(key?.toUpperCase())); 
-
-        
+        const crisisMatch = devAreaKey.some((key) => selectedCrisesUpper.includes(key?.toUpperCase()));
+        const targetMatch = targetKey.some((key) => selectedTargetUpper.includes(key?.toUpperCase()));
 
         // search field
         const searchFields = [action.title, action.description, action.category, ...action.tags].join(" ").toLowerCase();
@@ -158,7 +166,7 @@ createApp({
       const cols = Math.ceil(Math.sqrt(totalBalls * 1.3));
       const rows = Math.ceil(totalBalls / cols);
 
-      // Percentage boundaries inside the container to keep things centered
+      // --- CHANGED HERE: Expand boundaries from 15/85 to 10/90 to use more container space ---
       const startX = 15;
       const startY = 15;
       const endX = 85;
@@ -167,7 +175,7 @@ createApp({
       const stepX = cols > 1 ? (endX - startX) / (cols - 1) : 0;
       const stepY = rows > 1 ? (endY - startY) / (rows - 1) : 0;
 
-      // 3. Map over the filtered list with precise grid placement
+      // 3. Map over the filtered list with precise grid placement + random scatter
       return filteredList
         .map((action, index) => {
           const bgStyle = categoryColors[action.category.toUpperCase()] || "#ccc";
@@ -186,32 +194,45 @@ createApp({
             currentStartX = startX + unusedSpacePercentage / 2;
           }
 
-          const finalLeft = cols > 1 ? currentStartX + colIndex * currentStepX : 50;
-          const finalTop = rows > 1 ? startY + rowIndex * stepY : 50;
+          // --- CHANGED HERE: Calculate standard grid coordinates ---
+          let finalLeft = cols > 1 ? currentStartX + colIndex * currentStepX : 50;
+          let finalTop = rows > 1 ? startY + rowIndex * stepY : 50;
+
+          // --- NEW: Add a random variance offset so they aren't in rigid lines ---
+          // This allows each ball to scatter up to 6% away from its perfect grid node
+          const scatterAmount = 6;
+          const randomOffsetX = (Math.random() * 2 - 1) * scatterAmount;
+          const randomOffsetY = (Math.random() * 2 - 1) * scatterAmount;
+
+          // Only apply scatter if there are multiple elements to prevent messing up single center elements
+          if (totalBalls > 1) {
+            finalLeft += randomOffsetX;
+            finalTop += randomOffsetY;
+          }
 
           return `<div class="ball" 
-                   id="${action.id}" 
-                   style="background: ${bgStyle}; 
-                          position: absolute; 
-                          top: ${finalTop}%; 
-                          left: ${finalLeft}%; 
-                          transform: translate(-50%, -50%); 
-                          font-size: 1.1rem; 
-                          display: flex; 
-                          align-items: center; 
-                          justify-content: center; 
-                          text-align: center; 
-                          padding: 12px; 
-                          border-radius: 50%; 
-                          width: 140px; 
-                          height: 140px; 
-                          cursor: pointer; 
-                          box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
-                          user-select: none;" 
-                   data-bs-toggle="modal" 
-                   data-bs-target="#exampleModal">
-                ${action.title}
-              </div>`;
+             id="${action.id}" 
+             style="background: ${bgStyle}; 
+                    position: absolute; 
+                    top: ${finalTop}%; 
+                    left: ${finalLeft}%; 
+                    transform: translate(-50%, -50%); 
+                    font-size: 1.1rem; 
+                    display: flex; 
+                    align-items: center; 
+                    justify-content: center; 
+                    text-align: center; 
+                    padding: 12px; 
+                    border-radius: 50%; 
+                    width: 200px; 
+                    height: 200px; 
+                    cursor: pointer; 
+                    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+                    user-select: none;" 
+             data-bs-toggle="modal" 
+             data-bs-target="#exampleModal">
+          ${action.title}
+        </div>`;
         })
         .join("");
     },

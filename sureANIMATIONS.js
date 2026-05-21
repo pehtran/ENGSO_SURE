@@ -10,14 +10,14 @@ squares.forEach((square) => {
   if (balls.length === 0) return;
 
   // Configuration settings
-  const ballRadiusPx = 70; // Half of your 140px width/height
+  const ballRadiusPx = 100; // Half of your 140px width/height
   const containerWidth = square.clientWidth || 600;
   const containerHeight = square.clientHeight || 600;
 
   // 2. Set highly scattered, completely random initial pixel positions
   const physicsObjects = balls.map((ball) => {
     const posX = Math.random() * (containerWidth - 200) + 100;
-    const posY = Math.random() * (containerHeight - 200) + 100;
+    const posY = Math.random() * (containerHeight - 200) + 250;
 
     ball.style.position = "absolute";
     ball.style.left = "0px";
@@ -28,13 +28,14 @@ squares.forEach((square) => {
       element: ball,
       x: posX,
       y: posY,
-      radius: ballRadiusPx,
+      // If the graphic is 140px wide, radius is 70px.
+      // Setting this to 110px forces the physics loop to keep them 80px apart!
+    
+      radius: ballRadiusPx + 15, // ball spacing radius (100px ball + 10px cushion)
       baseX: posX,
       baseY: posY,
       angleOffset: Math.random() * Math.PI * 2,
-      // --- SLOWED DOWN HERE ---
-      // Changed from (0.001 + random * 0.002) to a much smaller increment
-      driftSpeed: 0.0003 + Math.random() * 0.0005 
+      driftSpeed: 0.0003 + Math.random() * 0.0005,
     };
   });
 
