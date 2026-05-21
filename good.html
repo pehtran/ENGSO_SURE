@@ -25,10 +25,8 @@
 
     <div class="bg-white pb-5 d-flex flex-column align-items-center">
         <div class="container row pt-5">
-            <div class="col-sm-6">
-                <img src="images/EN Co-Funded by the EU_POS.png" alt="ENGSO Logo" height="70vh">
-            </div>
-            <div class="col-sm-6 text-end">
+
+            <div class="col-sm-12 text-end">
                 <a href="https://engso.eu/"><img src="images/SURE_LOGO.png" alt="ENGSO Logo" height="100vh"></a>
             </div>
         </div>
@@ -43,6 +41,11 @@
             groups, building community partnerships, and preparing for major crises like energy shortages, displacement,
             or pandemics. Use this assessment to identify structural gaps, improve community access, and ensure your
             club remains resilient through challenging times.
+        </div>
+
+        <div>
+            <a href="index.html" class="btn btn-sm fw-bold btn-success mt-3 w-100" target="_blank">CRISIS RESILIENT:
+                SURE EVALUATION TOOL</a>
         </div>
     </div>
     <!-- PILLS -->
@@ -59,7 +62,7 @@
                 <div class="row">
                     <div class="col-sm-4 text-center">
                         <div class="fw-bold text-danger fs-2">
-                        DEVELOPMENT AREA
+                            DEVELOPMENT AREA
                         </div>
                         <!-- checkbox -->
                         <!-- Checkbox Button Group wrapper -->
@@ -78,9 +81,9 @@
                     </div>
                     <div class="col-sm-4 text-center">
                         <div class="fw-bold text-danger fs-2">
-                        CRISIS TYPE
+                            CRISIS TYPE
                         </div>
-                              <div class="btn-group gap-2 flex-wrap" role="group" aria-label="Category filters">
+                        <div class="btn-group gap-2 flex-wrap" role="group" aria-label="Category filters">
                             <template v-for="c in Object.keys(crisis_types)" :key="c">
                                 <!-- The hidden checkbox input -->
                                 <input type="checkbox" class="btn-check" :id="'cat-' + c" :value="c"
@@ -95,9 +98,9 @@
                     </div>
                     <div class="col-sm-4 text-center">
                         <div class="fw-bold text-danger fs-2">
-                        TARGET GROUP
+                            TARGET GROUP
                         </div>
-                              <div class="btn-group gap-2 flex-wrap" role="group" aria-label="Category filters">
+                        <div class="btn-group gap-2 flex-wrap" role="group" aria-label="Category filters">
                             <template v-for="c in Object.keys(target_groups)" :key="c">
                                 <!-- The hidden checkbox input -->
                                 <input type="checkbox" class="btn-check" :id="'cat-' + c" :value="c"
@@ -193,18 +196,7 @@
 
 
         <!-- OFFCANVAS -->
-        <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasScrolling"
-            aria-controls="offcanvasScrolling" hidden>GOOD PRACTICE BUTTON</button>
 
-        <div class="offcanvas offcanvas-start" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1"
-            id="offcanvasScrolling" aria-labelledby="offcanvasScrollingLabel">
-            <div class="offcanvas-header">
-                <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-            </div>
-            <div class="offcanvas-body">
-                <p></p>
-            </div>
-        </div>
         <!-- END OF OFFCANVAS -->
 
         <!-- Modal -->
@@ -212,7 +204,7 @@
             <div class="modal-dialog modal-dialog-centered modal-xl">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h1 class="modal-title fs-5" id="exampleModalLabel">GOOD PRACTICE</h1>
+                        <h1 class="modal-title fs-5 fst-italic text-muted" id="exampleModalLabel">{{ modal_data.title }}</h1>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
@@ -220,59 +212,82 @@
                             <div class="mb-4">
                                 <div class="d-flex justify-content-between align-items-start">
                                     <div>
-                                        <span class="badge rounded-pill bg-primary-subtle text-primary mb-2">
-                                            {{ modal_data.category }}
+                                        <span v-for="tag in modal_data.crysis_type" :key="tag"
+                                            class="badge rounded-pill text-white p-2 me-2 fs-5" :style="getPillStyle(tag)">
+                                            {{ tag }}
                                         </span>
-                                        <h2 class="fw-bold h3">{{ modal_data.title }}</h2>
+                                        <h2 class="fw-bold display-4 mt-3">{{ modal_data.title }}</h2>
                                     </div>
-                                    <div class="text-end">
-                                        <small class="text-muted d-block">Action Type</small>
-                                        <span class="fw-bold text-uppercase text-primary">{{ modal_data.suggested_action
-                                            }}</span>
-                                    </div>
+
                                 </div>
 
-                                <div class="mt-2">
+                                <div class="mt-1">
                                     <span v-for="tag in modal_data.tags" :key="tag" class="me-2 text-muted small">
                                         {{ tag }}
                                     </span>
                                 </div>
                             </div>
 
-                            <hr class="my-4 opacity-25">
+                            <hr class="my-3 opacity-25">
 
-                            <div class="mb-5">
-                                <h5 class="fw-bold mb-3 text-secondary">The Approach</h5>
+                            <div class="mb-1">
+                                <h5 class="fw-bold mb-3">Overview</h5>
                                 <p class="lead text-dark" style="font-size: 1.1rem; line-height: 1.6;">
-                                    {{ modal_data.description }}
+                                    {{ modal_data.overview }}
                                 </p>
                             </div>
 
-                            <div class="mb-5">
-                                <h5 class="fw-bold mb-3 d-flex align-items-center">
-                                    <i class="bi bi-check2-circle me-2 text-success"></i> Practical Implementation Tips
-                                </h5>
-                                <div class="list-group list-group-flush shadow-sm rounded-3 border">
-                                    <div v-for="tip in modal_data.tips" :key="tip" class="list-group-item py-3">
-                                        <div class="d-flex gap-3">
-                                            <i class="bi bi-arrow-right-short text-primary fs-4"></i>
-                                            <span>{{ tip }}</span>
-                                        </div>
-                                    </div>
-                                </div>
+                            <hr>
+                            <div>
+                                <img v-if="modal_data.image_url" :src="modal_data.image_url" alt="Action Image" class="img-fluid rounded mb-4">
                             </div>
+                            
+
+                            <div class="mb-1">
+                                <h5 class="fw-bold mb-3 fs-3 d-flex align-items-center">
+                                    Guidelines
+                                </h5>
+                                <ul class="mb-0 ps-4">
+                                    <li v-for="tip in modal_data.guidelines" :key="tip" class="py-2">
+                                        <span>{{ tip }}</span>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <hr>
+
+                            <div class="mb-1">
+                                <h5 class="fw-bold mb-3 d-flex align-items-center">
+                                    <i class="bi bi-check2-circle me-2 text-success"></i> Cooperation Guidance
+                                </h5>
+                                <ul class="mb-0 ps-4">
+                                    <li v-for="tip in modal_data.cooperation_guidance" :key="tip" class="py-2">
+                                        <span>{{ tip }}</span>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <hr>
 
                             <div class="card border-0 bg-light rounded-4 overflow-hidden">
                                 <div class="card-body p-4">
                                     <div class="d-flex align-items-center mb-3">
                                         <div class="bg-success text-white rounded-circle p-2 me-3 d-flex align-items-center justify-content-center"
-                                            style="width: 40px; height: 40px;">
+                                            style="width: 40px; height: 40px;"  :style="getPillStyle(modal_data.category)">
                                             <i class="bi bi-journal-check"></i>
                                         </div>
                                         <h5 class="card-title mb-0 fw-bold">Case Example</h5>
                                     </div>
 
                                     <p class="text-muted mb-4"><em>{{ modal_data.case_example.context }}</em></p>
+                                    <ul class="mb-0 ps-4">
+                                        <li v-for="tip in modal_data.case_example.key_approaches" :key="tip"
+                                            class="py-2">
+                                            <span>{{ tip }}</span>
+                                        </li>
+                                    </ul>
+                                    <p class="text-muted mb-4 mt-4"><em>{{ modal_data.case_example.outcome }}</em></p>
+                                    <p class="text-muted mb-4"><em>"{{ modal_data.case_example.quote }}"</em></p>
 
                                     <ul class="list-unstyled">
                                         <li v-for="bullet in modal_data.case_example.bullets" :key="bullet"
@@ -286,7 +301,7 @@
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-outline-secondary w-100"
+                        <button type="button" class="btn btn-secondary w-100"
                             data-bs-dismiss="modal">Close</button>
 
                     </div>
@@ -294,6 +309,11 @@
             </div>
         </div>
 
+
+    </div>
+
+    <div class="col-sm-12 py-5 text-center">
+        <img src="images/EN Co-Funded by the EU_POS.png" alt="ENGSO Logo" height="70vh">
     </div>
 
 

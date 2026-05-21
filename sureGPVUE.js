@@ -125,20 +125,30 @@ createApp({
 
       // 1. Get the filtered list of actions
       const filteredList = this.actions.filter((action) => {
-        const catKey = action.category.toUpperCase(); 
-        
+        const catKey = action.crysis_type.map((type) => type.toUpperCase());
+        const targetKey = action.target_group.map((group) => group.toUpperCase());
+        const devAreaKey = action.development_area.map((area) => area.toUpperCase());
+
         //const targetCategory = category.toUpperCase();
         // target category is if it is included
 
+        // 1. Standardize your selected areas to uppercase once
+        const selectedUpper = this.selectedDevelopmentAreas.map((area) => area?.toUpperCase()); 
+        const selectedCrisesUpper = this.selectedCrises.map((crisis) => crisis?.toUpperCase());
+        const selectedTargetUpper = this.selectedTargetGroups.map((group) => group?.toUpperCase());
 
-        const categoryMatch = this.selectedDevelopmentAreas.includes(catKey);
+        // 2. Check if any key (converted to uppercase) is included
+        const categoryMatch = catKey.some((key) => selectedUpper.includes(key?.toUpperCase()));
+        const crisisMatch = devAreaKey.some((key) => selectedCrisesUpper.includes(key?.toUpperCase())); 
+        const targetMatch = targetKey.some((key) => selectedTargetUpper.includes(key?.toUpperCase())); 
+
         
-        const tagMatch = this.selectedTags.length === 0 || action.tags.some((tag) => this.selectedTags.includes(tag));
 
+        // search field
         const searchFields = [action.title, action.description, action.category, ...action.tags].join(" ").toLowerCase();
         const searchMatch = query === "" || searchFields.includes(query);
 
-        return categoryMatch && tagMatch && searchMatch;
+        return categoryMatch && searchMatch && crisisMatch && targetMatch;
       });
 
       const totalBalls = filteredList.length;
@@ -157,7 +167,6 @@ createApp({
       const stepX = cols > 1 ? (endX - startX) / (cols - 1) : 0;
       const stepY = rows > 1 ? (endY - startY) / (rows - 1) : 0;
 
-    
       // 3. Map over the filtered list with precise grid placement
       return filteredList
         .map((action, index) => {
