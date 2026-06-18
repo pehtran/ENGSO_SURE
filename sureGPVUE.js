@@ -4,20 +4,16 @@ createApp({
   data() {
     return {
       actions: [],
-      bsOffcanvas: null,
-      hideTimeout: null,
-      modal_data: false, // To store the data for the modal when a ball is clicked
-      all_tags: [], // To store the unique tags for filtering
-      selectedTags: [], // To track which tags are currently selected for filtering
-      searchQuery: "", // For the search bar input
-      toggleTags: false,
+      modal_data: false,
+      searchQuery: "",
       categoryColors: {
-        "SOCIAL SUPPORT": "linear-gradient(145deg, #ffcc33, #6fc400)",
-        COACHING: "linear-gradient(145deg, #70cbff, #4facfe)",
-        GOVERNANCE: "linear-gradient(145deg, #a8edea, #fed6e3)",
-        ACTIVITY: "linear-gradient(145deg, #84fab0, #8fd3f4)",
-        "FINANCIAL STABILITY": "linear-gradient(145deg, #f6d365, #b63815)",
-        FACILITIES: "linear-gradient(145deg, #e0c3fc, #8ec5fc)",
+        "SOCIAL SUPPORT": "linear-gradient(145deg, #FFE8D6, #DDBEA9)",
+        COACHING: "linear-gradient(145deg, #D6E4F0, #9DB4CE)",
+        GOVERNANCE: "linear-gradient(145deg, #E6D7F1, #C4AAD8)",
+        ACTIVITY: "linear-gradient(145deg, #D5EDDA, #99CCA6)",
+        "FINANCIAL STABILITY": "linear-gradient(145deg, #FFF0C9, #E0C479)",
+        FACILITIES: "linear-gradient(145deg, #F2DCE8, #D4A0BC)",
+        PARTICIPATION: "linear-gradient(145deg, #D5ECE8, #95C9BF)",
       },
       dev_areas: {
         "SOCIAL SUPPORT": true,
@@ -41,66 +37,77 @@ createApp({
         "LOW-INCOME": true,
         "REFUGEES AND MIGRANTS": true,
       },
-      selectedDevelopmentAreas: ["COACHING", "GOVERNANCE", "FINANCIAL STABILITY", "FACILITIES", "PARTICIPATION", "SOCIAL SUPPORT"],
-      selectedCrises: ["NATURAL DISASTERS", "DISPLACEMENT", "PANDEMICS", "ECONOMIC CRISIS", "ENERGY SHORTAGES"],
-      selectedTargetGroups: ["CHILDREN", "WOMEN", "PEOPLE WITH PHYSICAL DISABILITIES", "LOW-INCOME", "REFUGEES AND MIGRANTS"],
+      selectedDevelopmentAreas: [
+        "COACHING",
+        "GOVERNANCE",
+        "FINANCIAL STABILITY",
+        "FACILITIES",
+        "PARTICIPATION",
+        "SOCIAL SUPPORT",
+      ],
+      selectedCrises: [
+        "NATURAL DISASTERS",
+        "DISPLACEMENT",
+        "PANDEMICS",
+        "ECONOMIC CRISIS",
+        "ENERGY SHORTAGES",
+      ],
+      selectedTargetGroups: [
+        "CHILDREN",
+        "WOMEN",
+        "PEOPLE WITH PHYSICAL DISABILITIES",
+        "LOW-INCOME",
+        "REFUGEES AND MIGRANTS",
+      ],
     };
+  },
+  computed: {
+    filteredActionsList() {
+      const query = this.searchQuery ? this.searchQuery.toLowerCase().trim() : "";
+
+      return this.actions.filter((action) => {
+        const crisisKeys = action.crysis_type.map((t) => t.toUpperCase());
+        const targetKeys = action.target_group.map((g) => g.toUpperCase());
+        const devAreaKeys = action.development_area.map((a) => a.toUpperCase());
+
+        const selectedCrisisUpper = this.selectedCrises.map((c) => c.toUpperCase());
+        const selectedDevUpper = this.selectedDevelopmentAreas.map((d) => d.toUpperCase());
+        const selectedTargetUpper = this.selectedTargetGroups.map((g) => g.toUpperCase());
+
+        const crisisMatch = crisisKeys.some((k) => selectedCrisisUpper.includes(k));
+        const devMatch = devAreaKeys.some((k) => selectedDevUpper.includes(k));
+        const targetMatch = targetKeys.some((k) => selectedTargetUpper.includes(k));
+
+        const searchFields = [
+          action.title,
+          action.description,
+          action.category,
+          ...(action.tags || []),
+        ]
+          .join(" ")
+          .toLowerCase();
+        const searchMatch = query === "" || searchFields.includes(query);
+
+        return crisisMatch && devMatch && targetMatch && searchMatch;
+      });
+    },
   },
   async created() {
     await this.loadActions();
   },
   mounted() {
-    // read category from URL query parameters
-    // Read category from URL query parameters
     const urlParams = new URLSearchParams(window.location.search);
     const category_param = urlParams.get("category");
-
     if (category_param) {
       this.selectedDevelopmentAreas = [category_param.toUpperCase()];
     }
 
-    const offcanvasElement = document.getElementById("offcanvasScrolling");
-    if (offcanvasElement) {
-      this.bsOffcanvas = new bootstrap.Offcanvas(offcanvasElement);
-
-      offcanvasElement.addEventListener("mouseenter", () => {
-        clearTimeout(this.hideTimeout);
-      });
-
-      offcanvasElement.addEventListener("mouseleave", () => {
-        this.startHideTimer();
-      });
-    }
-
-    // Initial run
-    this.initAnimations();
+    this.$nextTick(() => {
+      this.initAnimations();
+    });
   },
   watch: {
-    selectedTags: {
-      handler() {
-        // Wait for Vue to finish updating the HTML (v-html)
-        this.$nextTick(() => {
-          this.initAnimations();
-        });
-      },
-      deep: true, // Essential for watching arrays
-    },
-    selectedDevelopmentAreas() {
-      this.$nextTick(() => {
-        this.initAnimations();
-      });
-    },
-    selectedCrises() {
-      this.$nextTick(() => {
-        this.initAnimations();
-      });
-    },
-    selectedTargetGroups() {
-      this.$nextTick(() => {
-        this.initAnimations();
-      });
-    },
-    searchQuery() {
+    filteredActionsList() {
       this.$nextTick(() => {
         this.initAnimations();
       });
@@ -111,6 +118,12 @@ createApp({
       const bg = this.categoryColors[category.toUpperCase()] || "#70cbff";
       return { background: bg };
     },
+    getCategoryColor(category) {
+      return (
+        this.categoryColors[category?.toUpperCase()] ||
+        "linear-gradient(145deg, #ccc, #aaa)"
+      );
+    },
     async loadActions() {
       try {
         const response = await fetch("./actions.json");
@@ -119,244 +132,35 @@ createApp({
         console.error("Error loading actions:", error);
       }
     },
-
-    filtered_actions(category) {
-      const query = this.searchQuery ? this.searchQuery.toLowerCase().trim() : "";
-
-      const categoryColors = {
-        "SOCIAL SUPPORT": "linear-gradient(145deg, #fade8b, #89e215)",
-        COACHING: "linear-gradient(145deg, #cfe3ee, #5087b8)",
-        GOVERNANCE: "linear-gradient(145deg, #a8edea, #fed6e3)",
-        ACTIVITY: "linear-gradient(145deg, #c0fcd6, #68b4da)",
-        "FINANCIAL STABILITY": "linear-gradient(145deg, #f6d365, #db4319)",
-        FACILITIES: "linear-gradient(145deg, #e0c3fc, #8ec5fc)",
-      };
-
-      // 1. Get the filtered list of actions
-      const filteredList = this.actions.filter((action) => {
-        console.log("Evaluating action:", action.title);
-        const catKey = action.crysis_type.map((type) => type.toUpperCase());
-        const targetKey = action.target_group.map((group) => group.toUpperCase());
-        const devAreaKey = action.development_area.map((area) => area.toUpperCase());
-
-        //const targetCategory = category.toUpperCase();
-        // target category is if it is included
-
-        // 1. Standardize your selected areas to uppercase once
-        const selectedUpper = this.selectedCrises.map((area) => area?.toUpperCase());
-        const selectedCrisesUpper = this.selectedDevelopmentAreas.map((crisis) => crisis?.toUpperCase());
-        const selectedTargetUpper = this.selectedTargetGroups.map((group) => group?.toUpperCase());
-
-        // 2. Check if any key (converted to uppercase) is included
-        const categoryMatch = catKey.some((key) => selectedUpper.includes(key?.toUpperCase()));
-        const crisisMatch = devAreaKey.some((key) => selectedCrisesUpper.includes(key?.toUpperCase()));
-        const targetMatch = targetKey.some((key) => selectedTargetUpper.includes(key?.toUpperCase()));
-
-        // search field
-        const searchFields = [action.title, action.description, action.category, ...action.tags].join(" ").toLowerCase();
-        const searchMatch = query === "" || searchFields.includes(query);
-
-        return categoryMatch && searchMatch && crisisMatch && targetMatch;
-      });
-
-      const totalBalls = filteredList.length;
-      if (totalBalls === 0) return "";
-
-      // 2. Define grid dimensions dynamically based on ball count
-      const cols = Math.ceil(Math.sqrt(totalBalls * 1.3));
-      const rows = Math.ceil(totalBalls / cols);
-
-      // --- CHANGED HERE: Expand boundaries from 15/85 to 10/90 to use more container space ---
-      const startX = 15;
-      const startY = 15;
-      const endX = 85;
-      const endY = 85;
-
-      const stepX = cols > 1 ? (endX - startX) / (cols - 1) : 0;
-      const stepY = rows > 1 ? (endY - startY) / (rows - 1) : 0;
-
-      // 3. Map over the filtered list with precise grid placement + random scatter
-      return filteredList
-        .map((action, index) => {
-          const bgStyle = categoryColors[action.category.toUpperCase()] || "#ccc";
-
-          const colIndex = index % cols;
-          const rowIndex = Math.floor(index / cols);
-
-          let currentStartX = startX;
-          let currentStepX = stepX;
-
-          const isLastRow = rowIndex === rows - 1;
-          const ballsInLastRow = totalBalls % cols || cols;
-
-          if (isLastRow && ballsInLastRow < cols && cols > 1) {
-            const unusedSpacePercentage = (cols - ballsInLastRow) * stepX;
-            currentStartX = startX + unusedSpacePercentage / 2;
-          }
-
-          // --- CHANGED HERE: Calculate standard grid coordinates ---
-          let finalLeft = cols > 1 ? currentStartX + colIndex * currentStepX : 50;
-          let finalTop = rows > 1 ? startY + rowIndex * stepY : 50;
-
-          // --- NEW: Add a random variance offset so they aren't in rigid lines ---
-          // This allows each ball to scatter up to 6% away from its perfect grid node
-          const scatterAmount = 6;
-          const randomOffsetX = (Math.random() * 2 - 1) * scatterAmount;
-          const randomOffsetY = (Math.random() * 2 - 1) * scatterAmount;
-
-          // Only apply scatter if there are multiple elements to prevent messing up single center elements
-          if (totalBalls > 1) {
-            finalLeft += randomOffsetX;
-            finalTop += randomOffsetY;
-          }
-
-          return `<div class="ball" 
-             id="${action.id}" 
-             style="background: ${bgStyle}; 
-                    position: absolute; 
-                    top: ${finalTop}%; 
-                    left: ${finalLeft}%; 
-                    transform: translate(-50%, -50%); 
-                    font-size: 1.1rem; 
-                    display: flex; 
-                    align-items: center; 
-                    justify-content: center; 
-                    text-align: center; 
-                    padding: 12px; 
-                    border-radius: 50%; 
-                    width: 200px; 
-                    height: 200px; 
-                    cursor: pointer; 
-                    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
-                    user-select: none;" 
-             data-bs-toggle="modal" 
-             data-bs-target="#exampleModal">
-          ${action.title}
-        </div>`;
-        })
-        .join("");
-    },
-
-    handleBallHover(event) {
-      const ball = event.target;
-      if (ball.classList.contains("ball")) {
-        clearTimeout(this.hideTimeout);
-
-        const action = this.actions.find((a) => a.title.trim() === ball.innerText.trim());
-        const body = document.querySelector(".offcanvas-body");
-
-        if (action && body) {
-          body.innerHTML = `
-            <div class="mb-4">
-                <span class="badge bg-primary mb-2">${action.category}</span>
-                <h3 class="h4 fw-bold">${action.title}</h3>
-                <p class="text-muted small">${action.tags.join(" ")}</p>
-                <hr>
-                <p class="lead" style="font-size: 1rem;">${action.description}</p>
-            </div>
-            <div class="mb-4 small">
-                <h5 class="fw-bold">Practical Tips</h5>
-                <ul class="list-group list-group-flush">
-                    ${action.tips.map((tip) => `<li class="list-group-item ps-0 border-0">• ${tip}</li>`).join("")}
-                </ul>
-            </div>
-            <div class="card bg-light border-0">
-                <div class="card-body">
-                    <h5 class="card-title fw-bold text-success">Case Example</h5>
-                    <p class="card-text small mb-2"><em>${action.case_example.context}</em></p>
-                    <ul class="mb-0 small">
-                        ${action.case_example.bullets.map((b) => `<li class="mb-1">${b}</li>`).join("")}
-                    </ul>
-                </div>
-            </div>`;
-
-          setTimeout(() => {
-            const isStillHovered = ball.matches(":hover");
-            if (isStillHovered && this.bsOffcanvas) {
-              this.bsOffcanvas.show();
-            }
-          }, 3000);
-        }
-      }
-    },
-
-    handleBallLeave(event) {
-      if (event.target.classList.contains("ball")) {
-        this.startHideTimer();
-      }
-    },
-
-    startHideTimer() {
-      clearTimeout(this.hideTimeout);
-      this.hideTimeout = setTimeout(() => {
-        if (this.bsOffcanvas) this.bsOffcanvas.hide();
-      }, 1000);
-    },
-
-    handleBallClick(event) {
-      if (event.target.classList.contains("ball")) {
-        console.log("Ball clicked:", event.target.innerText);
-        const ballIdbyTitle = event.target.innerText;
-        this.modal_data_insert(ballIdbyTitle);
-      }
-    },
-
-    modal_data_insert(id) {
-      const action = this.actions.find((a) => a.title === id);
-      console.log("Inserting data for:", action.id);
+    modal_data_insert(action) {
       this.modal_data = action;
     },
-
-    return_all_tags() {
-      const allTags = new Set();
-      this.actions.forEach((action) => {
-        action.tags.forEach((tag) => allTags.add(tag));
-      });
-      this.all_tags = Array.from(allTags);
-      return Array.from(allTags);
-    },
-
-    // FIXED ANIMATION ENGINE: No more circle transformation overlaps!
     initAnimations() {
-      // 1. Terminate all running animation loops instantly
       anime.remove(".ball");
-
       const balls = document.querySelectorAll(".ball");
+      if (!balls.length) return;
 
-      balls.forEach((ball) => {
-        // Clear out old residual transform coordinates so they snap back onto their grid layout
-        anime.set(ball, { translateX: 0, translateY: 0 });
-
-        // Apply a safe, microscopic floating drift so they feel fluid but stay on their grid nodes
-        anime({
-          targets: ball,
-          translateX: () => anime.random(-6, 6),
-          translateY: () => anime.random(-6, 6),
-          duration: 3000 + Math.random() * 2000,
-          easing: "easeInOutSine",
-          direction: "alternate",
-          loop: true,
-          delay: Math.random() * 1000,
-        });
-      });
-    },
-
-    ballHoverAnimation(ball) {
-      // Cleaned up placeholder to prevent reference runtime bugs
       anime({
-        targets: ball,
-        scale: 1.1,
-        duration: 200,
-        easing: "easeOutQuad",
+        targets: Array.from(balls),
+        scale: [0, 1],
+        opacity: [0, 1],
+        duration: 500,
+        easing: "easeOutBack",
+        delay: anime.stagger(40, { from: "center" }),
+        complete: () => {
+          balls.forEach((ball) => {
+            anime({
+              targets: ball,
+              translateX: () => anime.random(-5, 5),
+              translateY: () => anime.random(-5, 5),
+              duration: 3000 + Math.random() * 2000,
+              easing: "easeInOutSine",
+              direction: "alternate",
+              loop: true,
+            });
+          });
+        },
       });
-    },
-
-    toggleAllTags() {
-      if (!this.toggleTags) {
-        this.selectedTags = [...this.all_tags];
-      } else {
-        this.selectedTags = [];
-      }
     },
   },
 }).mount("#SUREappGP");

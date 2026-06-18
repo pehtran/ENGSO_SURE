@@ -60,53 +60,42 @@
             <div class="mb-5 px-5">
                 <div class="row">
                     <div class="col-sm-4 text-center">
-                        <div class="fw-bold text-danger fs-2">
-
+                        <div class="fw-semibold text-white small text-uppercase mb-2" style="letter-spacing: 0.08em; opacity: 0.75;">
+                            Development Area
                         </div>
-                        <!-- checkbox -->
-                        <!-- Checkbox Button Group wrapper -->
-                        <div class="btn-group gap-2 flex-wrap" role="group" aria-label="Category filters">
+                        <div class="btn-group gap-2 flex-wrap" role="group" aria-label="Development area filters">
                             <template v-for="c in Object.keys(dev_areas)" :key="c">
-                                <!-- The hidden checkbox input -->
                                 <input type="checkbox" class="btn-check" :id="'cat-' + c" :value="c"
                                     v-model="selectedDevelopmentAreas" autocomplete="off">
-
-                                <!-- The visible styled button label (CRITICAL) -->
-                                <label class="btn btn-outline-light rounded-pill" :for="'cat-' + c">
+                                <label class="btn filter-pill filter-dev rounded-pill" :for="'cat-' + c">
                                     {{ c }}
                                 </label>
                             </template>
                         </div>
                     </div>
                     <div class="col-sm-4 text-center">
-                        <div class="fw-bold text-danger fs-2">
-
+                        <div class="fw-semibold text-white small text-uppercase mb-2" style="letter-spacing: 0.08em; opacity: 0.75;">
+                            Crisis Type
                         </div>
-                        <div class="btn-group gap-2 flex-wrap" role="group" aria-label="Category filters">
+                        <div class="btn-group gap-2 flex-wrap" role="group" aria-label="Crisis type filters">
                             <template v-for="c in Object.keys(crisis_types)" :key="c">
-                                <!-- The hidden checkbox input -->
                                 <input type="checkbox" class="btn-check" :id="'cat-' + c" :value="c"
                                     v-model="selectedCrises" autocomplete="off">
-
-                                <!-- The visible styled button label (CRITICAL) -->
-                                <label class="btn btn-outline-secondary rounded-pill" :for="'cat-' + c">
+                                <label class="btn filter-pill filter-crisis rounded-pill" :for="'cat-' + c">
                                     {{ c }}
                                 </label>
                             </template>
                         </div>
                     </div>
                     <div class="col-sm-4 text-center">
-                        <div class="fw-bold text-danger fs-2">
-
+                        <div class="fw-semibold text-white small text-uppercase mb-2" style="letter-spacing: 0.08em; opacity: 0.75;">
+                            Target Group
                         </div>
-                        <div class="btn-group gap-2 flex-wrap" role="group" aria-label="Category filters">
+                        <div class="btn-group gap-2 flex-wrap" role="group" aria-label="Target group filters">
                             <template v-for="c in Object.keys(target_groups)" :key="c">
-                                <!-- The hidden checkbox input -->
                                 <input type="checkbox" class="btn-check" :id="'cat-' + c" :value="c"
                                     v-model="selectedTargetGroups" autocomplete="off">
-
-                                <!-- The visible styled button label (CRITICAL) -->
-                                <label class="btn btn-outline-light rounded-pill" :for="'cat-' + c">
+                                <label class="btn filter-pill filter-target rounded-pill" :for="'cat-' + c">
                                     {{ c }}
                                 </label>
                             </template>
@@ -152,9 +141,17 @@
         <div class="container mt-5">
             <div class="row">
                 <!-- ALL PILLS -->
-                <div class="col-12 col-lg-12 square square1" @mouseover="handleBallHover" @mouseout="handleBallLeave"
-                    @click="handleBallClick">
-                    <div v-html="filtered_actions('ALL PILLS')"></div>
+                <div class="col-12">
+                    <div class="bubble-grid">
+                        <div v-for="action in filteredActionsList" :key="action.id"
+                             class="ball"
+                             :style="{ background: getCategoryColor(action.category) }"
+                             data-bs-toggle="modal"
+                             data-bs-target="#exampleModal"
+                             @click="modal_data_insert(action)">
+                            {{ action.title }}
+                        </div>
+                    </div>
                 </div>
                 <!--
                 <div class="col-12 col-lg-4 square square1" @mouseover="handleBallHover" @mouseout="handleBallLeave"
@@ -201,125 +198,114 @@
         <!-- Modal -->
         <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered modal-xl">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h1 class="modal-title fs-5 fst-italic text-muted" id="exampleModalLabel">{{ modal_data.title }}
-                        </h1>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                        <div v-if="modal_data" class="modal-content border-0">
-                            <div class="mb-4">
-                                <div class="d-flex justify-content-between align-items-start">
-                                    <div>
-                                        <span v-for="tag in modal_data.development_area" :key="tag"
-                                            class="badge rounded-pill text-white p-2 me-2 fs-5"
-                                            :style="getPillStyle(tag)">
-                                            {{ tag }}
-                                        </span>
-                                        <h2 class="fw-bold display-6 mt-3">{{ modal_data.title }}</h2>
-                                    </div>
+                <div class="modal-content modal-styled">
+                    <button type="button" class="btn-close modal-close-btn" data-bs-dismiss="modal"
+                        aria-label="Close"></button>
 
-                                </div>
+                    <div v-if="modal_data">
+                        <div class="modal-accent" :style="{ background: getCategoryColor(modal_data.category) }"></div>
 
-                                <div class="mt-1">
-                                    <span v-for="tag in modal_data.tags" :key="tag" class="me-2 text-muted small">
-                                        {{ tag }}
-                                    </span>
-                                </div>
+                        <div class="modal-body px-4 px-md-5 pt-4 pb-2">
+                            <!-- Badges + Title -->
+                            <div class="mb-2">
+                                <span v-for="tag in modal_data.development_area" :key="tag"
+                                    class="badge rounded-pill me-2 mb-1 modal-badge" :style="getPillStyle(tag)">
+                                    {{ tag }}
+                                </span>
+                            </div>
+                            <h2 class="fw-bold mb-2" style="font-size: 2rem; color: #2d3436;">
+                                {{ modal_data.title }}
+                            </h2>
+                            <div v-if="modal_data.tags && modal_data.tags.length" class="mb-4">
+                                <span v-for="tag in modal_data.tags" :key="tag"
+                                    class="me-2 text-muted small fst-italic">
+                                    {{ tag }}
+                                </span>
                             </div>
 
-                            <hr class="my-3 opacity-25">
-
-                            <div class="mb-1">
-                                <h5 class="fw-bold mb-3">Overview</h5>
-                                <p class="lead text-dark" style="font-size: 1.1rem; line-height: 1.6;">
+                            <!-- Overview -->
+                            <div class="modal-section">
+                                <div class="modal-section-label">Overview</div>
+                                <p class="text-dark" style="font-size: 1.05rem; line-height: 1.75;">
                                     {{ modal_data.overview }}
                                 </p>
                             </div>
 
-                            <hr>
-                            <div>
-                                <img v-if="modal_data.image_url" :src="modal_data.image_url" alt="Action Image"
-                                    class="img-fluid rounded mb-4">
+                            <!-- Image -->
+                            <div v-if="modal_data.image_url" class="mb-4">
+                                <img :src="modal_data.image_url" alt="Action Image"
+                                    class="img-fluid rounded-3"
+                                    style="width: 100%; max-height: 400px; object-fit: cover;">
                             </div>
 
+                            <!-- Guidelines -->
+                            <div class="modal-section">
+                                <div class="modal-section-label">Guidelines</div>
+                                <ol class="modal-list">
+                                    <li v-for="tip in modal_data.guidelines" :key="tip">
+                                        {{ tip }}
+                                    </li>
+                                </ol>
+                            </div>
 
-                            <div class="mb-1">
-                                <h5 class="fw-bold mb-3 fs-3 d-flex align-items-center">
-                                    Guidelines
-                                </h5>
-                                <ul class="mb-0 ps-4">
-                                    <li v-for="tip in modal_data.guidelines" :key="tip" class="py-2">
-                                        <span>{{ tip }}</span>
+                            <!-- Cooperation Guidance -->
+                            <div class="modal-section">
+                                <div class="modal-section-label">Cooperation Guidance</div>
+                                <ul class="modal-list">
+                                    <li v-for="tip in modal_data.cooperation_guidance" :key="tip">
+                                        {{ tip }}
                                     </li>
                                 </ul>
                             </div>
 
-                            <hr>
-
-                            <div class="mb-1">
-                                <h5 class="fw-bold mb-3 d-flex align-items-center">
-                                    <i class="bi bi-check2-circle me-2 text-success"></i> Cooperation Guidance
-                                </h5>
-                                <ul class="mb-0 ps-4">
-                                    <li v-for="tip in modal_data.cooperation_guidance" :key="tip" class="py-2">
-                                        <span>{{ tip }}</span>
+                            <!-- Case Example -->
+                            <div class="modal-case-card">
+                                <div class="modal-section-label" style="color: #5a7d6a;">Case Example</div>
+                                <p v-if="modal_data.case_example.organization" class="fw-semibold mb-1"
+                                    style="color: #4a6358;">
+                                    {{ modal_data.case_example.organization }}
+                                    <span v-if="modal_data.case_example.location" class="fw-normal text-muted">
+                                        &mdash; {{ modal_data.case_example.location }}
+                                    </span>
+                                </p>
+                                <p class="text-muted fst-italic mb-3">
+                                    {{ modal_data.case_example.context }}
+                                </p>
+                                <ul class="modal-list">
+                                    <li v-for="tip in modal_data.case_example.key_approaches" :key="tip">
+                                        {{ tip }}
+                                    </li>
+                                </ul>
+                                <p v-if="modal_data.case_example.outcome" class="text-muted fst-italic mt-3 mb-2">
+                                    {{ modal_data.case_example.outcome }}
+                                </p>
+                                <blockquote v-if="modal_data.case_example.quote" class="modal-quote">
+                                    "{{ modal_data.case_example.quote }}"
+                                </blockquote>
+                                <ul v-if="modal_data.case_example.bullets && modal_data.case_example.bullets.length"
+                                    class="modal-list mt-3">
+                                    <li v-for="bullet in modal_data.case_example.bullets" :key="bullet">
+                                        {{ bullet }}
                                     </li>
                                 </ul>
                             </div>
 
-                            <hr>
-
-                            <div class="card border-0 bg-light rounded-4 overflow-hidden">
-                                <div class="card-body p-4">
-                                    <div class="d-flex align-items-center mb-3">
-                                        <div class="bg-success text-white rounded-circle p-2 me-3 d-flex align-items-center justify-content-center"
-                                            style="width: 40px; height: 40px;"
-                                            :style="getPillStyle(modal_data.category)">
-                                            <i class="bi bi-journal-check"></i>
-                                        </div>
-                                        <h5 class="card-title mb-0 fw-bold">Case Example</h5>
-                                    </div>
-
-                                    <p class="text-muted mb-4"><em>{{ modal_data.case_example.context }}</em></p>
-                                    <ul class="mb-0 ps-4">
-                                        <li v-for="tip in modal_data.case_example.key_approaches" :key="tip"
-                                            class="py-2">
-                                            <span>{{ tip }}</span>
-                                        </li>
-                                    </ul>
-                                    <p class="text-muted mb-4 mt-4"><em>{{ modal_data.case_example.outcome }}</em></p>
-                                    <p class="text-muted mb-4"><em>"{{ modal_data.case_example.quote }}"</em></p>
-
-                                    <ul class="list-unstyled">
-                                        <li v-for="bullet in modal_data.case_example.bullets" :key="bullet"
-                                            class="mb-3 d-flex align-items-start">
-                                            <i class="bi bi-dot text-success fs-3 lh-1 me-1"></i>
-                                            <span class="small text-dark">{{ bullet }}</span>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-
-                            <hr>
-
-                            <div class="mb-1">
-                                <h5 class="fw-bold mb-3 fs-3 d-flex align-items-center">
-                                    Sources and resources
-                                </h5>
-                                <ul class="mb-0 ps-4">
-                                    <li v-for="tip in modal_data.sources_and_resources" :key="tip" class="py-2">
-                                        <a :href="tip.url" target="_blank" class="text-decoration-underline">{{
-                                            tip.title }}</a>
+                            <!-- Sources & Resources -->
+                            <div v-if="modal_data.sources_and_resources && modal_data.sources_and_resources.length"
+                                class="modal-section">
+                                <div class="modal-section-label">Sources & Resources</div>
+                                <ul class="modal-links">
+                                    <li v-for="tip in modal_data.sources_and_resources" :key="tip.url">
+                                        <a :href="tip.url" target="_blank" rel="noopener">{{ tip.title }}</a>
                                     </li>
                                 </ul>
                             </div>
                         </div>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary w-100" data-bs-dismiss="modal">Close</button>
 
+                        <div class="modal-footer border-0 px-4 px-md-5 pb-4 pt-0">
+                            <button type="button" class="btn modal-close-footer w-100"
+                                data-bs-dismiss="modal">Close</button>
+                        </div>
                     </div>
                 </div>
             </div>
