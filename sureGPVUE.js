@@ -6,14 +6,16 @@ createApp({
       actions: [],
       modal_data: false,
       searchQuery: "",
+      // Solid, saturated tag colors — deliberately a different family (dark,
+      // vivid) from the pale tan/blue/lavender used by the filter buttons
+      // above, so a bubble's category tag is never mistaken for a filter.
       categoryColors: {
-        "SOCIAL SUPPORT": "linear-gradient(145deg, #FFE8D6, #DDBEA9)",
-        COACHING: "linear-gradient(145deg, #D6E4F0, #9DB4CE)",
-        GOVERNANCE: "linear-gradient(145deg, #E6D7F1, #C4AAD8)",
-        ACTIVITY: "linear-gradient(145deg, #D5EDDA, #99CCA6)",
-        "FINANCIAL STABILITY": "linear-gradient(145deg, #FFF0C9, #E0C479)",
-        FACILITIES: "linear-gradient(145deg, #F2DCE8, #D4A0BC)",
-        PARTICIPATION: "linear-gradient(145deg, #D5ECE8, #95C9BF)",
+        "SOCIAL SUPPORT": "#c2410c",
+        COACHING: "#92400e",
+        "FINANCIAL STABILITY": "#4d7c0f",
+        PARTICIPATION: "#047857",
+        FACILITIES: "#0f766e",
+        GOVERNANCE: "#be185d",
       },
       dev_areas: {
         "SOCIAL SUPPORT": true,
@@ -119,38 +121,52 @@ createApp({
       return { background: bg };
     },
     getCategoryColor(category) {
-      return (
-        this.categoryColors[category?.toUpperCase()] ||
-        "linear-gradient(145deg, #ccc, #aaa)"
-      );
+      return this.categoryColors[category?.toUpperCase()] || "#6b7280";
     },
     async loadActions() {
       try {
         const response = await fetch("./actions.json");
         this.actions = await response.json();
+        this.openActionFromURLParam();
       } catch (error) {
         console.error("Error loading actions:", error);
       }
+    },
+    openActionFromURLParam() {
+      const params = new URLSearchParams(window.location.search);
+      const actionId = params.get("action");
+      if (!actionId) return;
+
+      const action = this.actions.find((a) => String(a.id) === actionId);
+      if (!action) return;
+
+      this.modal_data = action;
+      this.$nextTick(() => {
+        const modalEl = document.getElementById("exampleModal");
+        if (modalEl && window.bootstrap) {
+          bootstrap.Modal.getOrCreateInstance(modalEl).show();
+        }
+      });
     },
     modal_data_insert(action) {
       this.modal_data = action;
     },
     initAnimations() {
-      anime.remove(".ball");
-      const balls = document.querySelectorAll(".ball");
-      if (!balls.length) return;
+      anime.remove(".bubble-item");
+      const bubbles = document.querySelectorAll(".bubble-item");
+      if (!bubbles.length) return;
 
       anime({
-        targets: Array.from(balls),
+        targets: Array.from(bubbles),
         scale: [0, 1],
         opacity: [0, 1],
         duration: 500,
         easing: "easeOutBack",
         delay: anime.stagger(40, { from: "center" }),
         complete: () => {
-          balls.forEach((ball) => {
+          bubbles.forEach((bubble) => {
             anime({
-              targets: ball,
+              targets: bubble,
               translateX: () => anime.random(-5, 5),
               translateY: () => anime.random(-5, 5),
               duration: 3000 + Math.random() * 2000,

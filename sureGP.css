@@ -4,12 +4,168 @@
   /* Change these Hex codes to your brand colors */
   --bs-primary: #70cbff;       /* A nice custom Blue */
   --bs-primary-rgb: 112, 203, 255; /* Must match the hex for transparency effects */
-  
+
   --bs-success: #9fc7aa;       /* Custom Green */
   --bs-success-rgb: 159, 199, 170;
-  
+
   --bs-warning: #ffd699;       /* Custom Yellow */
   --bs-warning-rgb: 255, 214, 153;
+
+  /* Same waypoint tokens used on the SURE evaluation tool, so the intro
+     popover reads as one system across both pages. */
+  --step-done: #3f6b52;
+  --step-current: #eab53c;
+}
+
+/* Intro bar — one slim white strip (trigger + logo) so the page content
+   below starts almost immediately. The instructions live in a popover that
+   floats over the page instead of pushing content down when opened. */
+.intro-bar {
+  padding: 0.85rem 0;
+}
+
+.intro-bar-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.intro-bar-logo img {
+  display: block;
+  height: 40px;
+  width: auto;
+}
+
+.intro-popover {
+  position: relative;
+}
+
+.intro-popover-trigger {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.4rem 0.9rem;
+  border: 1px solid rgba(63, 107, 82, 0.28);
+  border-radius: 999px;
+  cursor: pointer;
+  list-style: none;
+  user-select: none;
+  color: var(--step-done);
+  background: #fff;
+  font-family: "Barlow Condensed", "Barlow", sans-serif;
+  font-weight: 600;
+  font-size: 0.85rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  transition: background-color 0.15s ease, border-color 0.15s ease;
+}
+
+.intro-popover-trigger::-webkit-details-marker {
+  display: none;
+}
+
+.intro-popover-trigger::marker {
+  content: "";
+}
+
+.intro-popover-trigger:hover {
+  background: rgba(63, 107, 82, 0.06);
+  border-color: rgba(63, 107, 82, 0.45);
+}
+
+.intro-popover-trigger:focus-visible {
+  outline: 2px solid var(--step-done);
+  outline-offset: 2px;
+}
+
+.intro-popover-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 17px;
+  height: 17px;
+  border-radius: 50%;
+  background: var(--step-current);
+  color: #3a2c05;
+  font-family: "Barlow", sans-serif;
+  font-weight: 800;
+  font-style: italic;
+  font-size: 0.72rem;
+}
+
+.intro-popover-chevron {
+  flex-shrink: 0;
+  width: 7px;
+  height: 7px;
+  border-right: 2px solid currentColor;
+  border-bottom: 2px solid currentColor;
+  transform: rotate(45deg);
+  transition: transform 0.2s ease;
+}
+
+.intro-popover[open] .intro-popover-chevron {
+  transform: rotate(-135deg);
+}
+
+.intro-popover-panel {
+  position: absolute;
+  z-index: 40;
+  top: calc(100% + 10px);
+  left: 0;
+  width: min(440px, calc(100vw - 3rem));
+  max-height: min(70vh, 520px);
+  overflow-y: auto;
+  padding: 1.1rem 1.25rem;
+  border: 1px solid rgba(63, 107, 82, 0.15);
+  border-radius: 14px;
+  background: #fff;
+  color: #333;
+  box-shadow: 0 16px 32px rgba(31, 51, 41, 0.18);
+  animation: intro-panel-in 0.18s ease;
+}
+
+.intro-popover-panel::before {
+  content: "";
+  position: absolute;
+  top: -6px;
+  left: 24px;
+  width: 12px;
+  height: 12px;
+  background: #fff;
+  border-left: 1px solid rgba(63, 107, 82, 0.15);
+  border-top: 1px solid rgba(63, 107, 82, 0.15);
+  transform: rotate(45deg);
+}
+
+.intro-popover-panel p {
+  margin-top: 0.85rem;
+  margin-bottom: 0;
+  font-size: 0.98rem;
+  line-height: 1.55;
+}
+
+.intro-popover-panel p:first-child {
+  margin-top: 0;
+}
+
+@keyframes intro-panel-in {
+  from {
+    opacity: 0;
+    transform: translateY(-6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .intro-popover-panel {
+    animation: none;
+  }
 }
 
 
@@ -62,14 +218,27 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    align-items: center;
-    gap: 1.5rem;
+    align-items: flex-start;
+    gap: 2rem 1.5rem;
     padding: 2rem 1rem;
+}
+
+/* Every bubble shares one neutral, glassy fill — color no longer encodes
+   category (that clashed with the tan/blue/lavender filter buttons above).
+   Category identity now lives only in the small tag pill beneath the ball. */
+.bubble-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.65rem;
+    cursor: pointer;
+    user-select: none;
 }
 
 .ball {
     width: 210px;
     height: 210px;
+    background: linear-gradient(155deg, #ffffff 0%, #f2efe4 100%);
     box-shadow: 0 6px 14px rgba(0, 0, 0, 0.12);
     border-radius: 50%;
     display: flex;
@@ -79,18 +248,30 @@
     padding: 22px;
     color: #2d3436;
     border: white 3px solid;
-    cursor: pointer;
-    user-select: none;
     font-size: 1.1rem;
     line-height: 1.35;
     font-weight: 600;
     transition: box-shadow 0.3s ease, filter 0.3s ease;
 }
 
-.ball:hover {
+.bubble-item:hover .ball {
     box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
-    filter: brightness(1.1) saturate(1.15);
-    cursor: pointer;
+    filter: brightness(1.04) saturate(1.05);
+}
+
+.bubble-tag {
+    display: inline-block;
+    max-width: 190px;
+    padding: 0.3rem 0.85rem;
+    border-radius: 999px;
+    color: #fff;
+    font-family: "Barlow Condensed", "Barlow", sans-serif;
+    font-weight: 700;
+    font-size: 0.68rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    text-align: center;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
 }
 
 /* Filter pill buttons — shared base */
@@ -110,24 +291,29 @@
     color: white;
 }
 
+/* Checked states pull from the page's own palette instead of a generic
+   pastel triad — Forest (brand green, --step-done) for Development Area,
+   Sun (brand gold, --step-current) for Crisis Type, and Dusk, a new
+   complementary indigo, for Target Group. Same chip shape as before; the
+   colors now actually belong to this page. */
 .btn-check:checked + .filter-pill.filter-dev {
-    background: linear-gradient(135deg, #DDBEA9, #C9A68D);
-    border-color: #B8916F !important;
-    color: #4A3728;
+    background: linear-gradient(135deg, #4c7a61, #3f6b52);
+    border-color: #2c4d3a !important;
+    color: #fff;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
 }
 
 .btn-check:checked + .filter-pill.filter-crisis {
-    background: linear-gradient(135deg, #9DB4CE, #7A9ABD);
-    border-color: #6888AB !important;
-    color: #1d2d3d;
+    background: linear-gradient(135deg, #eab53c, #cf9526);
+    border-color: #a97a1a !important;
+    color: #4a3610;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
 }
 
 .btn-check:checked + .filter-pill.filter-target {
-    background: linear-gradient(135deg, #CDBFDA, #B5A3C7);
-    border-color: #A08DB5 !important;
-    color: #3D3250;
+    background: linear-gradient(135deg, #5a63ab, #3f4a86);
+    border-color: #2f386b !important;
+    color: #fff;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
 }
 
@@ -166,7 +352,7 @@
     font-size: 0.72rem;
     font-weight: 600;
     padding: 0.35rem 0.85rem;
-    color: #3d3d3d;
+    color: #fff;
     letter-spacing: 0.03em;
     text-transform: capitalize;
 }

@@ -29,23 +29,29 @@
             target="_blank"><span class="fw-normal text-muted">SEE ALSO: </span>CRISIS RESILIENT:
             SURE EVALUATION TOOL</a>
     </div>
-    <div class="bg-white pb-5 d-flex flex-column align-items-center">
-        <div class="container row pt-5">
 
-            <div class="col-sm-12 text-end">
-                <a href="https://engso.eu/"><img src="images/SURE_LOGO.png" alt="ENGSO Logo" height="100vh"></a>
-            </div>
-        </div>
-        <div class="container py-5 barlow-regular fs-5" style="color: #333;">
-            <p>A <strong>digital map</strong> of recommended actions for sport clubs to be crisis-ready and/or to respond to crises.
-                Sport clubs must stay resilient during times of crisis in order to provide sport, continuity and social
-                support to their community during difficult times and/or when the crisis is
-                over.<br /><br />Complete the Self-Evaluation Tool before starting. Once you know
-                which area of your sport club you need to strengthen, explore the tool below for recommended
-                actions.<br /><br />Alternatively, filter the map of recommendations below, by selecting the target
-                group and/or crisis relevant for your club and explore the recommended actions.</p>
-        </div>
+    <div class="bg-white intro-bar">
+        <div class="container intro-bar-row">
+            <details class="intro-popover">
+                <summary class="intro-popover-trigger">
+                    <span class="intro-popover-icon" aria-hidden="true">i</span>
+                    How this guide works
+                    <span class="intro-popover-chevron" aria-hidden="true"></span>
+                </summary>
+                <div class="intro-popover-panel barlow-regular">
+                    <p>A <strong>digital map</strong> of recommended actions for sport clubs to be crisis-ready
+                        and/or to respond to crises. Sport clubs must stay resilient during times of crisis in order
+                        to provide sport, continuity and social support to their community during difficult times
+                        and/or when the crisis is over.</p>
+                    <p>Complete the Self-Evaluation Tool before starting. Once you know which area of your sport club
+                        you need to strengthen, explore the tool below for recommended actions.</p>
+                    <p class="mb-0">Alternatively, filter the map of recommendations below, by selecting the target
+                        group and/or crisis relevant for your club and explore the recommended actions.</p>
+                </div>
+            </details>
 
+            <a href="https://engso.eu/" class="intro-bar-logo"><img src="images/SURE_LOGO.png" alt="ENGSO Logo"></a>
+        </div>
     </div>
     <!-- PILLS -->
     <div class="barlow-regular p-5 main-container" style="min-height: 140vh;" id="SUREappGP">
@@ -144,12 +150,14 @@
                 <div class="col-12">
                     <div class="bubble-grid">
                         <div v-for="action in filteredActionsList" :key="action.id"
-                             class="ball"
-                             :style="{ background: getCategoryColor(action.category) }"
+                             class="bubble-item"
                              data-bs-toggle="modal"
                              data-bs-target="#exampleModal"
                              @click="modal_data_insert(action)">
-                            {{ action.title }}
+                            <div class="ball">{{ action.title }}</div>
+                            <span class="bubble-tag" :style="{ background: getCategoryColor(action.category) }">
+                                {{ action.category }}
+                            </span>
                         </div>
                     </div>
                 </div>

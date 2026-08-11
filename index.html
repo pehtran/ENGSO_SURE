@@ -30,36 +30,60 @@
             CLUB GUIDE</a>
     </div>
 
-    <div class="bg-white pb-5 d-flex flex-column align-items-center">
-        <div class="container row pt-5">
+    <div class="bg-white intro-bar">
+        <div class="container intro-bar-row">
+            <details class="intro-popover">
+                <summary class="intro-popover-trigger">
+                    <span class="intro-popover-icon" aria-hidden="true">i</span>
+                    How this questionaire works
+                    <span class="intro-popover-chevron" aria-hidden="true"></span>
+                </summary>
+                <div class="intro-popover-panel barlow-regular">
+                    <p>A <strong>digital questionnaire</strong> to help sport clubs and staff understand their
+                        current preparedness for a crisis. The tool looks to understand which aspects of the sport
+                        club are resilient and which need strengthening.</p>
+                    <p>Read and <strong>answer all questions honestly</strong> using a scale of 1-5, where 1 = Not at
+                        all in place/Strongly disagree and 5 = Fully in place/Strongly agree.</p>
+                    <p>Questions are presented in a random order. The tool will not save your information or
+                        progress so complete all questions in one sitting.</p>
+                    <p>Once you have completed all questions, a spider diagram of your results will show you which
+                        areas of the club are most resilient and which need strengthened. Click &lsquo;Download&rsquo;
+                        to refer to these results again later.</p>
+                    <p class="mb-0">You can click on the links in the report to explore practical recommendations
+                        and actions via the Resilient Club Guide.</p>
+                </div>
+            </details>
 
-            <div class="col-sm-12 text-end">
-                <a href="https://engso.eu/"><img src="images/SURE_LOGO.png" alt="ENGSO Logo" height="100vh"></a>
-            </div>
+            <a href="https://engso.eu/" class="intro-bar-logo"><img src="images/SURE_LOGO.png" alt="ENGSO Logo"></a>
         </div>
-        <div class="container py-5 barlow-regular fs-5" style="color: #333;">
-            <p>A <strong>digital questionnaire</strong> to help sport clubs and staff understand their current
-                preparedness for a crisis. The tool looks to understand which aspects of the sport club are resilient
-                and which need strengthening.<br /><br />Read and <strong>answer all questions honestly</strong> using a
-                scale of 1-5, where 1 = Not at all in place/Strongly disagree and 5= Fully in place/Strongly
-                agree.<br />Questions are presented in a random order. The tool will not save your information or
-                progress so complete all questions in one sitting.<br /><br />Once you have completed all questions, a
-                spider diagram of your results will show you which areas of the club are most resilient and which need
-                strengthened. Click &lsquo;Download&rsquo; to refer to these results again later.<br /><br />You can
-                click on the links in the report to explore practical recommendations and actions via the Resilient Club
-                Guide.</p>
-        </div>
-
     </div>
     <div class="container barlow-regular p-5 mb-5" id="SUREapp">
 
         <h1 class="text-center fw-bold display-3" style="color: white;">SURE EVALUATION TOOL</h1>
 
+        <div v-if="currentStep < questions.length" class="d-flex justify-content-end mb-3">
+            <button class="btn btn-sm btn-outline-danger" type="button" @click="fillRandomTest()">TEST: Random
+                Fill &amp; Skip to Results</button>
+        </div>
+
         <div class="row justify-content-center">
             <div class="col-md-8">
 
-                <div class="progress mb-4" style="height: 10px;">
-                    <div class="progress-bar bg-warning" :style="{ width: progress + '%' }"></div>
+                <div class="step-track-wrap mb-4">
+                    <div class="step-track-meta">
+                        <span class="step-track-label">{{ trackLabel }}</span>
+                        <span class="step-track-percent">{{ progressPercentRounded }}% complete</span>
+                    </div>
+                    <div class="step-track" role="group" aria-label="Question progress">
+                        <button v-for="(q, index) in questions" :key="'step-' + q.Question_ID" type="button"
+                            class="step-pip"
+                            :class="{ 'is-current': index === currentStep, 'is-done': index !== currentStep && index <= maxStepReached, 'is-locked': index > maxStepReached }"
+                            :disabled="index > maxStepReached" :aria-current="index === currentStep ? 'step' : null"
+                            :aria-label="'Question ' + (index + 1) + (index === currentStep ? ', current' : (index <= maxStepReached ? ', answered, tap to review' : ', not yet reached'))"
+                            @click="goToQuestion(index)">
+                            <span class="step-pip-fill"></span>
+                        </button>
+                    </div>
                 </div>
 
                 <div v-for="(q, index) in questions" :key="q.Question_ID">
@@ -86,7 +110,7 @@
                                     <div v-for="n in 5" :key="n" class="rating-item">
                                         <input class="btn-check" type="radio" :name="'q' + index"
                                             :id="'q' + index + 'n' + n" :value="n" v-model="q.Result"
-                                            @change="nextQuestion">
+                                            @change="handleAnswer">
                                         <label class="btn btn-outline-success px-4 py-2 fs-3 fw-bold rounded-5 w-100"
                                             :for="'q' + index + 'n' + n">
                                             {{ n }}
@@ -109,20 +133,32 @@
 
 
 
-                <div v-if="currentStep >= questions.length && questions.length > 0" class="text-center">
-                    <h2>Your Assessment Results</h2>
-                    <figure class="highcharts-figure">
+                <div v-if="currentStep >= questions.length && questions.length > 0" class="results-panel">
+                    <span class="results-eyebrow">Your results</span>
+                    <h2 class="results-title">Your Club's Resilience Profile</h2>
+
+                    <div class="results-hero-row">
+                        <div class="results-score-ring" :style="{ '--cat-pct': overallPercent }">
+                            <span class="results-score-value">{{ overallAverage }}<small>/5</small></span>
+                        </div>
+                        <div class="results-hero-copy">
+                            <span class="result-status-chip" :class="overallTier.className">{{ overallTier.label
+                                }}</span>
+                            <p>{{ overallVerdictText }}</p>
+                        </div>
+                    </div>
+
+                    <figure class="highcharts-figure results-chart-card">
                         <div id="container"></div>
                     </figure>
 
-                    <div>
-                        <button class="btn btn-lg fs-3 w-100 btn-warning shadow" @click="downloadResults()">Download
-                            Results</button>
-                    </div>
+                    <button class="btn results-download-btn" @click="downloadResults()">Download results</button>
 
                     <div v-html="renderResultSummary()"></div>
-                    <button class="btn btn-lg fw-bold btn-success mt-3 w-100"
-                        @click="reset_form(); currentStep = 0">RESTART</button>
+
+                    <div class="results-restart-wrap">
+                        <button class="btn results-restart-btn" @click="reset_form()">Restart assessment</button>
+                    </div>
                 </div>
             </div>
         </div>
