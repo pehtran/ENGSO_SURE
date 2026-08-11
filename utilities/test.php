@@ -8,6 +8,14 @@ $payload = isset($_POST['payload']) ? $_POST['payload'] : null;
 // 2. Decode the JSON into a PHP associative array
 $data = json_decode($payload, true);
 
+// FPDF's core fonts (Arial etc.) expect Windows-1252, not UTF-8 - without
+// this, curly quotes/em dashes in the personalised copy render as mojibake.
+function toLatin1($str) {
+    if ($str === null) return '';
+    $converted = @iconv('UTF-8', 'CP1252//TRANSLIT', (string)$str);
+    return $converted !== false ? $converted : (string)$str;
+}
+
 class PDF extends tFPDF
 {
     function Header() {
@@ -52,9 +60,9 @@ if ($data) {
     $overallResults = $data['overallResults'] ?? [];
     foreach ($overallResults as $result) {
         $pdf->SetFillColor(245, 241, 229);
-        $pdf->Cell(70, 8, (string)($result['competency'] ?? ''), 1, 0, 'L', $fill);
+        $pdf->Cell(70, 8, toLatin1($result['competency'] ?? ''), 1, 0, 'L', $fill);
         $pdf->Cell(30, 8, ($result['averageScore'] ?? '?') . ' / 5', 1, 0, 'C', $fill);
-        $pdf->Cell(40, 8, (string)($result['status'] ?? ''), 1, 0, 'C', $fill);
+        $pdf->Cell(40, 8, toLatin1($result['status'] ?? ''), 1, 0, 'C', $fill);
         $pdf->Cell(0, 8, (string)($result['questionCount'] ?? ''), 1, 1, 'C', $fill);
         $fill = !$fill;
     }
@@ -63,9 +71,9 @@ if ($data) {
     // Per-competency recommendation
     foreach ($overallResults as $result) {
         $pdf->SetFont('Arial', 'B', 11);
-        $pdf->Cell(0, 8, ($result['competency'] ?? '') . ':', 0, 1);
+        $pdf->Cell(0, 8, toLatin1($result['competency'] ?? '') . ':', 0, 1);
         $pdf->SetFont('Arial', '', 10);
-        $pdf->MultiCell(0, 6, $result['recommendation'] ?? '');
+        $pdf->MultiCell(0, 6, toLatin1($result['recommendation'] ?? ''), 0, 'L');
         $pdf->Ln(2);
     }
 
@@ -86,11 +94,11 @@ if ($data) {
         $counter = 1;
         foreach ($grouped as $competency => $questions) {
             $pdf->SetFont('Arial', 'B', 12);
-            $pdf->Cell(0, 8, $competency, 0, 1);
+            $pdf->Cell(0, 8, toLatin1($competency), 0, 1);
 
             foreach ($questions as $question) {
                 $pdf->SetFont('Arial', '', 11);
-                $text = $counter . '. ' . ($question['Question_Text'] ?? 'Question');
+                $text = $counter . '. ' . toLatin1($question['Question_Text'] ?? 'Question');
                 $pdf->MultiCell(0, 6, $text, 0, 'L');
 
                 $answer = $question['Result'] ?? null;

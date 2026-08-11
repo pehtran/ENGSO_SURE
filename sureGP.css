@@ -15,6 +15,13 @@
      popover reads as one system across both pages. */
   --step-done: #3f6b52;
   --step-current: #eab53c;
+
+  /* Parchment/ink pairing shared with the evaluation tool's results
+     scorecard (sure.css), reused here for the modal surface. */
+  --sure-cream: #faf6ec;
+  --sure-cream-edge: #e9dfc3;
+  --sure-ink: #1f3a2a;
+  --sure-ink-soft: rgba(31, 58, 42, 0.62);
 }
 
 /* Intro bar — one slim white strip (trigger + logo) so the page content
@@ -317,35 +324,149 @@
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
 }
 
-/* ── Modal ── */
+/* ── Modal ──
+   Colour identity lives in one custom property, --hero-color, set once on
+   the modal_data wrapper (good.html) from the action's category. Every
+   accent below — the hero ribbon, section-label dashes, case-card border —
+   reads from it, so the whole modal stays visually tied to its category
+   without repeating inline colour lookups per element. */
 
 .modal-styled {
     border: none;
-    border-radius: 16px;
+    border-radius: 20px;
     overflow: hidden;
     font-family: 'Barlow', sans-serif;
 }
 
-.modal-accent {
-    height: 6px;
-    width: 100%;
+/* The backdrop is tinted toward the site's own deep pine-ink rather than
+   Bootstrap's neutral black, so the dim behind the modal still reads as
+   part of the same green-toned page instead of a generic dark scrim. */
+.modal-backdrop {
+    background-color: #14241b;
+}
+
+.modal-backdrop.show {
+    opacity: 0.78;
 }
 
 .modal-close-btn {
     position: absolute;
-    top: 18px;
-    right: 18px;
+    top: 16px;
+    right: 16px;
     z-index: 10;
-    background-color: rgba(0, 0, 0, 0.06);
+    width: 34px;
+    height: 34px;
+    padding: 0;
+    background-color: rgba(20, 32, 25, 0.55);
     border-radius: 50%;
-    padding: 10px;
-    opacity: 0.5;
-    transition: opacity 0.2s ease, background-color 0.2s ease;
+    opacity: 1;
+    /* Bootstrap's btn-close X is a dark background-image; invert it to
+       white so it reads on a photo or the colour placeholder alike. */
+    filter: invert(1) grayscale(100%) brightness(200%);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    transition: background-color 0.2s ease, transform 0.15s ease;
 }
 
 .modal-close-btn:hover {
-    opacity: 1;
-    background-color: rgba(0, 0, 0, 0.1);
+    background-color: rgba(20, 32, 25, 0.8);
+    transform: scale(1.06);
+}
+
+/* Hero image band — always reserves the space, whether or not the action
+   has a photo yet, so the layout never shifts once real images land. */
+.modal-hero {
+    position: relative;
+    height: clamp(180px, 26vw, 280px);
+    overflow: hidden;
+    background: var(--sure-cream-edge);
+}
+
+.modal-hero img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.modal-hero-placeholder {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.65rem;
+    background-color: var(--hero-color, #9fc7aa);
+    background-image:
+        linear-gradient(155deg, rgba(255, 255, 255, 0.18), transparent 45%),
+        linear-gradient(340deg, rgba(0, 0, 0, 0.32), transparent 55%),
+        repeating-linear-gradient(135deg, rgba(255, 255, 255, 0.07) 0 2px, transparent 2px 28px);
+}
+
+.modal-hero-icon {
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.modal-hero-caption {
+    font-family: "Barlow Condensed", sans-serif;
+    font-weight: 600;
+    font-size: 0.78rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.modal-hero-category {
+    position: absolute;
+    top: 16px;
+    left: 16px;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    padding: 0.35rem 0.85rem 0.35rem 0.6rem;
+    border-radius: 999px;
+    background: rgba(20, 32, 25, 0.55);
+    backdrop-filter: blur(3px);
+    -webkit-backdrop-filter: blur(3px);
+    color: #fff;
+    font-family: "Barlow Condensed", sans-serif;
+    font-weight: 700;
+    font-size: 0.72rem;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+}
+
+.modal-hero-category::before {
+    content: "";
+    width: 8px;
+    height: 8px;
+    flex-shrink: 0;
+    border-radius: 50%;
+    background: var(--hero-color, #9fc7aa);
+    box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.85);
+}
+
+.modal-title {
+    font-family: "Barlow", sans-serif;
+    font-weight: 800;
+    font-size: clamp(1.5rem, 1.1rem + 1.4vw, 2.1rem);
+    line-height: 1.15;
+    color: var(--sure-ink);
+}
+
+.modal-context-tag {
+    display: inline-flex;
+    align-items: center;
+    font-family: "Barlow Condensed", sans-serif;
+    font-weight: 600;
+    font-size: 0.74rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--sure-ink-soft);
+    border: 1px solid var(--sure-cream-edge);
+    border-radius: 999px;
+    padding: 0.22rem 0.7rem;
+    margin: 0 0.4rem 0.4rem 0;
 }
 
 .modal-badge {
@@ -362,12 +483,25 @@
 }
 
 .modal-section-label {
-    font-size: 0.7rem;
+    display: flex;
+    align-items: center;
+    gap: 0.55rem;
+    font-family: "Barlow Condensed", sans-serif;
+    font-size: 0.72rem;
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.12em;
-    color: #999;
+    color: var(--sure-ink-soft);
     margin-bottom: 0.75rem;
+}
+
+.modal-section-label::before {
+    content: "";
+    width: 18px;
+    height: 2px;
+    flex-shrink: 0;
+    border-radius: 2px;
+    background: var(--hero-color, var(--step-done));
 }
 
 .modal-list {
@@ -387,11 +521,11 @@
 }
 
 .modal-case-card {
-    background-color: #f7f9f8;
+    background-color: var(--sure-cream);
     border-radius: 12px;
     padding: 1.5rem 1.75rem;
     margin-bottom: 2rem;
-    border-left: 4px solid #9fc7aa;
+    border-left: 4px solid var(--hero-color, #9fc7aa);
 }
 
 .modal-quote {
@@ -439,19 +573,43 @@
 }
 
 .modal-close-footer {
-    background-color: #f0f0f0;
-    color: #555;
-    border: none;
+    background-color: var(--sure-cream);
+    color: var(--sure-ink);
+    border: 1px solid var(--sure-cream-edge);
     border-radius: 10px;
     padding: 0.65rem;
-    font-weight: 500;
+    font-weight: 600;
     font-size: 0.95rem;
     transition: background-color 0.2s ease, color 0.2s ease;
 }
 
 .modal-close-footer:hover {
-    background-color: #e2e2e2;
-    color: #333;
+    background-color: var(--sure-cream-edge);
+    color: var(--sure-ink);
+}
+
+.modal-download-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    background: var(--hero-color, var(--step-done));
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    padding: 0.65rem;
+    font-weight: 700;
+    font-size: 0.95rem;
+    transition: filter 0.2s ease, transform 0.1s ease;
+}
+
+.modal-download-btn:hover {
+    filter: brightness(1.08);
+    color: #fff;
+}
+
+.modal-download-btn:active {
+    transform: scale(0.98);
 }
 
 /* target the specific ID to avoid affecting other offcanvases */

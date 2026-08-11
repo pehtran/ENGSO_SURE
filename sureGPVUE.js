@@ -151,6 +151,22 @@ createApp({
     modal_data_insert(action) {
       this.modal_data = action;
     },
+    downloadActionPDF(action) {
+      const form = document.createElement("form");
+      form.method = "POST";
+      form.action = "utilities/action_pdf.php";
+      form.target = "_blank";
+
+      const input = document.createElement("input");
+      input.type = "hidden";
+      input.name = "payload";
+      input.value = JSON.stringify(action);
+
+      form.appendChild(input);
+      document.body.appendChild(form);
+      form.submit();
+      document.body.removeChild(form);
+    },
     initAnimations() {
       anime.remove(".bubble-item");
       const bubbles = document.querySelectorAll(".bubble-item");
