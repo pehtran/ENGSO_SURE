@@ -446,6 +446,37 @@
     box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.85);
 }
 
+/* Same dark-glass treatment as .modal-close-btn (never the category colour
+   itself), so this stays visible whether it's sitting on a photo or on the
+   placeholder, which is filled with that same category colour. */
+.modal-hero-download {
+    position: absolute;
+    top: 16px;
+    right: 58px;
+    z-index: 10;
+    width: 34px;
+    height: 34px;
+    padding: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    border-radius: 50%;
+    background-color: rgba(20, 32, 25, 0.55);
+    backdrop-filter: blur(3px);
+    -webkit-backdrop-filter: blur(3px);
+    color: #fff;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    transition: background-color 0.2s ease, transform 0.15s ease;
+}
+
+.modal-hero-download:hover,
+.modal-hero-download:focus-visible {
+    background-color: rgba(20, 32, 25, 0.85);
+    color: #fff;
+    transform: scale(1.06);
+}
+
 .modal-title {
     font-family: "Barlow", sans-serif;
     font-weight: 800;
@@ -603,8 +634,18 @@
     transition: filter 0.2s ease, transform 0.1s ease;
 }
 
-.modal-download-btn:hover {
-    filter: brightness(1.08);
+.modal-download-btn:hover,
+.modal-download-btn:focus-visible {
+    /* Bootstrap's own .btn:hover rule sets background-color at the same
+       specificity as our base rule's `background` shorthand, and it loses
+       to nothing here unless we redeclare it - otherwise hover falls back
+       to Bootstrap's transparent default and the button vanishes into the
+       cream footer. Darken rather than brighten: brightening a saturated
+       category colour risks washing it out toward that cream background,
+       which would make the button read as "disappearing" instead of
+       active. Darkening always keeps contrast with the white label. */
+    background-color: var(--hero-color, var(--step-done));
+    filter: brightness(0.88);
     color: #fff;
 }
 
