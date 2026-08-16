@@ -8,21 +8,9 @@ createApp({
       currentStep: 0,
       maxStepReached: 0,
       reviewReturnStep: null,
-      // Mirrors the ribbon colours used for each competency on the Crisis
-      // Resilient Club Guide (good.html / sureGPVUE.js categoryColors), so a
-      // competency's colour carries over from this scorecard into the guide.
-      categoryColors: {
-        "SOCIAL SUPPORT": "#c2410c",
-        COACHING: "#92400e",
-        "FINANCIAL STABILITY": "#4d7c0f",
-        PARTICIPATION: "#047857",
-        FACILITIES: "#0f766e",
-        GOVERNANCE: "#be185d",
-        COOPERATION: "#4338ca",
-      },
       // Personalised, per-competency verdict copy for each score tier. Keyed
-      // by the same uppercase competency names as categoryColors. Falls back
-      // to the generic tierInfo() copy if a competency is ever missing here.
+      // by the uppercase competency name. Falls back to the generic
+      // tierInfo() copy if a competency is ever missing here.
       competencyCopy: {
         "SOCIAL SUPPORT": {
           priority:
@@ -198,9 +186,6 @@ createApp({
       if (primary.length) return primary;
       return this.actions.filter((a) => (a.development_area || []).some((d) => d.toUpperCase() === upper));
     },
-    getCategoryColor(competency) {
-      return this.categoryColors[competency?.toUpperCase()] || "#6b7280";
-    },
     // Red/amber/green colour coding for weak/moderate/strong scores — this
     // was well received in user testing, so the score ring, meter and left
     // border for each competency are coloured by tier rather than by the
@@ -225,8 +210,8 @@ createApp({
       const entry = this.competencyCopy[competency?.toUpperCase()];
       return (entry && entry[tierKey]) || tier.copy;
     },
-    actionPillHTML(action, color) {
-      return `<a href="good.html?action=${encodeURIComponent(action.id)}" target="_blank" rel="noopener" class="result-action-pill" style="--pill-color:${color}">${action.title}</a>`;
+    actionPillHTML(action) {
+      return `<a href="good.html?action=${encodeURIComponent(action.id)}" target="_blank" rel="noopener" class="result-action-pill">${action.title}</a>`;
     },
     // Single source of truth for the three score tiers, shared by the
     // overall headline score and every per-competency card below it.
@@ -437,7 +422,6 @@ createApp({
         <div class="results-list">`;
 
       this.allCategoryAverages.forEach(({ competency: cat, average: avg, count }) => {
-        const brandColor = this.getCategoryColor(cat);
         const pct = Math.round((avg / 5) * 100);
         const tier = this.tierInfo(avg);
         const ragColor = this.tierColor(tier.className);
@@ -447,7 +431,7 @@ createApp({
         let actionsHTML = "";
         if (primary.length) {
           actionsHTML += `<div class="result-actions-label">${primaryLabel}</div>
-          <div class="result-actions">${primary.slice(0, 2).map((a) => this.actionPillHTML(a, brandColor)).join("")}</div>`;
+          <div class="result-actions">${primary.slice(0, 2).map((a) => this.actionPillHTML(a)).join("")}</div>`;
         }
         actionsHTML += `<a href="good.html?category=${encodeURIComponent(cat)}" target="_blank" rel="noopener" class="result-explore-all">See more recommendations on developing ${cat} in the Club Guide &rarr;</a>`;
 
