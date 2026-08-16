@@ -96,17 +96,15 @@
                                     </label>
                                 </div>
                             </div>-->
-                            <div class="row">
-                                <div class="d-flex justify-content-center gap-5 flex-wrap custom-rating-wrapper">
-                                    <div v-for="n in 5" :key="n" class="rating-item">
-                                        <input class="btn-check" type="radio" :name="'q' + index"
-                                            :id="'q' + index + 'n' + n" :value="n" v-model="q.Result"
-                                            @change="handleAnswer">
-                                        <label class="btn btn-outline-success px-4 py-2 fs-3 fw-bold rounded-5 w-100"
-                                            :for="'q' + index + 'n' + n">
-                                            {{ n }}
-                                        </label>
-                                    </div>
+                            <div class="custom-rating-wrapper">
+                                <div v-for="n in 5" :key="n" class="rating-item">
+                                    <input class="btn-check" type="radio" :name="'q' + index"
+                                        :id="'q' + index + 'n' + n" :value="n" v-model="q.Result"
+                                        @change="handleAnswer">
+                                    <label class="btn btn-outline-success fw-bold rating-btn"
+                                        :for="'q' + index + 'n' + n">
+                                        {{ n }}
+                                    </label>
                                 </div>
                             </div>
 
@@ -114,7 +112,7 @@
 
 
                             <!-- Labels for strongly disagree and strongly agree -->
-                            <div class="d-flex justify-content-between mt-3 px-5">
+                            <div class="d-flex justify-content-between mt-3 rating-scale-labels">
                                 <div>Strongly disagree</div>
                                 <div>Strongly agree</div>
                             </div>
@@ -157,10 +155,10 @@
     </div>
 
     <div class="my-5">&nbsp;</div>
-    <div class="bg-white mt-5 py-5 d-flex justify-content-center">
-        <div class="col-sm-6">
-            <img src="images/EN Co-Funded by the EU_POS.png" alt="ENGSO Logo" height="70vh">
-            <div class="text-small small text-sm text-muted fst-italic py-3">
+    <div class="bg-white mt-5 py-5 d-flex justify-content-center site-footer">
+        <div class="site-footer-content">
+            <img src="images/EN Co-Funded by the EU_POS.png" alt="ENGSO Logo" class="site-footer-logo">
+            <div class="text-small small text-muted fst-italic py-3">
                 Funded by the European Union. Views and opinions expressed are however those of the author(s) only and
                 do not necessarily reflect those of the European Union or the European Education and Culture Executive
                 Agency (EACEA). Neither the European Union nor EACEA can be held responsible for them.

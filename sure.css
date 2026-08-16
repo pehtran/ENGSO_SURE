@@ -301,12 +301,42 @@
   }
 }
 
-@media (max-width: 450px) {
-  /* Force items to take up roughly 30% width so 3 fit on row one, and 2 fit on row two */
-  .custom-rating-wrapper .rating-item {
-    flex: 0 0 calc(33.33% - 10px); 
-    text-align: center;
-  }
+/* Rating scale (1-5). Each circle has a fixed preferred size but is allowed
+   to shrink, and the row never wraps — so every screen width, down to a
+   320px phone, keeps all five in a single row instead of dropping to two.
+   The row spans edge-to-edge (rather than centering as a tight cluster) so
+   the first/last circle always land under the Strongly disagree/agree
+   labels beneath, which share the same edge-to-edge alignment. */
+.custom-rating-wrapper {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  gap: clamp(0.4rem, 2.5vw, 1.5rem);
+  width: 100%;
+}
+
+.rating-item {
+  flex: 0 1 84px;
+  min-width: 0;
+}
+
+.rating-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  padding: 0;
+  font-size: clamp(1rem, 5vw, 1.75rem);
+  /* Bootstrap's .btn sets line-height: 1.5, which otherwise creates a
+     content-driven minimum height taller than the aspect-ratio height once
+     the circle shrinks below ~40px, breaking the circle into an oval. */
+  line-height: 1;
+  border-radius: 50%;
+}
+
+.rating-scale-labels {
+  font-size: clamp(0.75rem, 3vw, 1rem);
 }
 
 /* Force everything to use your Barlow font by default */
@@ -831,5 +861,31 @@
 
   .results-score-value {
     font-size: 1.75rem;
+  }
+}
+
+/* EU funding footer. The logo has no natural responsive constraint (its
+   source file is 712px wide) and the disclaimer column relied on a bare
+   Bootstrap .col-sm-6 outside of a .row, which has no defined width below
+   the sm breakpoint — both would overflow a narrow phone screen. */
+.site-footer {
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
+}
+
+.site-footer-content {
+  width: 100%;
+  max-width: 420px;
+}
+
+.site-footer-logo {
+  max-width: 100%;
+  height: auto;
+  width: 220px;
+}
+
+@media (max-width: 480px) {
+  .site-footer-logo {
+    width: 160px;
   }
 }
