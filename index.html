@@ -131,7 +131,8 @@
                     <h2 class="results-title">Your Club's Resilience Profile</h2>
 
                     <div class="results-hero-row">
-                        <div class="results-score-ring" :style="{ '--cat-pct': overallPercent }">
+                        <div class="results-score-ring"
+                            :style="{ '--cat-pct': overallPercent, '--cat-color': tierColor(overallTier.className) }">
                             <span class="results-score-value">{{ overallAverage }}<small>/5</small></span>
                         </div>
                         <div class="results-hero-copy">

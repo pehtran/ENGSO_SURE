@@ -148,23 +148,22 @@ createApp({
         console.error("Error loading actions:", error);
       }
     },
-    // Actions are tagged with a single primary `category` but often also
-    // relevant `development_area`s (e.g. a Social Support action might also
-    // apply to Coaching). Splitting into primary/secondary surfaces those
-    // cross-tagged actions too, so each card offers more reading than a
-    // strict category match alone would.
     actionsForCompetency(competency) {
       const upper = competency.toUpperCase();
-      const primary = this.actions.filter((a) => a.category && a.category.toUpperCase() === upper);
-      const secondary = this.actions.filter(
-        (a) =>
-          (!a.category || a.category.toUpperCase() !== upper) &&
-          (a.development_area || []).some((d) => d.toUpperCase() === upper)
-      );
-      return { primary, secondary };
+      return this.actions.filter((a) => a.category && a.category.toUpperCase() === upper);
     },
     getCategoryColor(competency) {
       return this.categoryColors[competency?.toUpperCase()] || "#6b7280";
+    },
+    // Red/amber/green colour coding for weak/moderate/strong scores — this
+    // was well received in user testing, so the score ring, meter and left
+    // border for each competency are coloured by tier rather than by the
+    // competency's own brand colour (that colour is reserved for the action
+    // links, which carry it through into the Club Guide ribbons).
+    tierColor(tierClassName) {
+      if (tierClassName === "is-priority") return "#dc3545";
+      if (tierClassName === "is-building") return "#e0a800";
+      return "#198754";
     },
     formatList(items) {
       if (!items.length) return "";
@@ -180,8 +179,8 @@ createApp({
       const entry = this.competencyCopy[competency?.toUpperCase()];
       return (entry && entry[tierKey]) || tier.copy;
     },
-    actionPillHTML(action, color, isSecondary) {
-      return `<a href="good.html?action=${encodeURIComponent(action.id)}" target="_blank" rel="noopener" class="result-action-pill${isSecondary ? " is-secondary" : ""}" style="--pill-color:${color}">${action.title}</a>`;
+    actionPillHTML(action, color) {
+      return `<a href="good.html?action=${encodeURIComponent(action.id)}" target="_blank" rel="noopener" class="result-action-pill" style="--pill-color:${color}">${action.title}</a>`;
     },
     // Single source of truth for the three score tiers, shared by the
     // overall headline score and every per-competency card below it.
@@ -387,42 +386,37 @@ createApp({
         <div class="results-breakdown-head">
           <span class="results-eyebrow">Full breakdown</span>
           <h3>Competency Breakdown</h3>
-          <p>Each area is scored out of 5 and colour-matched to its ribbon in the Crisis Resilient Club Guide.</p>
+          <p>Each area is scored out of 5, colour-coded red/amber/green for weak/moderate/strong.</p>
         </div>
-        <div class="results-grid">`;
+        <div class="results-list">`;
 
       this.categoryAverages.forEach(({ competency: cat, average: avg, count }) => {
-        const color = this.getCategoryColor(cat);
+        const brandColor = this.getCategoryColor(cat);
         const pct = Math.round((avg / 5) * 100);
         const tier = this.tierInfo(avg);
-        const { primary, secondary } = this.actionsForCompetency(cat);
+        const ragColor = this.tierColor(tier.className);
+        const primary = this.actionsForCompetency(cat);
         const primaryLabel = tier.className === "is-priority" ? "Start here" : tier.className === "is-building" ? "Explore next steps" : "Go further";
 
         let actionsHTML = "";
         if (primary.length) {
           actionsHTML += `<div class="result-actions-label">${primaryLabel}</div>
-          <div class="result-actions">${primary.map((a) => this.actionPillHTML(a, color, false)).join("")}</div>`;
+          <div class="result-actions">${primary.slice(0, 2).map((a) => this.actionPillHTML(a, brandColor)).join("")}</div>`;
         }
-        if (secondary.length) {
-          actionsHTML += `<div class="result-actions-label is-secondary">Also worth reading</div>
-          <div class="result-actions">${secondary.map((a) => this.actionPillHTML(a, color, true)).join("")}</div>`;
-        }
-        actionsHTML += `<a href="good.html?category=${encodeURIComponent(cat)}" target="_blank" rel="noopener" class="result-explore-all">See everything for ${cat} in the Club Guide &rarr;</a>`;
+        actionsHTML += `<a href="good.html?category=${encodeURIComponent(cat)}" target="_blank" rel="noopener" class="result-explore-all">See more recommendations on developing ${cat} in the Club Guide &rarr;</a>`;
 
         html += `
-      <article class="result-card" style="--cat-color:${color}">
-        <div class="result-card-top">
-          <div class="result-meter" style="--cat-pct:${pct}">
-            <span class="result-meter-value">${avg}<small>/5</small></span>
-          </div>
-          <div class="result-card-heading">
-            <span class="result-status-chip ${tier.className}">${tier.label}</span>
-            <h4>${cat}</h4>
-            <span class="result-card-basis">Based on ${count} question${count === 1 ? "" : "s"}</span>
-          </div>
+      <article class="result-row" style="--cat-color:${ragColor}">
+        <div class="result-meter" style="--cat-pct:${pct}">
+          <span class="result-meter-value">${avg}<small>/5</small></span>
         </div>
-        <p class="result-card-copy">${this.competencyMessage(cat, avg)}</p>
-        ${actionsHTML}
+        <div class="result-row-body">
+          <span class="result-status-chip ${tier.className}">${tier.label}</span>
+          <h4 class="result-row-heading">${cat}</h4>
+          <span class="result-card-basis">Based on ${count} question${count === 1 ? "" : "s"}</span>
+          <p class="result-card-copy">${this.competencyMessage(cat, avg)}</p>
+          ${actionsHTML}
+        </div>
       </article>`;
       });
 
