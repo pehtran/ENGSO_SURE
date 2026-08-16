@@ -158,7 +158,8 @@
     "image_url": "",
     "development_area": [
       "coaching",
-      "governance"
+      "governance",
+      "cooperation"
     ],
     "crysis_type": [
       "pandemics",
@@ -436,7 +437,8 @@
     "development_area": [
       "governance",
       "facilities",
-      "financial stability"
+      "financial stability",
+      "cooperation"
     ],
     "crysis_type": [
       "pandemics",
@@ -635,7 +637,8 @@
     "development_area": [
       "governance",
       "financial stability",
-      "facilities"
+      "facilities",
+      "cooperation"
     ],
     "crysis_type": [
       "pandemics",

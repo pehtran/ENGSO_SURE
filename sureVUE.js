@@ -18,6 +18,7 @@ createApp({
         PARTICIPATION: "#047857",
         FACILITIES: "#0f766e",
         GOVERNANCE: "#be185d",
+        COOPERATION: "#4338ca",
       },
       // Personalised, per-competency verdict copy for each score tier. Keyed
       // by the same uppercase competency names as categoryColors. Falls back
@@ -71,6 +72,18 @@ createApp({
           strong:
             "Your club already knows how to keep going without its usual facilities — remotely, outdoors, or through partner venues. That adaptability is a real asset when the unexpected happens.",
         },
+        // Cooperation isn't asked about directly — it's built from the
+        // partnership question already answered within each of the other six
+        // competencies (see the Secondary_Competency tag in questions.json),
+        // so its copy speaks to the club's external network as a whole.
+        COOPERATION: {
+          priority:
+            "Right now, your club is largely going it alone — few of the partnerships that would let you lean on others in a crisis are in place yet. Building outside relationships now means you won't be starting from scratch when you need help most.",
+          building:
+            "Your club has some external partnerships in place, but they're not yet spread across enough of the community to rely on. Broadening that network — schools, funders, other clubs, governing bodies — would give you more to draw on under pressure.",
+          strong:
+            "Your club is genuinely well-connected — partnerships across schools, funders, other clubs and governing bodies give you a wide network to draw on. That's a real asset when your club needs outside help fast.",
+        },
       },
     };
   },
@@ -98,13 +111,40 @@ createApp({
           competency: cat,
           average: parseFloat((sum / group.length).toFixed(1)),
           count: group.length,
+          weight: 1,
         };
       });
     },
+    // Cooperation isn't its own question set — it's recycled from the
+    // partnership question already asked within each of the other six
+    // competencies (tagged Secondary_Competency in questions.json), so its
+    // answers are entirely shared with those competencies rather than
+    // independently gathered.
+    cooperationAverage() {
+      const group = this.questions.filter((q) => q.Secondary_Competency === "Cooperation");
+      if (!group.length) return null;
+      const sum = group.reduce((acc, q) => acc + (q.Result || 0), 0);
+      return {
+        competency: "Cooperation",
+        average: parseFloat((sum / group.length).toFixed(1)),
+        count: group.length,
+        // Because every one of these answers already counts fully toward its
+        // home competency, Cooperation only counts as half a competency
+        // toward the overall score — otherwise those answers would be
+        // double-counted in the headline average.
+        weight: 0.5,
+      };
+    },
+    // The full set of competencies shown in the results: the six directly
+    // surveyed ones plus the derived Cooperation score.
+    allCategoryAverages() {
+      return this.cooperationAverage ? [...this.categoryAverages, this.cooperationAverage] : this.categoryAverages;
+    },
     overallAverage() {
-      if (!this.categoryAverages.length) return 0;
-      const sum = this.categoryAverages.reduce((acc, c) => acc + c.average, 0);
-      return parseFloat((sum / this.categoryAverages.length).toFixed(1));
+      if (!this.allCategoryAverages.length) return 0;
+      const totalWeight = this.allCategoryAverages.reduce((acc, c) => acc + c.weight, 0);
+      const sum = this.allCategoryAverages.reduce((acc, c) => acc + c.average * c.weight, 0);
+      return parseFloat((sum / totalWeight).toFixed(1));
     },
     overallPercent() {
       return Math.round((this.overallAverage / 5) * 100);
@@ -117,8 +157,8 @@ createApp({
     // a response to their specific answers rather than a generic verdict.
     overallVerdictText() {
       const tier = this.overallTier;
-      const priorityCats = this.categoryAverages.filter((c) => c.average < 2.5).map((c) => c.competency);
-      const buildingCats = this.categoryAverages
+      const priorityCats = this.allCategoryAverages.filter((c) => c.average < 2.5).map((c) => c.competency);
+      const buildingCats = this.allCategoryAverages
         .filter((c) => c.average >= 2.5 && c.average < 4)
         .map((c) => c.competency);
 
@@ -132,7 +172,7 @@ createApp({
         }
         return `Your club has real foundations in place, but resilience is still uneven — ${this.formatList(buildingCats)} would benefit from a bit more reinforcement to make it consistent.`;
       }
-      const watchList = buildingCats.length ? buildingCats : this.categoryAverages.map((c) => c.competency);
+      const watchList = buildingCats.length ? buildingCats : this.allCategoryAverages.map((c) => c.competency);
       return `Your club is in a strong position to weather a crisis. Keep an eye on ${this.formatList(watchList)} so today's strengths don't quietly erode over time.`;
     },
   },
@@ -148,9 +188,15 @@ createApp({
         console.error("Error loading actions:", error);
       }
     },
+    // Matches on an action's primary category first. Cooperation has no
+    // primary-category actions of its own (it's a derived competency), so it
+    // falls back to actions that list "cooperation" among their secondary
+    // development_area tags instead.
     actionsForCompetency(competency) {
       const upper = competency.toUpperCase();
-      return this.actions.filter((a) => a.category && a.category.toUpperCase() === upper);
+      const primary = this.actions.filter((a) => a.category && a.category.toUpperCase() === upper);
+      if (primary.length) return primary;
+      return this.actions.filter((a) => (a.development_area || []).some((d) => d.toUpperCase() === upper));
     },
     getCategoryColor(competency) {
       return this.categoryColors[competency?.toUpperCase()] || "#6b7280";
@@ -304,8 +350,8 @@ createApp({
       }
     },
     renderSpiderChart() {
-      const categories = this.categoryAverages.map((c) => c.competency.toUpperCase());
-      const resultData = this.categoryAverages.map((c) => c.average);
+      const categories = this.allCategoryAverages.map((c) => c.competency.toUpperCase());
+      const resultData = this.allCategoryAverages.map((c) => c.average);
 
       Highcharts.chart("container", {
         chart: {
@@ -390,7 +436,7 @@ createApp({
         </div>
         <div class="results-list">`;
 
-      this.categoryAverages.forEach(({ competency: cat, average: avg, count }) => {
+      this.allCategoryAverages.forEach(({ competency: cat, average: avg, count }) => {
         const brandColor = this.getCategoryColor(cat);
         const pct = Math.round((avg / 5) * 100);
         const tier = this.tierInfo(avg);
@@ -426,7 +472,7 @@ createApp({
     downloadResults() {
       // Map competency averages to the summarized export format, reusing the
       // same tier thresholds/copy as the on-screen breakdown (tierInfo).
-      const summaryData = this.categoryAverages.map(({ competency: cat, average: avg, count }) => {
+      const summaryData = this.allCategoryAverages.map(({ competency: cat, average: avg, count }) => {
         const tier = this.tierInfo(avg);
 
         return {

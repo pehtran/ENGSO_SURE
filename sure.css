@@ -274,6 +274,16 @@
   margin-top: 0;
 }
 
+.intro-popover-panel a {
+  color: var(--sure-gold-deep);
+  font-weight: 600;
+}
+
+.intro-popover-panel a:hover,
+.intro-popover-panel a:focus-visible {
+  color: var(--sure-ink);
+}
+
 @keyframes intro-panel-in {
   from {
     opacity: 0;
