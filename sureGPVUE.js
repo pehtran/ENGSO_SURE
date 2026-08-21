@@ -25,17 +25,21 @@ createApp({
         FACILITIES: true,
         PARTICIPATION: true,
       },
+      // Whether the action is something to do before a crisis, during/after
+      // one, or both. Stored per action in actions.json under "tags".
+      crisis_stages: {
+        "PREPARATION FOR CRISIS": true,
+        "RESPONSE TO CRISIS": true,
+      },
       crisis_types: {
         "NATURAL DISASTERS": true,
-        DISPLACEMENT: true,
+        CONFLICT: true,
         PANDEMICS: true,
         "ECONOMIC CRISIS": true,
-        "ENERGY SHORTAGES": true,
       },
       target_groups: {
         CHILDREN: true,
         WOMEN: true,
-        "PEOPLE WITH PHYSICAL DISABILITIES": true,
         "LOW-INCOME": true,
         "REFUGEES AND MIGRANTS": true,
       },
@@ -47,17 +51,16 @@ createApp({
         "PARTICIPATION",
         "SOCIAL SUPPORT",
       ],
+      selectedCrisisStages: ["PREPARATION FOR CRISIS", "RESPONSE TO CRISIS"],
       selectedCrises: [
         "NATURAL DISASTERS",
-        "DISPLACEMENT",
+        "CONFLICT",
         "PANDEMICS",
         "ECONOMIC CRISIS",
-        "ENERGY SHORTAGES",
       ],
       selectedTargetGroups: [
         "CHILDREN",
         "WOMEN",
-        "PEOPLE WITH PHYSICAL DISABILITIES",
         "LOW-INCOME",
         "REFUGEES AND MIGRANTS",
       ],
@@ -71,14 +74,20 @@ createApp({
         const crisisKeys = action.crysis_type.map((t) => t.toUpperCase());
         const targetKeys = action.target_group.map((g) => g.toUpperCase());
         const devAreaKeys = action.development_area.map((a) => a.toUpperCase());
+        const stageKeys = (action.tags || []).map((t) => t.toUpperCase());
 
         const selectedCrisisUpper = this.selectedCrises.map((c) => c.toUpperCase());
         const selectedDevUpper = this.selectedDevelopmentAreas.map((d) => d.toUpperCase());
         const selectedTargetUpper = this.selectedTargetGroups.map((g) => g.toUpperCase());
+        const selectedStageUpper = this.selectedCrisisStages.map((s) => s.toUpperCase());
 
         const crisisMatch = crisisKeys.some((k) => selectedCrisisUpper.includes(k));
         const devMatch = devAreaKeys.some((k) => selectedDevUpper.includes(k));
         const targetMatch = targetKeys.some((k) => selectedTargetUpper.includes(k));
+        // An action with no stage recorded yet stays visible rather than
+        // silently dropping out of the map.
+        const stageMatch =
+          stageKeys.length === 0 || stageKeys.some((k) => selectedStageUpper.includes(k));
 
         const searchFields = [
           action.title,
@@ -90,7 +99,7 @@ createApp({
           .toLowerCase();
         const searchMatch = query === "" || searchFields.includes(query);
 
-        return crisisMatch && devMatch && targetMatch && searchMatch;
+        return stageMatch && crisisMatch && devMatch && targetMatch && searchMatch;
       });
     },
   },
@@ -122,6 +131,19 @@ createApp({
     },
     getCategoryColor(category) {
       return this.categoryColors[category?.toUpperCase()] || "#6b7280";
+    },
+    // Several actions in actions.json have no case example yet - hide the whole
+    // card rather than showing an empty "Case Example" heading.
+    hasCaseExample(ce) {
+      if (!ce) return false;
+      return Boolean(
+        ce.organization ||
+          ce.context ||
+          ce.quote ||
+          ce.outcome ||
+          (ce.key_approaches && ce.key_approaches.length) ||
+          (ce.bullets && ce.bullets.length)
+      );
     },
     async loadActions() {
       try {

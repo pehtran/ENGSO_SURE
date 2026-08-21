@@ -49,7 +49,7 @@ class PDF extends tFPDF
         $this->SetFont('Arial', 'B', 9);
         $this->SetTextColor($this->accent[0], $this->accent[1], $this->accent[2]);
         $this->SetXY(-70, 12);
-        $this->Cell(60, 8, 'CRISIS RESILIENT CLUB GUIDE', 0, 0, 'R');
+        $this->Cell(60, 8, 'CRISIS RESILIENCE GUIDE', 0, 0, 'R');
         $this->SetTextColor(0, 0, 0);
         $this->SetY(24);
     }
@@ -76,6 +76,16 @@ class PDF extends tFPDF
         $this->SetFont('Arial', '', 10.5);
         $this->SetTextColor(50, 50, 50);
         $this->MultiCell(0, 6, $text, 0, 'L');
+    }
+
+    function ListHeading($text) {
+        if ($this->GetY() > 260) $this->AddPage();
+        $this->Ln(1.5);
+        $this->SetFont('Arial', 'B', 10.5);
+        $this->SetTextColor(31, 58, 42);
+        $this->MultiCell(0, 6, $text, 0, 'L');
+        $this->SetFont('Arial', '', 10.5);
+        $this->SetTextColor(50, 50, 50);
     }
 
     function ListItems($items, $numbered = false) {
@@ -120,6 +130,7 @@ if ($data) {
 
     // Development area / crisis type / target group, as compact meta lines
     $meta = [];
+    if (!empty($data['tags'])) $meta[] = 'Crisis stage: ' . implode(', ', $data['tags']);
     if (!empty($data['development_area'])) $meta[] = 'Development area: ' . implode(', ', $data['development_area']);
     if (!empty($data['crysis_type'])) $meta[] = 'Crisis type: ' . implode(', ', $data['crysis_type']);
     if (!empty($data['target_group'])) $meta[] = 'Target group: ' . implode(', ', $data['target_group']);
@@ -137,9 +148,19 @@ if ($data) {
         $pdf->BodyText(toLatin1($data['overview']));
     }
 
+    // Guidelines are grouped: [{ heading, items[] }]. A group with an empty
+    // heading is just a plain bullet list.
     if (!empty($data['guidelines'])) {
         $pdf->SectionLabel('Guidelines');
-        $pdf->ListItems(toLatin1List($data['guidelines']), true);
+        foreach ($data['guidelines'] as $group) {
+            if (!is_array($group)) continue;
+            if (!empty($group['heading'])) {
+                $pdf->ListHeading(toLatin1($group['heading']));
+            }
+            if (!empty($group['items'])) {
+                $pdf->ListItems(toLatin1List($group['items']), false);
+            }
+        }
     }
 
     if (!empty($data['cooperation_guidance'])) {
@@ -147,10 +168,20 @@ if ($data) {
         $pdf->ListItems(toLatin1List($data['cooperation_guidance']), false);
     }
 
-    if (!empty($data['case_example']) && is_array($data['case_example'])) {
-        $ce = $data['case_example'];
-        $hasContent = !empty($ce['organization']) || !empty($ce['context']) || !empty($ce['key_approaches']) || !empty($ce['quote']);
-        if ($hasContent) {
+    $ce = (!empty($data['case_example']) && is_array($data['case_example'])) ? $data['case_example'] : [];
+    $hasContent = !empty($ce['organization']) || !empty($ce['context']) || !empty($ce['key_approaches']) || !empty($ce['quote']);
+
+    // Mirror the modal's holding place: the section keeps its slot while the
+    // action is still waiting on a case example from a project partner.
+    if (!$hasContent) {
+        $pdf->SectionLabel('Case Example');
+        $pdf->SetFont('Arial', 'I', 10);
+        $pdf->SetTextColor(130, 130, 130);
+        $pdf->MultiCell(0, 6, toLatin1('Coming soon - we are gathering real examples from SURE project partners for this recommendation.'), 0, 'L');
+        $pdf->Ln(1);
+    }
+
+    if ($hasContent) {
             $pdf->SectionLabel('Case Example');
 
             if (!empty($ce['organization'])) {
@@ -184,7 +215,6 @@ if ($data) {
                 $pdf->Ln(1);
                 $pdf->ListItems(toLatin1List($ce['bullets']), false);
             }
-        }
     }
 
     if (!empty($data['sources_and_resources'])) {

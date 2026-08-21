@@ -2,7 +2,10 @@
   {
     "id": "1",
     "category": "SOCIAL SUPPORT",
-    "tags": [],
+    "tags": [
+      "Preparation for Crisis",
+      "Response to Crisis"
+    ],
     "image_url": "/images/pexels-erickfoto-37107391.jpg",
     "development_area": [
       "social support",
@@ -11,34 +14,62 @@
     ],
     "crysis_type": [
       "pandemics",
-      "displacement",
+      "conflict",
       "natural disasters"
     ],
     "target_group": [
       "Children",
       "Women",
       "Refugees and migrants",
-      "Low income",
-      "People with physical disability"
+      "Low income"
     ],
     "title": "Digital Engagement Tools",
-    "overview": "When in-person activity is not possible, sports clubs can use digital alternatives to stay connected, active, and supportive by moving training online. Live-streamed or recorded training sessions allow coaches to guide members at home, while simple fitness challenges, skill drills, or activity tracking help maintain motivation and routine. Regular communication through club apps, social media, or messaging platforms keeps members informed and connected, and virtual team meetings or social events help preserve a sense of belonging. By using accessible digital tools in a flexible and inclusive way, clubs can continue to support physical activity, wellbeing, and club culture even during periods of restriction.",
+    "overview": "If club members cannot access their regular facilities, they are likely to feel disconnected from one another and have limited access to training equipment. In these situations, sports clubs can use digital alternatives to stay connected, active, and supportive by providing adapted forms of training online.\n\nLive-streamed or recorded training sessions are a good alternative to keep members motivated and connected to the club and one another. In addition, coaches can create simple fitness challenges or skill drills, which members can participate in by digitally sharing or documenting their efforts (e.g. sharing photos or results or GPS tracking). This can help provide motivation and routine across the group.\n\nIn addition, the use of messaging platforms, social media and/or club apps help maintain regular communication with all members and provide a sense of belonging to the club and its values.\n\nDuring times of crisis, when normal participation in sport is not possible, digital tools allow clubs to keep promoting physical activity, well-being and community in flexible and inclusive ways.",
     "guidelines": [
-      "Start using digital communication tools in normal times so that staff and participants are already familiar with the tool when a crisis occurs",
-      "Use existing digital tools that are intuitive and/or that people are already familiar with",
-      "Find one or multiple digital tools for everyday informal communication (to motivate and create community, e.g., sending updates, photos, and messages) and live meetings or training sessions (to create moments together and give structure, e.g., video conferencing)",
-      "Create a digital communication space where people can easily share thoughts and updates",
-      "Make sure the tools you use are mobile-friendly and free for participants to use",
-      "Check in on participants individually who are not engaging",
-      "Set fun challenges, with a focus on effort and participation over performance",
-      "Propose set days or times for activity to help provide structure during times of uncertainty",
-      "Create clear expectations of what training participants should do and how they should engage through digital communication tools",
-      "Take steps to ensure the safety and privacy of individuals and their data. For example, use a tool that does not show participants each other's phone numbers if necessary. Make sure video links are not publicly accessible.",
-      "Designate someone in your team to provide technical support to staff and participants to avoid frustration, exclusion, or disengagement."
+      {
+        "heading": "Ensure accessibility and familiarity of digital tools",
+        "items": [
+          "Start using digital communication tools in normal times so that staff and participants are already familiar with the tool when a crisis occurs.",
+          "Use existing digital tools that are intuitive and/or that people are already familiar with.",
+          "Make sure the tools you use are mobile-friendly and free for participants to use."
+        ]
+      },
+      {
+        "heading": "Create clear communication spaces",
+        "items": [
+          "Create one or multiple digital communication spaces for everyday informal communication, where participants can easily share thoughts, updates, photos, and messages to motivate and build community.",
+          "Live meetings or training sessions can be used to create moments together and give structure, e.g. video conferencing."
+        ]
+      },
+      {
+        "heading": "Set relevant rules and structure",
+        "items": [
+          "Set expectations for how participants could engage through digital communication tools, for example by providing a short online guide and a code of conduct.",
+          "Propose fixed days or times for activity to help create structure during periods of uncertainty."
+        ]
+      },
+      {
+        "heading": "Encourage participation",
+        "items": [
+          "Set fun challenges, with focus on effort and participation over performance."
+        ]
+      },
+      {
+        "heading": "Provide support and follow-up",
+        "items": [
+          "Designate someone in your team to provide technical support to staff and participants to avoid frustration, exclusion or disengagement.",
+          "Check in on participants individually who are not engaging."
+        ]
+      },
+      {
+        "heading": "Ensure safety",
+        "items": [
+          "Take steps to ensure the safety and privacy of individuals and their data. For example use a tool that does not show participants each other’s phone numbers if necessary. Make sure video links are not publicly accessible."
+        ]
+      }
     ],
     "cooperation_guidance": [
       "Speak to other sport clubs and organisations to find out which digital tools they recommend.",
-      "Use digital communication tools now so that participants and staff are already familiar with them when you may become dependent on them.",
       "Many digital tools are free, or provide discounts for charities and clubs, it may be beneficial to make contact with the provider(s) of the digital tool to find out what your options are."
     ],
     "image_ideas": [
@@ -47,26 +78,46 @@
     ],
     "case_example": {
       "organization": "Minor Ndako Sport",
-      "location": "Brussels",
-      "context": "During the COVID-19 pandemic from 2020, a running club in Brussels for young refugees used the Strava app to create a group and allow everyone to engage with new challenges, to follow each other's training, and to continue to feel part of a team.",
+      "location": "Brussels, Belgium",
+      "context": "Minor Ndako Sport is a sports club in Brussels, Belgium that used digital engagement to keep their running group going during the COVID-19 pandemic.",
       "key_approaches": [
-        "We use a private Strava club to help young refugees in Brussels see each other’s runs, give kudos, and feel connected during the COVID-19 pandemic.",
+        "We used a private Strava club to help young refugees in Brussels see each other’s runs, give kudos, and feel connected during the COVID-19 pandemic.",
         "We set simple challenges to encourage regular participation and routine when group training was not possible.",
-        "We celebrate effort, consistency, and personal milestones to keep motivation high during periods of restriction and isolation.",
-        "We share routes, ideas, and suggested sessions around Brussels to inspire each other when running alone.",
-        "We use agreed virtual run days so participants feel they are running together, even when apart."
+        "We celebrated effort, consistency, and personal milestones to keep motivation high during periods of restriction and isolation.",
+        "We shared routes, ideas, and suggested sessions around Brussels to inspire each other when running alone.",
+        "We used agreed virtual run days so participants feel they are running together, even when apart."
       ],
-      "outcome": "This approach helped us stay motivated, engaged, and connected despite lockdowns and the lack of in-person activity.",
-      "quote": "[During the pandemic], since we weren’t allowed to run in group anymore, we created a 50 km challenge: everyone ran individually and tried to complete 50 km during December 2020. Every time you went for a run, you either sent a photo in WhatsApp or posted it on Strava."
+      "quote": "[During the pandemic], since we weren’t allowed to run in group anymore, we created a 50 km challenge: everyone ran individually and tried to complete 50 km during December 2020. Every time you went for a run, you either sent a photo in WhatsApp or posted it on Strava.",
+      "outcome": "This approach helped us stay motivated, engaged, and connected despite lockdowns and the lack of in-person activity."
     },
     "sources_and_resources": [
       {
-        "title": "Best Practices for Hosting Workouts Over Zoom (May 2020)",
+        "title": "‘Best Practices for Hosting Workouts Over Zoom’ (May 2020)",
         "url": "https://www.zoom.com/en/blog/best-practices-for-hosting-zoom-workouts/"
       },
       {
         "title": "Find out how to create a Club on Strava",
         "url": "https://partners.strava.com/clubs"
+      },
+      {
+        "title": "Use Google Health (Android) to track activity on your phone",
+        "url": "https://store.google.com/product/google_health_premium"
+      },
+      {
+        "title": "Use Apple Fitness (iOS) to track activity on your phone",
+        "url": "https://apps.apple.com/us/app/apple-fitness/id1208224953"
+      },
+      {
+        "title": "When facilities are not accessible anymore, use public spaces to help get your community active: Placemaking Move Game guide",
+        "url": "https://azursportsante.fr/upload/Initiatives/Move-Game/Placemaking-Move-Game-guide-pdf?ref=blog.movegame.eu"
+      },
+      {
+        "title": "Move Game",
+        "url": "https://movegame.eu/en"
+      },
+      {
+        "title": "Homepage of Minor Ndako Sport",
+        "url": "https://minor-ndako.be/watwedoen/loopclub-2/"
       }
     ]
   },
@@ -85,66 +136,96 @@
     "crysis_type": [
       "pandemics",
       "economic crises",
-      "displacement",
-      "energy shortages",
+      "conflict",
       "natural disasters"
     ],
     "target_group": [
       "Children",
       "Women",
       "Refugees and migrants",
-      "Low income",
-      "People with physical disability"
+      "Low income"
     ],
     "title": "Upskill coaches on mental health and wellbeing",
-    "overview": "Mental health disorders and social exclusion can negatively affect sport and physical activity participation. While sport and exercise offer clear benefits for well-being, mental health, and social capital, achieving these benefits requires sports coaching to focus deliberately on coach behavior and the athlete-coach relationship. Coaches are often the first to notice changes in athlete behavior and are uniquely positioned to provide early support or referrals. Upskilling coaches in de-escalation, emotional regulation, and crisis conversation skills is essential, especially given the rising mental health crisis among youth and elite athletes. Coaching styles should promote autonomy rather than authority, supporting basic psychological need satisfaction by nurturing Autonomy, Relatedness, and Competence to maintain optimal health, performance, and well-being.",
+    "overview": "External crises can significantly affect the mental health of sport participants. They may face disrupted routines, isolation, physical danger, financial stress, loss of stability, or trauma. As a result, some may stop participating in sport.\n\nTo prevent this and keep sport a positive space for mental wellbeing, coaches need ongoing training to respond to evolving mental health challenges. Through their attitudes and training methods, they play a key role in helping participants benefit from sport in a supportive environment.",
     "guidelines": [
-      "Prioritize mental wellbeing in coach education: Ensure mental health and wellbeing are given the same importance as physical aspects in coach training, as they are intrinsically linked to athlete success and resilience.",
-      "Create a supportive environment for coaches: Coaches should work with club management to design a work environment that is empowering, offers professional development opportunities, and maintains a healthy work-life balance to prevent negative feelings from affecting athletes.",
-      "Educate coaches to support athletes’ autonomy by providing choice, adopting their perspectives, and avoiding controlling language to foster empowerment and motivation.",
-      "Teach coaches to build quality relationships with athletes, emphasizing closeness, commitment, empathy, and self-control to reduce fear of failure and enhance engagement.",
-      "Highlight the emotional dependencies between coach and athlete, educating coaches on how their emotions influence athletes’ feelings and the importance of regulating emotions through strategies like goal-setting and positive reinforcement.",
-      "Encourage coaches to cultivate a positive body image by shifting focus from aesthetic appearance to the body’s abilities and performance, linking mental wellbeing to physical health.",
-      "Train coaches to provide social support to athletes, including emotional, esteem, informational, and practical help, to build confidence and reduce stress.",
-      "Educate coaches on the benefits of peer support for mental wellbeing, as it fosters resilience, regular participation, and a sense of empowerment among athletes, particularly for those at higher risk.",
-      "Ensure coaches recognize the limits of their responsibility and direct athletes to professional help (e.g., medical, psychological, or social support) when needed."
-    ],
-    "cooperation_guidance": [
-      "Be aware of local mental health services that you can direct athletes to.",
-      "Find out about local mental health awareness training or mental health first aid training for coaches and staff."
-    ],
-    "image_ideas": [
-      "A coach sitting down talking supportively with a young athlete on a bench, focusing on connection and communication.",
-      "An interactive workshop slide or infographic illustrating the three basic psychological needs: Autonomy, Relatedness, and Competence."
-    ],
-    "case_example": {
-      "organization": "ENGSO (European Non-Governmental Sports Organisation)",
-      "location": "Europe",
-      "context": "Through the SPIRIT project, international sports frameworks have highlighted recommendations for sport coaching for mental well-being, providing coaches with actionable tools to transition from traditional performance-centric styles to humane, well-being-oriented practices.",
-      "key_approaches": [
-        "Integrating explicit well-being frameworks into traditional sport technical curricula.",
-        "Developing a modular online resource suite that coaches can access independently to learn emotional regulation strategies.",
-        "Utilizing self-evaluation frameworks to help clubs assess their current operational safety regarding mental health."
-      ],
-      "outcome": "The initiative successfully structured localized toolkits and standardized courses to enable coaches to recognize early psychological distress indicators.",
-      "quote": "To maintain optimal health, performance and well-being, these needs must be satisfied: Autonomy, Relatedness and Competence."
-    },
-    "sources_and_resources": [
       {
-        "title": "SPIRIT Online Course on Mental Health and Wellbeing in Sport",
-        "url": "https://www.engso-education.eu/projects/spirit/spirit-online-course/"
+        "heading": "Embrace supportive coaching practices",
+        "items": [
+          "Promote a healthy approach to sport, focusing on enjoyment, wellbeing, and abilities rather than performance pressure or body appearance as only and primary drivers.",
+          "Build trust with sport participants and create a safe team environment where participants feel supported, including through peer support."
+        ]
       },
       {
-        "title": "SPIRIT Research Article Key Findings & Self-Evaluation Questions",
+        "heading": "Provide a positive working environment for coaches, including support, learning opportunities and a healthy work-life balance",
+        "items": [
+          "Provide regular training to help coaches respond to changing challenges.",
+          "Make sure coaches can have mental health support, within the organisation or with external support contacts."
+        ]
+      },
+      {
+        "heading": "Involve external support contacts when necessary for professional help",
+        "items": [
+          "Give resources and structure for coaches to remain in their responsibilities scope and seek external help for sport participants when needed."
+        ]
+      }
+    ],
+    "cooperation_guidance": [
+      "Partner with providers of mental health awareness training or mental health first aid training for coaches and staff and see what training they recommend and can offer.",
+      "Identify and contact local mental health services or associations who can advise or take over the support of an individual when needed.",
+      "Work with other clubs in your area to share coach training to reduce costs and allow more sessions."
+    ],
+    "image_ideas": [
+      "Diagram of mental health, e.g. hand of wellbeing"
+    ],
+    "case_example": {},
+    "sources_and_resources": [
+      {
+        "title": "Health promoting sports coach implementation guide (HPSCOACH-EDU)",
+        "url": "https://iris.who.int/server/api/core/bitstreams/27e2a5e3-ea00-413c-82a3-ecca647cc263/content"
+      },
+      {
+        "title": "Reflect on the questions in this research article to self-evaluate your current practices around mental health and well-being",
         "url": "https://www.engso-education.eu/wp-content/uploads/2022/01/Key-findings.pdf"
       },
       {
-        "title": "The Hand of Mental Health: Tools for Everyday Choices",
+        "title": "Recommendations for coach education and club management for mental wellbeing (SPIRIT)",
+        "url": "https://www.engso-education.eu/wp-content/uploads/2022/02/SPIRIT-sport-coaching-for-mental-well-being-recommendations.pdf"
+      },
+      {
+        "title": "Handbook of assessed training programmes for a fairer coaching in Europe (FAIRER COACHING)",
+        "url": "https://afc.assistitaly.eu/wp-content/uploads/2025/08/ENG-FINAL-D2-AFC.pdf"
+      },
+      {
+        "title": "Good practices across Europe in promoting mental health of adolescents through physical activity (HOORAY)",
+        "url": "https://engsoyouth.eu/wp-content/uploads/2024/05/COMPENDIUM-HOORAY-FINAL.docx.pdf"
+      },
+      {
+        "title": "Map of good practices in Europe promoting mental well-being in sports clubs (SPIRIT)",
+        "url": "https://www.engso-education.eu/wp-content/uploads/2021/08/6acfa9_39dd18e2850f4842bbcf5fd4cb663cf2.pdf"
+      },
+      {
+        "title": "Complete this online course on mental health and wellbeing in sport (SPIRIT)",
+        "url": "https://www.engso-education.eu/projects/spirit/spirit-online-course/"
+      },
+      {
+        "title": "Educational toolkit — coach resource (FAIRER COACHING)",
+        "url": "https://afc.assistitaly.eu/wp-content/uploads/2025/11/D_4_education-toolkitA-Fairer-Coaching.pdf"
+      },
+      {
+        "title": "Online course on mental well-being and inclusion of athletes in grassroots sport (SPIRIT)",
+        "url": "https://www.engso-education.eu/wp-content/uploads/2022/10/SPIRIT-coaching-toolkit.pdf"
+      },
+      {
+        "title": "Use the Hand of Mental Health to reflect and discuss everyday choices and their impact on our mental health",
         "url": "https://mieli.fi/en/materials/hand-of-mental-health/"
       },
       {
-        "title": "SPIRIT Sport Coaching for Mental Well-being Recommendations",
-        "url": "https://www.engso-education.eu/wp-content/uploads/2022/02/SPIRIT-sport-coaching-for-mental-well-being-recommendations.pdf"
+        "title": "Study on the relationships between sport, physical activity and mental health (HOORAY)",
+        "url": "https://engsoyouth.eu/wp-content/uploads/2024/01/What-works.pdf"
+      },
+      {
+        "title": "Youth voices: how do adolescents perceive physical activities that support mental health (HOORAY)",
+        "url": "https://engsoyouth.eu/wp-content/uploads/2024/01/Youth-voices.pdf"
       }
     ]
   },
@@ -164,54 +245,165 @@
     "crysis_type": [
       "pandemics",
       "economic crises",
-      "displacement",
-      "energy shortages",
+      "conflict",
       "natural disasters"
     ],
     "target_group": [
       "Children",
       "Women",
       "Refugees and migrants",
-      "Low income",
-      "People with physical disability"
+      "Low income"
     ],
-    "title": "Invest in volunteers capacity",
-    "overview": "Sports clubs must prioritize developing the administrative, organizational, communication, and technical competencies of their staff and volunteers, alongside building specific expertise in working with diverse participant groups. Because most grassroots sports organizations rely heavily on volunteer labor, establishing long-term continuity is vital. This requires robust succession planning alongside structured professional development pipelines—such as certification pathways and mentorship programs—to ensure knowledge transfers smoothly when individuals move on. Research underscores that empowering and retaining volunteers requires co-creating shared values and a common vision. When volunteers feel structural ownership over activities, their sense of internal belonging strengthens, positively stabilizing their long-term involvement and capacity to manage crisis disruptions.",
+    "title": "Invest in volunteer capacity",
+    "overview": "External crises can cause volunteers to leave because of changing priorities, stress, lack of resources, uncertainty or health and safety concerns. This disrupts operations and erodes critical skills and community connections, undermining an organisation’s ability to function effectively.\n\nInvesting in volunteers’ capacity, through training, recognition and support, fosters engagement and a sense of belonging. This helps clubs retain and attract volunteers, ensuring stability and resilience to navigate crises and achieve long-term growth.",
     "guidelines": [
-      "Conduct a thorough skills audit across the organization to map existing administrative, organizational, technical, and inclusion-focused competencies and identify training gaps.",
-      "Develop targeted training plans for volunteers and coaches, facilitating access to formal certification pathways, seminars, webinars, and specialized online materials.",
-      "Formulate highly structured role descriptions and clear operational guidelines so organizational tasks remain transparent and legally transferable during personnel transitions.",
-      "Establish structured onboarding and inter-organizational mentoring systems, deliberately pairing experienced staff members with newcomers to accelerate practical knowledge transfer.",
-      "Implement formal succession planning protocols for critical executive roles, incorporating clear timelines, documented operational workflows, and hands-on job-shadowing periods.",
-      "Preserve organizational memory against structural data loss by maintaining centralized digital repositories (such as Google Drive or Microsoft Teams) for manuals, process workflows, and historical data.",
-      "Foster a unified organizational culture by codifying and communicating the club's mission, statutes, and strategic action plans through continuous value-based communication.",
-      "Maintain consensus and high internal motivation by building regular, transparent feedback loops and alignment meetings centered around shared strategic goals.",
-      "Promote volunteer retention by recognizing contributions via formal skills certification, internal/external communication campaigns, appreciation events, and flexible engagement choices."
+      {
+        "heading": "Volunteer engagement — develop competences",
+        "items": [
+          "Support volunteers in developing skills that are useful both within and outside the club.",
+          "Assess volunteers’ skills regularly to identify knowledge or skills gaps.",
+          "Provide accessible training opportunities such as workshops, webinars, online materials, and practical sessions.",
+          "Facilitate access to formal certifications such as coaching or refereeing certifications.",
+          "Encourage peer learning by creating moments where volunteers share their knowledge and experience."
+        ]
+      },
+      {
+        "heading": "Volunteer engagement — show appreciation",
+        "items": [
+          "Regularly thank volunteers for their time and contribution.",
+          "Publicly recognise volunteers through events, social media or small awards.",
+          "Formalise the roles with role titles and role descriptions."
+        ]
+      },
+      {
+        "heading": "Volunteer engagement — support involvement",
+        "items": [
+          "Offer flexible volunteering options, including short-term, long-term and remote roles.",
+          "Adapt tasks to match volunteers’ availability and capacity.",
+          "Support volunteers’ wellbeing by being attentive to stress, time constraints and crisis situations.",
+          "Involve volunteers in decision-making processes related to club activities."
+        ]
+      },
+      {
+        "heading": "Role management — structure responsibilities",
+        "items": [
+          "Define clear and simple role descriptions so each volunteer understands their tasks and responsibilities.",
+          "Set up a structured onboarding process that includes welcoming new volunteers, providing simple guides or checklists, and assigning a mentor or buddy."
+        ]
+      },
+      {
+        "heading": "Role management — ensure stability",
+        "items": [
+          "Identify and prepare replacements for key roles in advance.",
+          "Organise shadowing opportunities so new volunteers can learn from experienced members.",
+          "Ensure proper handover of tasks and responsibilities when volunteers leave their role."
+        ]
+      },
+      {
+        "heading": "Role management — manage information",
+        "items": [
+          "Centralise all key information using shared digital tools.",
+          "For example, store essential documents including guides, meeting notes, decisions, contact lists and calendars.",
+          "Document important processes so that tasks can be easily continued by others.",
+          "Use simple and clear formats to ensure all information is easy to understand and use."
+        ]
+      },
+      {
+        "heading": "Communication and club culture — share information clearly",
+        "items": [
+          "Clearly communicate the organisation’s mission, values, and priorities through simple documents and regular updates.",
+          "Maintain regular communication through short meetings, emails, newsletters, or social media."
+        ]
+      },
+      {
+        "heading": "Communication and club culture — build a positive environment",
+        "items": [
+          "Create opportunities for open discussion and actively collect feedback from volunteers.",
+          "Use feedback to improve club practices and decision-making.",
+          "Organise social and informal activities to strengthen relationships between members and volunteers.",
+          "Promote a welcoming and inclusive environment for all participants."
+        ]
+      }
     ],
     "cooperation_guidance": [
-      "Build connections with relevant local training course providers and educational institutions who can subsidize or support the skill development of your staff and volunteers.",
-      "Engage with local civil society networks, municipal volunteer centers, and digital recruitment platforms to build a resilient, ongoing pipeline of new volunteers."
+      "Build connection with relevant local training course providers who could support the skill development of your staff and volunteers.",
+      "Find out about local networks and platforms for recruiting new volunteers (e.g. universities network, municipalities network).",
+      "Work with other clubs in your area to share trainings to reduce costs and allow more sessions.",
+      "Build partnerships with schools, municipalities or local organisations to support recruitment and engagement of volunteers."
     ],
     "image_ideas": [
-      "Photos or illustrations of experienced coordinators actively coaching or mentoring younger sports volunteers in an office or field setting.",
-      "Scenes of group professional development learning, or an official certificate presentation ceremony highlighting volunteer upskilling and formal recognition."
+      "Photos or illustrations of people coaching or mentoring others.",
+      "Scenes of group learning or certificate presentation to highlight upskilling."
     ],
-    "case_example": {
-      "organization": "Community Sport Capacity Initiative",
-      "location": "Global / Research Framework",
-      "context": "Based on foundational community sport frameworks, clubs face structural vulnerability during crises if operational knowledge is concentrated in a single individual. Applying multi-dimensional capacity models allows community clubs to shift from reactive work to proactive risk planning.",
-      "key_approaches": [
-        "Transitioning operational workflows away from loose verbal agreements into clear, centralized digital manuals.",
-        "Co-designing seasonal goals with volunteers to build alignment between personal development and organizational strategy.",
-        "Creating modular volunteer roles with flexible commitments to prevent burnout during extended regional emergencies."
-      ],
-      "outcome": "Clubs utilizing systematic human resource capacity building show significantly higher operational resilience and lower volunteer attrition rates during sudden socio-economic disruptions.",
-      "quote": "In order to empower and keep volunteers involved, it is important to co-create shared values and a common vision or objectives for the long-term."
-    },
+    "case_example": {},
     "sources_and_resources": [
       {
-        "title": "Toward a Multidimensional Framework of Capacity in Community Sport Clubs (Doherty, Misener, & Cuskelly, 2014)",
-        "url": "https://journals.sagepub.com/doi/10.1177/0899764013509917"
+        "title": "Digital game on sport multiplier effect and inclusion (iSPORT)",
+        "url": "http://games.csd.auth.gr/isport/"
+      },
+      {
+        "title": "Online course on how to increase women’s participation in your grassroots sport organisation (GAP WOMEN)",
+        "url": "https://gap-women-training-tool.ufec.cat/"
+      },
+      {
+        "title": "A map of women’s sports festivals and events in Europe, to promote contacts and exchange of good practices between organisers (REWSE)",
+        "url": "https://map.climate-justice.earth/index.php/view/map/?repository=7&project=EWSE"
+      },
+      {
+        "title": "Educational course on youth participation in EU sport policy (EUYOUSPORT)",
+        "url": "https://www.engso-education.eu/euyousport/"
+      },
+      {
+        "title": "European Code of Ethics for Sports Volunteers Managers (UVMIS)",
+        "url": "https://www.uvmis-eu.org/_files/ugd/3ec99c_754ed19da0d442eeb933f8479c91bcb2.pdf"
+      },
+      {
+        "title": "Recommendations for inclusive sport events (iSPORT)",
+        "url": "https://www.isporteurope.eu/documents/isporteurope/resources/Recommendations%20Inclusive%20Sport%20Events.pdf"
+      },
+      {
+        "title": "Guiding toolkit to strengthen the skills and preparation of women sport event organisers (REWSE)",
+        "url": "https://rewse.assistitaly.eu/wp-content/uploads/2026/05/D3_Transnational-training-workshop-and-exchange-of-experiences-2.pdf"
+      },
+      {
+        "title": "Gender Equality in Coaching interactive toolkit (SCORE)",
+        "url": "https://www.engso-education.eu/wp-content/uploads/2022/03/SCORE-Gender-Equality-in-Coaching-Interactive-Toolkit.pdf"
+      },
+      {
+        "title": "Guide on Volunteering in Sports Events (UVMIS)",
+        "url": "https://www.uvmis-eu.org/_files/ugd/3ec99c_d36d6a17eb814b8f86eacd71bf94db47.pdf"
+      },
+      {
+        "title": "Guide to sport volunteering, solidarity and European values (UVMIS)",
+        "url": "https://www.uvmis-eu.org/_files/ugd/3ec99c_8708814445b34cf9b55935585573ccef.pdf"
+      },
+      {
+        "title": "Guide on the role of sports volunteer managers in facilitating culturally sensitive and inclusive sport engagement (UVMIS)",
+        "url": "https://www.uvmis-eu.org/_files/ugd/3ec99c_ee9a4a067d3e4ff9a2371e0b8d171266.pdf"
+      },
+      {
+        "title": "Workshop delivery guide on improving equality in sport in Europe (EQUIP)",
+        "url": "https://www.engso-education.eu/wp-content/uploads/2024/01/IO2-EQUIP-Workshop-Delivery-Guide.pdf"
+      },
+      {
+        "title": "Index of top policies and practices to improve equality in sport in Europe (EQUIP)",
+        "url": "https://www.engso-education.eu/wp-content/uploads/2023/10/IO1-EQUIP-Index-of-Top-Policies-and-practices.pdf"
+      },
+      {
+        "title": "Manual on developing competences to act as multipliers for human rights education through sport",
+        "url": "https://engsoyouth.eu/wp-content/uploads/2022/12/HRE-MANUAL.pdf"
+      },
+      {
+        "title": "Study on women’s participation in sport across Europe (Sport4CERV)",
+        "url": "https://www.engso-education.eu/wp-content/uploads/2023/11/WOMENS-PARTICIPATION-IN-SPORT-ACROSS-EUROPE-2023-EWS-research-november.pdf"
+      },
+      {
+        "title": "Innovative offers in sport (CHAMP)",
+        "url": "https://www.engso-education.eu/wp-content/uploads/2021/08/Intellectual-output-2.pdf"
+      },
+      {
+        "title": "Doherty, A., Misener, K., & Cuskelly, G. (2014). Toward a Multidimensional Framework of Capacity in Community Sport Clubs.",
+        "url": ""
       }
     ]
   },
@@ -230,62 +422,79 @@
     "crysis_type": [
       "pandemics",
       "economic crises",
-      "displacement",
-      "energy shortages",
+      "conflict",
       "natural disasters"
     ],
     "target_group": [
       "Children",
       "Women",
       "Refugees and migrants",
-      "Low income",
-      "People with physical disability"
+      "Low income"
     ],
     "title": "Diversify funding",
-    "overview": "Sport organizations must adopt rigorous financial management practices to ensure long-term sustainability, focusing closely on maintaining balanced budgets, monitoring liquid cash flow, and keeping impeccable financial records. Structural cost control requires vigilant oversight of baseline expenditures and the efficient deployment of organizational resources. To safely survive periods of sudden socio-economic uncertainty, establishing dedicated reserve or contingency funds is highly recommended. Rather than relying solely on standard membership dues, organizations should aggressively diversify their revenue engines through active fundraising initiatives, facility rentals, commercial sponsorships, advertising sales, and non-traditional cross-sector partnerships outside their regular networks.",
+    "overview": "External crises disrupt sports club funding streams by reducing revenue (e.g. cancelled events, lower membership fees) and cutting financial support (e.g. withdrawn sponsorships, reallocated public funds), while also increasing costs (e.g. repairs, safety measures). This creates a double pressure of less income and higher expenses.\n\nDiversifying funding sources can guarantee more financial stability during uncertain times for the organisation. Grants, partnerships or community initiatives allow the club to rely on different incomes, should one source of money disappear.",
     "guidelines": [
-      "Conduct a comprehensive financial assessment to map out all active revenue streams, underlying cost structures, and acute financial risks, utilizing either internal talent or an external auditor.",
-      "Maintain a granular, itemized overview of all current operational costs to establish your baseline minimum income requirement, tying future spending plans directly to transparent fundraising targets.",
-      "Evaluate the legal structure of your organization within your country's regulatory framework to identify alternative, compliant commercial and philanthropic revenue opportunities.",
-      "Utilize a Business Model Canvas to plot out a clear strategic overview of your current value propositions, customer segments, and untapped income streams.",
-      "Establish strict internal financial policies that explicitly define spending thresholds, mandatory approval workflows, and robust fiscal accountability mechanisms.",
-      "Build and aggressively protect an isolated emergency contingency or reserve fund to absorb unexpected financial shortfalls or sudden spikes in operational overhead.",
-      "Map out and prioritize diversified revenue channels outside of membership fees, actively seeking corporate sponsors for digital advertising, physical facility branding, and event programs.",
-      "Maximize physical asset utilization by renting out courts, fields, or meeting rooms to external community organizations and non-profits during identified idle hours.",
-      "Proactively recruit or train specialized staff and volunteers with professional financial backgrounds to strengthen internal auditing, bookkeeping, and strategic investment choices."
-    ],
-    "cooperation_guidance": [
-      "Collaborate with external community partners to co-organize and execute large-scale fundraising events, multi-club tournaments, and high-margin concession operations.",
-      "Cultivate trust with members, corporate sponsors, and public institutional donors by enforcing complete structural transparency through published annual activity reports and financial audits."
-    ],
-    "image_ideas": [
-      "A clean infographic or pie chart illustrating a balanced, healthy financial ecosystem split across five distinct income streams.",
-      "A visual breakdown of the Business Model Canvas layout tailored specifically for a non-profit community sports club."
-    ],
-    "case_example": {
-      "organization": "Community Sport Sustainability Initiative",
-      "location": "Global",
-      "context": "Applying multi-dimensional capacity frameworks to grassroots sports clubs reveals that financial vulnerability is directly linked to an over-reliance on a single source of funding (such as registration fees or a single municipal grant) which can disappear instantly during an economic crisis.",
-      "key_approaches": [
-        "Monetizing facility downtime by building shared-use agreements with other local non-profit groups.",
-        "Shifting local sponsorships away from basic charity requests into mutually beneficial marketing arrangements on club websites and apps.",
-        "Setting an internal operational rule to divert a fixed percentage of all monthly revenue directly into an untouchable emergency reserve account."
-      ],
-      "outcome": "Clubs that built a diversified financial structure successfully maintained their programs and kept low-income target groups enrolled even during periods of deep localized economic stress.",
-      "quote": "Establishing reserve or contingency funds is recommended to provide financial stability in times of uncertainty."
-    },
-    "sources_and_resources": [
       {
-        "title": "Toward a Multidimensional Framework of Capacity in Community Sport Clubs (Doherty, Misener, & Cuskelly, 2014)",
-        "url": "https://journals.sagepub.com/doi/10.1177/0899764013509917"
+        "heading": "Assess your financial situation and define your needs",
+        "items": [
+          "Conduct a financial assessment (internally or with an external expert) to review revenue streams, cost structures and financial risks.",
+          "Define financial needs and goals with the minimum income required for operations and future spending to set fundraising goals.",
+          "Assess the legal structure of your organisation to identify revenue options available in your region, country or at national and European level."
+        ]
       },
       {
-        "title": "Strategyzer: The Business Model Canvas Template & Toolkit",
+        "heading": "Use tools to organise and optimise your financial strategy",
+        "items": [
+          "Use existing business models to map current and potential revenue streams.",
+          "Establish clear policies for spending limits, approval processes and accountability mechanisms."
+        ]
+      },
+      {
+        "heading": "Get ready with a contingency fund",
+        "items": [
+          "Build and maintain a reserve fund to prepare for unexpected financial shortfalls."
+        ]
+      },
+      {
+        "heading": "Diversify your revenue streams",
+        "items": [
+          "Prioritise diversified income sources beyond membership fees such as events, sponsorships, grants and facility rentals.",
+          "Expand partnerships outside your regular network such as local businesses for sponsorships and advertising (e.g. website, event programmes, facilities).",
+          "Use all your assets at their fullest, such as renting out spaces during your activities or offering services to external users during events or specific activities."
+        ]
+      },
+      {
+        "heading": "Strengthen your team’s financial expertise",
+        "items": [
+          "Train or recruit volunteers/staff with financial expertise to strengthen oversight and decision-making."
+        ]
+      }
+    ],
+    "cooperation_guidance": [
+      "Work in partnership with financial or business development experts to do the financial assessment and to develop alternative income generation.",
+      "Attract new partners and build trust with members, sponsors, and stakeholders through transparency and accountability and through external communication, such as public campaigns or a yearly report of activities.",
+      "Collaborate with other sectors beyond sport."
+    ],
+    "image_ideas": [
+      "An infographic that shows increasing revenue or multiple income streams."
+    ],
+    "case_example": {},
+    "sources_and_resources": [
+      {
+        "title": "Doherty, A., Misener, K., & Cuskelly, G. (2014). Toward a Multidimensional Framework of Capacity in Community Sport Clubs.",
+        "url": ""
+      },
+      {
+        "title": "Template for a Business Model Canvas",
         "url": "https://www.strategyzer.com/library/the-business-model-canvas"
       },
       {
-        "title": "Business Model Canvas Explanation and Video Tutorial",
+        "title": "Business Model Canvas video tutorial",
         "url": "https://vimeo.com/78350794"
+      },
+      {
+        "title": "Overview of funding options in the EU and partner nations on engaging newly arrived migrants into local sports clubs (INAMOS)",
+        "url": "https://inamos.org/home/learning/2-accessible-funding-options/"
       }
     ]
   },
@@ -303,55 +512,59 @@
     "crysis_type": [
       "pandemics",
       "economic crises",
-      "displacement",
-      "energy shortages",
+      "conflict",
       "natural disasters"
     ],
     "target_group": [
       "Children",
       "Women",
       "Refugees and migrants",
-      "Low income",
-      "People with physical disability"
+      "Low income"
     ],
     "title": "Digital Communication Tools",
-    "overview": "Developing resilient communication practices is essential for sports clubs to navigate crises effectively and maintain continuity. Digital alternatives such as messaging apps, shared calendars, or collaborative spaces enable clubs to stay connected, coordinate activities, and share critical updates when in-person contact is impossible. Short, clear, and regular online communication keeps members informed even when normal operations are paused, helping to sustain engagement and retain membership during challenging periods. To strengthen internal communication, clubs should establish simple, consistent channels for two-way dialogue, such as quick polls or feedback forms. Investing in the digital skills of staff and volunteers through peer learning ensures communication remains effective under pressure, keeping the club community intact so it can return to regular activities as quickly as possible.",
+    "overview": "External crisis can disrupt in-person activity, and thereby day-to-day communication within the club. Developing resilient communication practices is essential for sport clubs to navigate crises effectively, even when activity is on hold. Using digital communication channels allows you to retain membership and community. This way, when the situation allows, regular activity can return as quickly as possible, without the loss of staff, volunteers, or members along the way.\n\nMany clubs already rely on digital tools for everyday coordination among staff, volunteers, and members, and these same tools can become indispensable during times of disruption.\n\nTo strengthen internal communication, clubs should establish simple, consistent channels for sharing information, reassure your community and hear from members.",
     "guidelines": [
-      "Integrate digital tools early: Adopt digital communication tools in normal times so that staff, coaches, and participants are thoroughly familiar with them before a crisis occurs.",
-      "Choose intuitive, familiar tools: Opt for platforms that your specific target demographics already know, use, and have installed on their personal devices.",
-      "Deploy tools for informal communication: Use messaging apps like WhatsApp, Messenger, Slack, or Microsoft Teams for quick updates, casual photos, and motivating messages to preserve a sense of community.",
-      "Deploy tools for formal communication: Rely on email, official club newsletters, or pinned Facebook/WhatsApp Community posts to distribute official news, membership details, events, and schedules.",
-      "Establish shared digital workspaces: Centralize internal planning and data preservation using platforms like Notion, Obsidian, Asana, or a custom intranet.",
-      "Ensure accessibility and data safety: Prioritize mobile-friendly, completely free tools available in local languages, and strictly verify data safety boundaries (e.g., platforms that don't expose private contact information).",
-      "Assign communication roles: Designate a specific individual or team to handle official organizational output to ensure consistency in messaging, while maintaining smaller informal sub-groups for teams or parents.",
-      "Build baseline digital literacy: Provide short, practical training sessions or peer-led demonstrations tied directly to everyday tasks like managing shared calendars, updating drives, and sending alerts.",
-      "Develop professional communication skills: Support staff in writing clear, concise updates tailored to distinct audiences (such as youth, parents, or corporate sponsors) using simple pre-made text templates.",
-      "Foster ongoing capacity building: Document and reuse small 'how-to' resources, screen recordings, and guidelines to permanently embed technical skills within the organization over time."
+      {
+        "heading": "Choose the right tools — before a crisis hits",
+        "items": [
+          "Match the tool to the purpose: informal updates (WhatsApp, Messenger, Slack, Teams), formal communication (email, newsletters, community posts), and shared planning (Notion, Asana, Obsidian, intranet).",
+          "Build in two-way channels — polls, feedback forms, open discussion spaces — so members and volunteers can raise concerns and feel ownership.",
+          "Prioritise accessibility: mobile-friendly, free, available in the local language, and safe with participants’ data.",
+          "Introduce these tools in normal times, using platforms people already know, so everyone is comfortable with them well before a crisis occurs."
+        ]
+      },
+      {
+        "heading": "Assign clear roles",
+        "items": [
+          "Designate one person or team responsible for official communication, and clarify who manages which channel to avoid confusion.",
+          "Set up smaller informal groups (volunteers, coaches, parents, specific teams) for targeted updates."
+        ]
+      },
+      {
+        "heading": "Build the skills to use them well",
+        "items": [
+          "Offer short, practical training on messaging, shared drives, and scheduling tools — peer-led demos tied to everyday tasks work best.",
+          "Help staff write clear, audience-appropriate updates, using simple templates to keep a consistent tone.",
+          "Keep building capacity over time: peer support, refresher sessions, and reusable “how-to” guides embed these skills so communication holds up under pressure."
+        ]
+      }
     ],
     "cooperation_guidance": [
-      "Consult with neighboring sports clubs and regional civil society organizations to evaluate which digital tools they recommend and find intuitive.",
-      "Contact digital software providers to explore charity discounts, free premium tiers, or non-profit sponsorships that eliminate software overhead costs."
+      "Speak to other sport clubs and organisations to find out which digital tools they recommend.",
+      "Many digital tools are free, or provide discounts for charities and clubs, it may be beneficial to make contact with the provider(s) of the digital tool to find out what your options are."
     ],
     "image_ideas": [
-      "A graphic grid or collage showing different club stakeholders—an administrator, a coach, a parent, and an athlete—all viewing the same synchronized notification on their smartphones.",
-      "A workflow diagram mapping out which communication channels are used for casual team building versus official crisis emergency alerts."
+      "A set of images of different stakeholders within a club receiving the same message, e.g. a coach, parent, athlete, administrator, caretaker"
     ],
-    "case_example": {
-      "organization": "Community Sports Communication Network",
-      "location": "Global",
-      "context": "Organizational studies demonstrate that sports clubs with pre-existing, multi-channel digital networks maintain up to 80% higher membership retention rates during sudden facility closures or localized emergencies compared to clubs relying on paper or in-person check-ins.",
-      "key_approaches": [
-        "Segmenting communication streams so users only receive relevant, non-spammy team data.",
-        "Setting up automated weekly digital digests to lower administrative fatigue on volunteer managers.",
-        "Using integrated digital RSVP features to instantly track participant availability during volatile situations."
-      ],
-      "outcome": "Clubs managed to pivot their administrative operations within 48 hours of an emergency disruption because their core communication channels were already integrated into daily volunteer habits.",
-      "quote": "Short, clear, and regular online communication keeps members informed, even when normal operations are paused."
-    },
+    "case_example": {},
     "sources_and_resources": [
       {
-        "title": "Toward a Multidimensional Framework of Capacity in Community Sport Clubs (Doherty, Misener, & Cuskelly, 2014)",
-        "url": "https://journals.sagepub.com/doi/10.1177/0899764013509917"
+        "title": "Doherty, A., Misener, K., & Cuskelly, G. (2014). Toward a Multidimensional Framework of Capacity in Community Sport Clubs.",
+        "url": ""
+      },
+      {
+        "title": "What Are WhatsApp Communities? Uses, Setup & Groups",
+        "url": "https://dealism.ai/blog/what-are-whatsapp-communities-and-how-to-use-them-in-2026"
       }
     ]
   },
@@ -371,59 +584,156 @@
     "crysis_type": [
       "pandemics",
       "economic crises",
-      "displacement",
-      "energy shortages",
+      "conflict",
       "natural disasters"
     ],
     "target_group": [
       "Children",
       "Women",
       "Refugees and migrants",
-      "Low income",
-      "People with physical disability"
+      "Low income"
     ],
     "title": "Strategic planning",
-    "overview": "Grassroots sports clubs must prioritize developing a clear, long-term vision and strategic direction to safely navigate volatile periods and guide their structural decision-making. While daily operational demands frequently consume available resources, dedicating structural focus to organizational planning is essential for boosting overall resilience. Research indicates that personnel and volunteers become deeply proactive when they build a core sense of belonging around shared objectives and common institutional values. Consequently, strategic planning initiatives should remain open to creative innovation, encouraging stakeholders to test new approaches. Overcoming common execution barriers in smaller clubs requires translating high-level plans into active, everyday operations backed by appropriate capacity management.",
+    "overview": "External crises can disrupt operations, strain resources and create uncertainty, creating challenges for sports organisations to adapt, innovate and retain staff and volunteers.\n\nStrategic planning provides solid foundations to navigate these challenges by fostering a sense of belonging and aligning day-to-day operations with long-term goals and organisational values, while empowering teams when facing limited human, financial or physical capacities. Embedding resilience into the strategy allows organisations to not only endure uncertain times but also thrive.",
     "guidelines": [
-      "Define a clear vision, cohesive mission statement, and long-term strategic objectives to systematically anchor the club's long-term developmental direction.",
-      "Conduct a thorough situational analysis (such as a SWOT assessment) to map internal strengths/weaknesses against external opportunities/threats.",
-      "Utilize an established Strategic Framework to collaboratively visualize your desired future organizational structure and list the steps required to achieve it.",
-      "Engage key stakeholders—including coaches, volunteers, members, parents, and local community allies—in early planning stages to foster internal alignment and shared ownership.",
-      "Dicate isolated time blocks for long-term strategic reviews to prevent planning tasks from being entirely overshadowed by urgent, daily operational fires.",
-      "Encourage flexible thinking during brainstorming by weaving non-formal educational methods, simulations, and creative design workshops into board meetings.",
-      "Translate broad organizational goals into granular, Specific, Measurable, Achievable, Relevant, and Time-bound (SMART) action plans with assigned staff responsibilities.",
-      "Invest directly in cultivating modern leadership and managerial skills among executive volunteers by organizing cross-club knowledge exchange events.",
-      "Embed clear monitoring and evaluation mechanisms—including localized Key Performance Indicators (KPIs) and seasonal reviews—directly into regular board governance loops.",
-      "Communicate strategic milestones clearly and transparently to all demographics, using value-based messaging to explicitly encourage participation from vulnerable or marginalized groups."
-    ],
-    "cooperation_guidance": [
-      "Deploy external facilitators—such as local business consultants, academic sport management advisors, or non-profit allies—to maintain balanced input across all stakeholder voices and hold the club accountable to execution timelines.",
-      "Seek out official business or sport management advisory associations that offer pro-bono strategic consulting services tailored for community-based amateur clubs."
-    ],
-    "image_ideas": [
-      "A diverse group of club staff and volunteers gathered around a whiteboard, mapping out long-term strategic targets using colorful sticky notes and collaborative diagrams.",
-      "An infographic illustrating Strategyzer's Strategic Guidance Framework, focusing on the intersection of Corporate Identity and Strategic Portfolio choices."
-    ],
-    "case_example": {
-      "organization": "Community Sport Development Network",
-      "location": "Global / Ontario Focus",
-      "context": "Comprehensive focus groups tracking the organizational capacity of over 50 community sport clubs highlight that clubs investing in multidimensional capacity frameworks—specifically connecting human resources with systematic planning—show a significantly higher ability to meet public social mandates and endure external disruptions.",
-      "key_approaches": [
-        "Carving out small, designated planning segments within standard, recurring staff syncs to bypass administrative gridlock.",
-        "Engaging external community partners early to realign club programs with modern municipal health needs.",
-        "Converting broad club values into scannable digital documentation that guides volunteer onboarding workflows."
-      ],
-      "outcome": "Clubs that proactively embedded strategic evaluations into their core governance models maintained stable member engagement and avoided operational collapse when physical venues were restricted.",
-      "quote": "Staff and volunteers are more involved and proactive when they feel a sense of belonging to long-term objectives and shared values."
-    },
-    "sources_and_resources": [
       {
-        "title": "Toward a Multidimensional Framework of Capacity in Community Sport Clubs (Doherty, Misener, & Cuskelly, 2014)",
-        "url": "https://journals.sagepub.com/doi/10.1177/0899764013509917"
+        "heading": "Define a clear strategic direction, informed by analysis and regularly reviewed",
+        "items": [
+          "Articulate a clear vision, mission, and long-term objectives to guide the club’s direction.",
+          "Co-define specific objectives with staff and volunteers, and review them periodically.",
+          "Conduct an analysis of strengths, weaknesses, opportunities and threats (SWOT analysis), covering internal and external factors, to inform decisions.",
+          "In a crisis, work with the team to re-articulate the core purpose and set a strategy for continuing to deliver on the organisation’s objectives."
+        ]
       },
       {
-        "title": "Strategyzer: The Strategic Guidance Framework Toolkit",
+        "heading": "Embed inclusive, structured strategic planning into organisational processes",
+        "items": [
+          "Assign dedicated time and responsibility for strategic planning, separate from daily operations.",
+          "Integrate strategic planning into existing structures — staff meetings, events, stakeholder consultations.",
+          "Engage key stakeholders (staff, volunteers, coaches, members, parents, community partners) throughout the process.",
+          "Set engagement goals that build ownership, alignment, and shared commitment."
+        ]
+      },
+      {
+        "heading": "Translate innovative planning into actionable plans",
+        "items": [
+          "Encourage creative, flexible thinking during planning.",
+          "Use non-formal methods — simulations, brainstorming, team-building — to support this.",
+          "Explore new programmes, partnerships, and delivery models.",
+          "Turn strategic objectives into SMART action plans, i.e. Specific, Measurable, Achievable, Relevant and Time-bound actions."
+        ]
+      },
+      {
+        "heading": "Ensure effective implementation and adaptation through capacity-building, monitoring, and communication",
+        "items": [
+          "Strengthen leadership and management skills through training and peer learning with other organisations.",
+          "Embed monitoring and evaluation — KPIs, regular reviews — into governance processes.",
+          "Communicate the strategic plan clearly and consistently to all stakeholders.",
+          "Reflect the organisation’s values and objectives in external communication, for example, demonstrating the inclusion of vulnerable groups."
+        ]
+      }
+    ],
+    "cooperation_guidance": [
+      "External facilitators can be an asset to help give fairness and weight to all voices and ideas. Consider using this as an opportunity to invite a local organisation, business or consultant who can help support the process of developing a strategy, but also hold the organisation accountable to implementing the plans.",
+      "You may find that there are official business or sport management advisory organisations who offer this sort of support for free.",
+      "Once the mission and objectives of the organisation are clear, think carefully about who can help the organisation in achieving these objectives."
+    ],
+    "image_ideas": [
+      "‘Blue sky thinking’ image of organisation staff and members thinking or having ideas or daydreaming"
+    ],
+    "case_example": {},
+    "sources_and_resources": [
+      {
+        "title": "Doherty, A., Misener, K., & Cuskelly, G. (2014). Toward a Multidimensional Framework of Capacity in Community Sport Clubs.",
+        "url": ""
+      },
+      {
+        "title": "Download and complete a Strategic Guidance Framework to decide where you want to get to and how to get there",
         "url": "https://www.strategyzer.com/library/strategic-guidance-framework"
+      },
+      {
+        "title": "Sustainability cost estimation tool (Sustainable Sport Management project)",
+        "url": "https://docs.google.com/spreadsheets/d/1Wrg6JWC2Mxg7eBaDWqzWe-CAcjrDAMAlyjx6NR7eHQ8/copy"
+      },
+      {
+        "title": "Sustainability cost estimation tool — support guide",
+        "url": "https://www.easm.net/wp-content/uploads/2024/09/Supportguide-FRVersion.pdf"
+      },
+      {
+        "title": "National audit tool on health-promoting sports clubs, for national sport federations (HPS Coach-EDU)",
+        "url": "https://iris.who.int/server/api/core/bitstreams/d14113ba-17a7-41f4-be21-dd69c634b8a2/content"
+      },
+      {
+        "title": "Toolkit ‘Mind the Gap / Mend the Gap’ to reflect on how change happens within your club (CHANGE)",
+        "url": "https://www.engso-education.eu/wp-content/uploads/2025/12/CHANGE-Handbook-final.pdf"
+      },
+      {
+        "title": "Self-evaluation framework on mental health and health-enhancing physical activity with teenagers (HOORAY)",
+        "url": "https://engsoyouth.eu/hooray-quiz/"
+      },
+      {
+        "title": "Report with practical recommendations for engaging newly arrived migrants into local sports clubs (INAMOS)",
+        "url": "https://inamos.org/wp-content/uploads/2023/04/WP_7_Summary_of_main_findings_and_practical_recommendations.pdf"
+      },
+      {
+        "title": "Webinar ‘Keeping girls in sport’ (GAP WOMEN)",
+        "url": "https://www.youtube.com/watch?v=8T1R2rYak2g"
+      },
+      {
+        "title": "Implementation guidelines for inclusive, sustainable and welcoming national sports federations (HPS Coach-EDU)",
+        "url": "https://iris.who.int/server/api/core/bitstreams/a53a1b42-2ca4-42da-a28c-feaff98742e5/content"
+      },
+      {
+        "title": "Recommendations for clubs on mental well-being and inclusion in grassroots sport (SPIRIT)",
+        "url": "https://www.engso-education.eu/wp-content/uploads/2022/02/SPIRIT-sport-coaching-for-mental-well-being-recommendations.pdf"
+      },
+      {
+        "title": "Guide for sport clubs on mental health (HOORAY)",
+        "url": "https://engsoyouth.eu/wp-content/uploads/2024/10/HOORAY-guidelines-for-sport-clubs-2.pdf"
+      },
+      {
+        "title": "Equality Action Plan design guide (EQUIP)",
+        "url": "https://www.engso-education.eu/wp-content/uploads/2023/10/IO3-EQUIP-Equality-Action-Plan-Design-Guide.pdf"
+      },
+      {
+        "title": "Guidelines for inclusion at the grassroots level (COMEin)",
+        "url": "https://www.comeinproject.com/toolkit/"
+      },
+      {
+        "title": "Infographics for equal, accessible and sustainable sport events (REWSE)",
+        "url": "https://rewse.assistitaly.eu/wp-content/uploads/2026/05/D2_EN_Infographics-for-Equal-Accessible-Sustainable-Sport-Events.pdf"
+      },
+      {
+        "title": "Guide on volunteering in sport events (UVMIS)",
+        "url": "https://www.uvmis-eu.org/_files/ugd/3ec99c_d36d6a17eb814b8f86eacd71bf94db47.pdf"
+      },
+      {
+        "title": "Guidelines for inclusive events (Sport4CERV)",
+        "url": "https://engso.eu/wp-content/uploads/2024/10/EWS-Inclusive-sport-events.pdf"
+      },
+      {
+        "title": "European Code of Ethics for Sports Volunteers Managers (UVMIS)",
+        "url": "https://www.uvmis-eu.org/_files/ugd/3ec99c_754ed19da0d442eeb933f8479c91bcb2.pdf"
+      },
+      {
+        "title": "Report on innovative offers in sport and outside the field of traditional sport (CHAMP)",
+        "url": "https://www.engso-education.eu/wp-content/uploads/2021/08/Intellectual-output-2.pdf"
+      },
+      {
+        "title": "Sustainable guidelines to promote value in sport (SPORT AS A VALUE)",
+        "url": "https://www.engso-education.eu/wp-content/uploads/2024/04/V2-Sustainable-guidelines-for-the-organisation-implementation-and-evaluation-of-a-joint-program-to-promote-value-in-sport.pdf"
+      },
+      {
+        "title": "Guidelines to inspire young people to respect and protect the environment while being active in nature (Dare2Move4Nature)",
+        "url": "https://drive.google.com/file/d/1D5iNlVSiu4Bs0f1iU_UNJMhUmtUZcV5z/view"
+      },
+      {
+        "title": "Online course on how to increase women’s participation in your grassroots sport organisation (GAP WOMEN)",
+        "url": "https://gap-women-training-tool.ufec.cat/"
+      },
+      {
+        "title": "Online course on innovation strategy (CHAMP)",
+        "url": "https://www.engso-education.eu/wp-content/uploads/courses/project-champ-2019-2021/module-001-introduction-innovation-strategy/en-gb/index.html"
       }
     ]
   },
@@ -443,57 +753,81 @@
     "crysis_type": [
       "pandemics",
       "economic crises",
-      "displacement",
-      "energy shortages",
+      "conflict",
       "natural disasters"
     ],
     "target_group": [
       "Children",
       "Women",
       "Refugees and migrants",
-      "Low income",
-      "People with physical disability"
+      "Low income"
     ],
     "title": "Relationship-building in the community",
-    "overview": "Grassroots sports clubs must prioritize building and maintaining a resilient network of external connections to systematically enhance their organizational capacity. Combining informal community relationships with formal organizational partnerships is crucial. Personal connections serve as the foundation for establishing durable trust with corporate sponsors, asset managers, and municipal stakeholders. To protect programs against crisis shocks, community relationships must be mutually beneficial, actively maintained, and balanced. Additionally, clubs must recognize the administrative friction that arises when working with highly bureaucratized partners—such as local governments, corporate media, or provincial sport federations—and develop strategic stakeholder management tools to navigate these systems effectively.",
+    "overview": "The community network becomes a critical source of support when crisis strikes, so it is recommended that grassroots sport clubs build and maintain a mix of formal and informal external relationships. Strong ties, cultivated well before disruption hits, give clubs somewhere to turn for emergency support, faster information-sharing, and continuity when routine channels break down.\n\nPersonal connections within the community are key to establishing partnerships with sponsors, facility providers, and other local stakeholders — relationships should be active, mutually beneficial, and reliable to ensure long-term collaboration.\n\nClubs also need to navigate more bureaucratic partners, such as local government, media, or regional sport organisations. Understanding and responding to their requirements is critical for sustaining support and accessing resources.",
     "guidelines": [
-      "Map potential external partners within the local community, including financial sponsors, venue providers, municipal authorities, local press, and regional sports associations, explicitly analyzing shared mutual benefits.",
-      "Leverage existing personal relationships across the community to initiate conversations, anchoring partnerships in shared local development values and common social objectives.",
-      "Draft comprehensive documentation on key stakeholder contacts, active operational agreements, and communication timelines to preserve institutional memory and ensure partnership continuity during staff turnover.",
-      "Maintain ongoing engagement through routine project updates, transparent status sharing, and co-organized sports events to prevent partnerships from turning purely transactional.",
-      "Audit partnerships annually through shared performance meetings or impact tracking documents, adapting communication styles to resolve emerging operational frictions.",
-      "Balance the club's dependency risks by avoiding an over-reliance on a single large corporate benefactor or one specific municipal grant entity.",
-      "Train executive club volunteers and managerial staff in formal negotiation, contract mapping, and public sector stakeholder management skills.",
-      "Utilize targeted psychological approaches, like the Benjamin Franklin effect, by requesting small, non-monetary favors from partners to build authentic personal goodwill, connection, and a sense of shared competence."
-    ],
-    "cooperation_guidance": [
-      "Identify and actively participate in regional civil society forums, non-profit networking mixers, and neighborhood business associations to pitch the club's community impact projects.",
-      "Design transparent cross-marketing opportunities that allow municipal and commercial partners to showcase their corporate social responsibility initiatives through the club's digital channels."
-    ],
-    "image_ideas": [
-      "A crisp photograph showing an official partnership signing or handshaking between a community sports director and a local business representative.",
-      "A network mapping diagram illustrating a resilient club ecosystem connected seamlessly to schools, local businesses, non-profits, and municipal offices."
-    ],
-    "case_example": {
-      "organization": "Community Sports Alliance Group",
-      "location": "Global",
-      "context": "Sociological research into community sport capacities reveals that clubs anchored by deep, multi-tiered networks navigate localized crises with far more agility than isolated organizations. Mobilizing informal community capital allows clubs to quickly access alternative facilities or funding streams when formal state pipelines freeze.",
-      "key_approaches": [
-        "Transitioning loose verbal agreements with venue providers into clear, structured Memorandums of Understanding (MOUs).",
-        "Inviting local municipal decision-makers to attend grassroots match days to cultivate casual, face-to-face relationships before making formal budget requests.",
-        "Engaging local neighborhood small businesses for small-scale practical support rather than purely requesting direct cash sponsorships."
-      ],
-      "outcome": "Clubs utilizing balanced relationship models successfully secured backup training spaces and emergency funding through community alliances during major municipal facility closures.",
-      "quote": "Relationships should be actively engaged, balanced, and dependable to ensure mutual benefit and long-term collaboration."
-    },
-    "sources_and_resources": [
       {
-        "title": "Toward a Multidimensional Framework of Capacity in Community Sport Clubs (Doherty, Misener, & Cuskelly, 2014)",
-        "url": "https://journals.sagepub.com/doi/10.1177/0899764013509917"
+        "heading": "Identify, analyse and diversify partnerships",
+        "items": [
+          "Map potential external partners (sponsors, facility providers, local government, media, local sport organisations, funding bodies).",
+          "Analyse the benefits, common goal, and what your club can offer in return.",
+          "Allow for diverse partnerships, i.e. include both informal community contacts and formal organisational relationships.",
+          "Ensure relationships are well balanced, i.e. avoid overreliance on a single partner, and ensure both parties are benefitting from the relationship."
+        ]
       },
       {
-        "title": "Understanding the Benjamin Franklin Effect: How Favors Build Genuine Psychological Connections",
+        "heading": "Build trust",
+        "items": [
+          "Leverage personal connections to initiate partnerships and build trust.",
+          "Develop long-lasting partnerships by identifying shared values and strategic objectives.",
+          "Invite partners to visit, watch or experience the work you do."
+        ]
+      },
+      {
+        "heading": "Document, engage and evaluate",
+        "items": [
+          "Create documentation on key contacts, agreements and processes to maintain institutional knowledge in case of staff changes.",
+          "Maintain engagement through regular communication, updates and joint activities.",
+          "Monitor and evaluate partnerships regularly (e.g. yearly reports or meetings) and adjust strategies to maximise the relationships."
+        ]
+      },
+      {
+        "heading": "Strengthen skills and apply strategies",
+        "items": [
+          "Train club leadership and/or volunteers in management of partnership and negotiation skills.",
+          "Plan how bureaucratic partnerships will be managed to access funding and resources effectively.",
+          "Use practical strategies, such as asking for small favours to build goodwill, while avoiding direct financial requests."
+        ]
+      }
+    ],
+    "cooperation_guidance": [
+      "Identify networks and events where you can raise awareness about your organisation, meet other organisational leaders, but also communicate your current needs in a partnership.",
+      "Invite your club members to use their network and personal connections to support you."
+    ],
+    "image_ideas": [
+      "Image of teammates with their arms around each other’s shoulders to represent team work",
+      "Image of teammates carrying one person in the air to represent support"
+    ],
+    "case_example": {},
+    "sources_and_resources": [
+      {
+        "title": "Doherty, A., Misener, K., & Cuskelly, G. (2014). Toward a Multidimensional Framework of Capacity in Community Sport Clubs.",
+        "url": ""
+      },
+      {
+        "title": "Learn about the Benjamin Franklin effect, a psychological phenomenon in which a person likes someone more after doing them a favour",
         "url": "https://effectiviology.com/benjamin-franklin-effect/"
+      },
+      {
+        "title": "Online course on how to increase women’s participation in your grassroots sport organisation (GAP WOMEN)",
+        "url": "https://gap-women-training-tool.ufec.cat/"
+      },
+      {
+        "title": "Innovative offers outside the field of traditional sport (CHAMP)",
+        "url": "https://www.engso-education.eu/wp-content/uploads/2021/08/Intellectual-output-3.pdf"
+      },
+      {
+        "title": "Guidelines for inclusive events (Sport4CERV)",
+        "url": "https://engso.eu/wp-content/uploads/2024/10/EWS-Inclusive-sport-events.pdf"
       }
     ]
   },
@@ -510,8 +844,7 @@
     "crysis_type": [
       "pandemics",
       "economic crises",
-      "displacement",
-      "energy shortages",
+      "conflict",
       "natural disasters"
     ],
     "target_group": [
@@ -519,111 +852,123 @@
       "Low income"
     ],
     "title": "Target parents to reach socio-economically vulnerable children",
-    "overview": "Engaging parents in sport accessibility efforts is critical, as economic challenges during difficult times lead to reduced spending on children’s activities, which disproportionately affects lower-income families and worsens health inequalities. Parents often view sports clubs as accessible entry points for information on financial support programs, but clubs must be proactive since not all parents feel comfortable asking for help. Appointing a dedicated intermediary at a local sports club can help parents navigate funding options, monitor progress, and reduce dropout during referral processes, minimizing situations that trigger shame and distrust. Clubs should actively collaborate with organizations providing financial aid to streamline referrals and make family support efficient and user-friendly. This includes developing inclusive communication campaigns, normalizing socio-economic barriers, and offering membership fee structures with reduced rates for low-income families.",
+    "overview": "Engaging parents in sport accessibility efforts is critical, as economic challenges during crises lead to reduced spending on children’s activities, which disproportionately affects lower-income families and worsens health inequalities. Clubs must be proactive as not all parents will feel that they can ask for support. Appointing a dedicated intermediary at a local sport club can help parents navigate funding options, monitor progress, and reduce dropout during referral processes.\n\nClubs should actively collaborate with organisations that provide financial aid to streamline referrals and make support to families more efficient and user-friendly.",
     "guidelines": [
-      "Focus support strictly on organizing sports participation for children; avoid collecting excessive data about other familial challenges, as gathering too much personal information can breed distrust of institutions.",
-      "Appoint a dedicated intermediary or liaison within your organization to guide parents step-by-step through financial support applications and monitor referral progress to reduce dropout rates.",
-      "Deploy accessible informational materials, such as flyers and scannable digital resources, in physical locations regularly visited by parents, including local schools, community centers, and healthcare facilities.",
-      "Create user-friendly referral pathways between the club and external welfare or financial support organizations to minimize delays, administrative bureaucracy, and confusion.",
-      "Train club volunteers and front-line staff to provide supportive, highly empathetic, and non-judgmental guidance to reduce situations that could trigger shame or defensiveness among parents.",
-      "Launch public communication campaigns that actively normalize financial barriers, explicitly emphasizing that seeking programmatic support is common, dignified, and acceptable.",
-      "Monitor and evaluate seasonal participation outcomes by comparing the initial number of support requests against actual active attendance to identify hidden dropout points.",
-      "Build structural financial support directly into the club's baseline annual budget, explicitly allocating funds to offer lower membership fees or full subsidies to low-income families.",
-      "Address secondary financial costs like transport and athletic gear by coordinating club car-sharing pools, mapping public transit routes, and sourcing free or second-hand sports equipment."
+      {
+        "heading": "Reduce barriers to entry",
+        "items": [
+          "Build financial support into planning, such as lower membership fees for low-income families.",
+          "Focus support on arranging sports participation for children, not on other challenges parents or families may be facing — gathering broader information can cause distrust of institutions.",
+          "Address hidden costs like transport and kit through solutions like car-sharing, public transport options, or free/second-hand/rental equipment."
+        ]
+      },
+      {
+        "heading": "Make support easy to find and access",
+        "items": [
+          "Share accessible materials (flyers, online resources) in places parents regularly visit — schools, community centres, healthcare facilities.",
+          "Create simple referral pathways between clubs and external support organisations to minimise delays, bureaucracy, or confusion.",
+          "Appoint a dedicated liaison to guide parents through financial support processes."
+        ]
+      },
+      {
+        "heading": "Build trust and reduce stigma",
+        "items": [
+          "Train staff and volunteers to offer supportive, non-judgmental guidance that reduces the risk of shame or distrust among parents.",
+          "Launch communication campaigns that normalise financial barriers and reinforce that seeking support is common and acceptable."
+        ]
+      },
+      {
+        "heading": "Monitor outcomes",
+        "items": [
+          "Track participation outcomes (e.g. comparing initial requests from families to actual participation) to ensure interventions are reducing dropout and increasing engagement among vulnerable groups."
+        ]
+      }
     ],
     "cooperation_guidance": [
-      "Establish formal partnerships or administrative collaborations with local charities, municipal welfare departments, and foundations providing financial aid to streamline fund distribution for your members.",
-      "Co-organize community awareness-raising events, joint info days, or shared print materials alongside financial aid providers to make existing support programs transparent and visible."
+      "Establish formal partnerships or collaborations with organisations providing financial aid to ensure easier access to funds for your members. Such collaboration might include awareness raising events and info days or creating materials on existing support programmes.",
+      "Work closely with schools for arranging referrals of children or families that might face access issues."
     ],
     "image_ideas": [
-      "A warm, welcoming scene at a sports facility where a club coach or administrative liaison is smilingly greeting a parent and their young child, hand on a basketball or sports jersey.",
-      "An informational flyer template showing diverse families, with clear text emphasizing accessible sport programs and subsidized registration paths."
+      "An image that shows a child/children and their parent being welcomed into a sports environment"
     ],
     "case_example": {
-      "organization": "Socio-Economically Inclusive Youth Sport Initiative",
-      "location": "Netherlands",
-      "context": "Recent research into youth sports participation within low-income brackets highlights that structural bureaucracy and fear of social stigma are primary barriers preventing parents from utilizing available municipal sports grants for their children.",
-      "key_approaches": [
-        "Establishing a trusted club point-of-person who handles all financial subsidy paperwork privately on behalf of families.",
-        "Framing fee-reduction structures as standard club options rather than special exceptions requiring proof of poverty.",
-        "Distributing clear sports-grant application instructions directly through trusted local elementary school teachers."
-      ],
-      "outcome": "Clubs utilizing dedicated family liaisons and stigma-free application workflows saw a significant increase in enrollment stability and lower dropout rates among vulnerable youth demographics during regional economic downturns.",
-      "quote": "Appointing a dedicated intermediary at a local sport club can help parents navigate funding options, monitor progress, and reduce dropout during referral processes."
+      "organization": "LWK association",
+      "location": "Pavillon-sous-Bois, France",
+      "context": "LWK association created a Mums football team at Pavillon-sous-Bois, France, reaching mothers of children already involved in the club and opening a route into sport for the whole family.",
+      "key_approaches": []
     },
     "sources_and_resources": [
+      {
+        "title": "Watch the LWK Mums football team in action",
+        "url": "https://youtu.be/9vrjrXM3Mng"
+      },
       {
         "title": "Building Resilience and Equity: A Synthesis of Evidence for Crisis Management in Grassroots Sport",
         "url": "https://www.engso-education.eu/wp-content/uploads/2026/02/societies-4148843.pdf"
       },
       {
-        "title": "Acquiring Financial Support for Children’s Sports Participation: Co-Creating a Socially Safe Environment for Parents from Low-Income Families (van Leeuwen et al., 2023)",
+        "title": "van Leeuwen, L., Ruiter, A., Visser, K., Lesscher, H. M. B., & Jonker, M. (2023). Acquiring Financial Support for Children’s Sports Participation: Co-Creating a Socially Safe Environment for Parents from Low-Income Families.",
         "url": "https://www.mdpi.com/2227-9067/10/5/872"
       }
     ]
   },
   {
     "id": "9",
-    "category": "GOVERNANCE",
+    "category": "SOCIAL SUPPORT",
     "tags": [
-      "Preparation for Crisis",
       "Response to Crisis"
     ],
+    "image_url": "",
     "development_area": [
-      "governance",
-      "participation",
-      "financial stability",
-      "facilities"
+      "social support",
+      "coaching",
+      "participation"
     ],
     "crysis_type": [
-      "pandemics",
-      "economic crises",
-      "displacement",
-      "energy shortages",
+      "conflict",
       "natural disasters"
     ],
     "target_group": [
+      "Refugees and migrants",
       "Children",
       "Women",
-      "Refugees and migrants",
-      "Low income",
-      "People with physical disability"
+      "Low income"
     ],
-    "title": "Leverage technology to create new products or services",
-    "overview": "Sport organizations can strategically leverage technological advancements to build systemic operational resilience and sustain core operations during periods of acute crisis. For larger entities, technology serves as an enabler to digitalize traditional services—such as introducing live online broadcasting, virtual venue signage, and dedicated mobile applications—which helps preserve member relationships and unlock alternative revenue streams. Furthermore, centralized digital platforms allow clubs and federations to scale their training and coach development programs, safely engaging a broader and more diverse audience than traditional, physically bounded settings permit. Maintaining high visibility and driving adoption of these new digital services requires consistent, structured communication across social media channels, targeted webinars, and curated digital content distribution pipelines.",
+    "title": "Organise culturally responsive and trauma-informed activities for refugees",
+    "overview": "When a crisis forces people to leave their homes and their country, welcoming sport clubs can offer people a way to heal. Grassroots sport organisations should provide free, culturally responsive, and trauma-informed services to remove financial and social barriers for disadvantaged and displaced communities.\n\nProgrammes should be designed through experience-based co-design with target participants, ensuring attention to cultural safety, emotional safety, community connection, accessibility, physical activity literacy, and support for basic needs.\n\nCreating physical spaces that foster cultural and emotional safety — including interpreters, privacy options and services covering basic needs — can enhance participation.",
     "guidelines": [
-      "Audit the organization's existing technological capabilities, explicitly identifying underlying skill gaps, software limitations, and hardware deficiencies to integrate digital strategies directly into long-term crisis preparedness plans.",
-      "Digitalize core athletic and administrative services by deploying online broadcasting options, virtual fan engagement events, and custom mobile applications to protect member retention during venue closures.",
-      "Scale coaching and athlete development frameworks onto accessible online training platforms to broaden regional participation and establish digital-subscription revenue models.",
-      "Develop innovative commercial products, such as integrated club e-commerce platforms and digital ordering systems, to diversify financial intake streams during physical attendance disruptions.",
-      "Establish structured, consistent digital communication workflows utilizing social media scheduling tools, high-impact video content, informational webinars, and seasonal email newsletters to maintain market visibility.",
-      "Dedicate specific agenda segments during monthly staff assemblies or annual general reviews to rigorously monitor, evaluate, and optimize the conversion rates of deployed digital interventions.",
-      "Enforce strict cybersecurity protocols and modern data protection standards across all newly implemented digital architectures to comprehensively safeguard user registration and payment data."
+      {
+        "heading": "Deliver culturally responsive, trauma-informed care",
+        "items": [
+          "Understand the culture, needs, fears and experiences of the community or communities you are looking to engage.",
+          "Adapt current activities to be safe for people with experiences of trauma.",
+          "Train staff and volunteers on intercultural competencies to understand the target group’s culture, including gender provisions.",
+          "Maintain physical spaces that promote cultural and emotional safety, including interpreter services and optional privacy elements (e.g. window blinds, prayer rooms)."
+        ]
+      },
+      {
+        "heading": "Ensure accessibility",
+        "items": [
+          "Consider geographic proximity and accessibility of facilities. For example, deliver activity where the participants live or organise transportation.",
+          "Train and support coaches to adapt sessions and communication in response to language barriers. Translate key documents or communication."
+        ]
+      }
     ],
     "cooperation_guidance": [
-      "Collaborate with regional tech incubators, university computer science departments, or pro-bono IT consulting networks to build and test accessible digital delivery tools without incurring high development costs.",
-      "Partner with local digital media creators or technical institutes to upskill sports coaches and club volunteers in high-quality video production, live-streaming operations, and online community management."
+      "Involve the community in design. Co-create programming with the target group and engage families and community leaders where possible.",
+      "Relationships with community organisations, health services and refugee organisations are important for improving referral pathways, providing specialised training, and offering additional resources such as clothing, transport, translation or childcare support.",
+      "Consider partnering with other non-profit or humanitarian organisations for joint programming that balances physical activity with broader support needs."
     ],
-    "image_ideas": [
-      "A split horizontal graphic showing a sports coach leading an active training session on a field on one side, and a modern tablet screen streaming that exact practice session to a remote participant on the other.",
-      "A clean dashboard mockup of a community sport club's mobile application, highlighting features like live streaming, virtual training modules, and an integrated e-shop."
-    ],
-    "case_example": {
-      "organization": "Resilient Sport Federation Network",
-      "location": "Canada / Quebec Focus",
-      "context": "Empirical analysis of sports organizations under severe structural tension highlights that deploying dynamic digital capabilities directly determines an institution's capacity to pivot successfully during unexpected operational halts.",
-      "key_approaches": [
-        "Conducting rapid internal audits to assess software literacy among volunteer coaching staff.",
-        "Transitioning traditional physical coach certification seminars into interactive, asynchronous online webinars.",
-        "Launching basic, user-friendly mobile application tools to keep isolated club members connected via shared fitness challenges."
-      ],
-      "outcome": "Organizations that systematically embedded agile technological options into their standard operational models preserved their financial stability, expanded their historical participant reach, and avoided prolonged administrative standstills.",
-      "quote": "Sport organisations could leverage technological advancements to build resilience and maintain operations during crises."
-    },
+    "image_ideas": [],
+    "case_example": {},
     "sources_and_resources": [
       {
-        "title": "Sport organisations under tension: dynamic capabilities and resilience building during the COVID-19 pandemic (Marques, Martineau, Ostiguy-Coupal, & Brunelle, 2025)",
-        "url": "https://doi.org/10.1080/16184742.2025.1234567"
+        "title": "Free, culturally responsive and trauma-informed physical activity service for people experiencing social disadvantage in Sydney, Australia: the ‘Addi Moves’ initiative (British Journal of Sports Medicine, 2025)",
+        "url": ""
+      },
+      {
+        "title": "Read about the work, methodology and resources of the Centre for Healing and Justice through Sport",
+        "url": "https://chjs.org/how-we-work/"
       }
     ]
   },
@@ -643,54 +988,90 @@
     "crysis_type": [
       "pandemics",
       "economic crises",
-      "displacement",
-      "energy shortages",
+      "conflict",
       "natural disasters"
     ],
     "target_group": [
       "Children",
       "Women",
       "Refugees and migrants",
-      "Low income",
-      "People with physical disability"
+      "Low income"
     ],
     "title": "Leverage political capital and create networks for advocacy",
-    "overview": "Sport organizations should leverage political capital to enhance systemic resilience during crises by actively engaging with and influencing political decision-makers. This is especially important because many grassroots clubs rely heavily on government agencies for funding and facility access, yet often face structural power imbalances during high-stakes negotiations. Coordinated actions, such as presenting joint representations with other local sport organizations, are far more effective than pursuing isolated individual interests. By forming collective coalitions, sports organizations can significantly strengthen their advocacy voice, maximize public resource allocation, and secure better protective outcomes from policymakers during times of crisis.",
+    "overview": "Sport organisations should leverage political capital to enhance resilience during crises by actively engaging with and influencing political decision-makers. This is especially important because many clubs rely on government agencies for funding and support, yet often face power imbalances in negotiations.\n\nCoordinated actions, such as joint representations with other sport organisations, are more effective than pursuing individual interests. By collaborating collectively, organisations can strengthen their voice, increase access to resources, and improve outcomes during times of crisis.",
     "guidelines": [
-      "Identify key political stakeholders, mapping out local, regional, and national government agencies that control funding, public policy, and facility regulations within your field of interest.",
-      "Build and maintain strong relationships with political decision-makers through regular communication, direct meetings, and active participation in public committees or municipal forums.",
-      "Monitor policy developments, shifting government priorities, and newly emerging public funding channels across sport, health, and social welfare sectors to strategically align advocacy efforts with current political agendas.",
-      "Develop clear, evidence-based arguments for proposals, emphasizing that the positive impact of sport is transversal and directly drives value across the economy, public education, and healthcare sectors.",
-      "Train core staff and volunteers in professional advocacy, lobbying, public relations, and negotiation to maximize the organization's political influence.",
-      "Establish formal structures for political engagement within the club, such as dedicated policy working groups, institutional advisory boards, or public liaison roles.",
-      "Routinely evaluate the effectiveness of political engagement strategies during annual staff reviews and adapt communication approaches based on tangible feedback and legislative shifts.",
-      "Document all interactions, formal agreements, and written commitments with political stakeholders to safeguard institutional memory and guarantee continuity despite personnel turnover.",
-      "Integrate political engagement strategies and long-term advocacy campaigns directly into the club's master communication strategy and crisis management processes."
+      {
+        "heading": "Make a strong case",
+        "items": [
+          "Develop clear, evidence-based arguments focused on community impact and social value. Sport’s impact is transversal — it contributes to economy, education, health, and other sectors — so use this to connect with stakeholders across those areas.",
+          "Gather views and ideas from your members to give voice to them, to ensure your proposals are relevant and to strengthen your case.",
+          "Ensure your proposals and advocacy efforts are in line with your strategic purpose and values. This advocacy work should complement and support your goals."
+        ]
+      },
+      {
+        "heading": "Understand the political landscape",
+        "items": [
+          "Identify key political stakeholders — local, regional, and national government agencies that influence funding, regulations, and support for your sport.",
+          "Monitor policy developments, government priorities, and funding opportunities relevant to your field, so advocacy efforts align with current political agendas."
+        ]
+      },
+      {
+        "heading": "Build and sustain relationships",
+        "items": [
+          "Build and maintain relationships with decision-makers through regular communication, meetings, and participation in relevant committees or forums.",
+          "Document interactions, agreements, and commitments with political stakeholders to preserve institutional memory despite personnel changes."
+        ]
+      },
+      {
+        "heading": "Build organisational capacity for advocacy",
+        "items": [
+          "Integrate political engagement and advocacy into your broader communication strategy, crisis management, and strategic planning processes.",
+          "Train staff or volunteers in advocacy, negotiation, and stakeholder engagement.",
+          "Establish formal mechanisms for ongoing political engagement, such as advisory boards, working groups, or liaison roles. Evaluate the effectiveness of these strategies regularly."
+        ]
+      }
     ],
     "cooperation_guidance": [
-      "Collaborate with neighboring sports clubs and regional athletic federations to present unified collective proposals, increasing institutional credibility during high-level public funding negotiations.",
-      "Build strong relationships with public bodies and government officials during normal times so that regulatory agencies thoroughly understand your club's social value before an emergency hits."
+      "Collaborate with other sport organisations to make joint representations or collective proposals to increase and influence credibility during negotiations and for joining advocacy campaigns.",
+      "Building strong relationships with public and government bodies during normal times means that these agencies will already know the value your club offers, and you will be better placed to ask for help or support during times of crisis to continue serving your community."
     ],
     "image_ideas": [
       "A photograph of sports club representatives and local government officials sitting together in a municipal meeting room reviewing a community development proposal.",
       "A clean stakeholder network infographic displaying how a sports club serves as a central hub connecting municipal health, education, and social welfare departments."
     ],
-    "case_example": {
-      "organization": "Coalition of Community Sports Associations",
-      "location": "Canada",
-      "context": "Analysis of community sport resilience during systemic shocks demonstrates that individual grassroots clubs often lack the political leverage to influence emergency funding distributions. When clubs proactively organize into regional advocacy networks, they successfully mitigate power imbalances in public sector negotiations.",
-      "key_approaches": [
-        "Pooling together data from multiple clubs to build a single, high-impact community health value report for regional policymakers.",
-        "Developing pre-established communication channels with municipal leaders during stable operational periods.",
-        "Aligning sport program objectives with broader public health and social integration policy targets."
-      ],
-      "outcome": "Clubs within the collective network successfully secured targeted public relief funds and emergency utility subsidies during extended facility shutdowns, whereas isolated clubs faced severe administrative exclusion.",
-      "quote": "Coordinated actions, such as joint representations with other sport organisations, are more effective than pursuing individual interests."
-    },
+    "case_example": {},
     "sources_and_resources": [
       {
-        "title": "Sport organisations under tension: dynamic capabilities and resilience building during the COVID-19 pandemic (Marques, Martineau, Ostiguy-Coupal, & Brunelle, 2025)",
-        "url": "https://doi.org/10.1080/16184742.2025.1234567"
+        "title": "Marques, D. L., Martineau, J. T., Ostiguy-Coupal, S., & Brunelle, E. (2025). Sport organisations under tension: dynamic capabilities and resilience building during the COVID-19 pandemic.",
+        "url": ""
+      },
+      {
+        "title": "Find out about Erasmus+ Sport funding to respond to societal and sport-related challenges",
+        "url": "https://erasmus-plus.ec.europa.eu/opportunities/organisations/sport-actions"
+      },
+      {
+        "title": "Mapping of context, policies and programmes in engaging newly arrived migrants into local sports clubs, with a summary of practical recommendations (INAMOS)",
+        "url": ""
+      },
+      {
+        "title": "Policy brief to empower sports coaches in promoting health, for national sports federations and universities (HPSCOACH-EDU)",
+        "url": ""
+      },
+      {
+        "title": "Guidelines and recommendations for national and European sport decision and policy makers for fairer coaching (FAIRER COACHING)",
+        "url": ""
+      },
+      {
+        "title": "Mapping of youth participation in decisions (EUYOUSPORT)",
+        "url": ""
+      },
+      {
+        "title": "Recommendations on inclusion of LGBTIQ+ people in sport (Sport4CERV)",
+        "url": ""
+      },
+      {
+        "title": "Position paper highlighting the impact sport initiatives can have on the inclusion and lives of refugees (Human Rights Education through Sport)",
+        "url": ""
       }
     ]
   },
@@ -712,110 +1093,240 @@
       "Children",
       "Women",
       "Refugees and migrants",
-      "Low income",
-      "People with physical disability"
+      "Low income"
     ],
-    "title": "Adapt outdoor activities to climate change effects",
-    "overview": "Grassroots sports organizations must systematically adapt outdoor activities to withstand the increasing frequency of extreme weather events and natural disasters caused by climate change. Clubs can significantly enhance participant safety and thermal comfort by integrating structural modifications—such as functional shaded zones, cooling mist stations, and heat-resilient surfaces—directly into sports facilities. Long-term climate preparedness requires a shift toward flexible scheduling, shifting outdoor play away from peak heat hours and poor air quality periods. Furthermore, building community resilience involves educating staff and families on adaptive health behaviors while advocating for urban design approaches and nature-based solutions, like tree planting, to alleviate environmental stress.",
+    "title": "Adapt outdoor activities to changing climate",
+    "overview": "Global warming and associated natural disasters can disrupt sport activity or introduce risks to participants’ health and safety. Consider your preparation and response to temperature changes, weather events as well as reduced air quality.\n\n“Europe has the highest excess death rates per 100,000 due to heat exposure.” — Monash University, 2021\n\nThere are various approaches to adapt your activities in case of a natural disaster or extreme weather events. Sport organisations can enhance safety and comfort through structural modifications such as shaded areas, water features, and climate-resilient infrastructure in sports facilities.\n\nSports organisations could prioritise flexible scheduling of outdoor activities and encourage healthy habits, including proper hydration and UV protection.",
     "guidelines": [
-      "Establish clear internal regulatory thresholds specifying exactly when weather conditions present an unacceptable risk to athlete and staff safety.",
-      "Introduce adaptive operational adjustments to ensure athletic training safely continues under shifting weather patterns, such as utilizing indoor facilities or running shorter, high-frequency sessions during heatwaves.",
-      "Reschedule outdoor practices and competition calendars to cooler slots (early morning or late evening) to avoid peak UV exposure and hazardous midday heat indices.",
-      "Build modular programming models that empower club directors to execute last-minute session cancellations or venue pivots based on real-time environmental alerts.",
-      "Install designated cooling zones, hydration fountains, and physical shade structures within community play areas to protect participants from heat exhaustion.",
-      "Enforce strict behavioral adaptation protocols, actively mandating regular hydration breaks and encouraging the use of high-factor sunscreens and UV-protective clothing.",
-      "Advocate for climate-proof facility upgrades, including permeable ground surfaces to minimize flash flooding and building materials designed to limit urban heat retention.",
-      "Deploy on-site air quality monitoring devices during outdoor activities, establishing transparent communication protocols to inform families instantly of airborne risks.",
-      "Educate coaches, administrative staff, and athletes on climate health vulnerabilities, heat illness symptoms, and immediate emergency response protocols.",
-      "Engage the local neighborhood in environmental co-design initiatives, leveraging volunteer networks for local climate actions like tree-planting drives and green space restoration."
+      {
+        "heading": "Safe guidelines and scheduling",
+        "items": [
+          "Create internal guidelines for when it’s safe to practice, with reasonable adjustments to keep sport possible in new conditions (e.g. training in the rain, moving indoors, shorter and more frequent sessions in heat).",
+          "Adjust outdoor training and competition to cooler times of day, avoiding peak heat or poor air quality.",
+          "Build flexible programming that allows last-minute changes or cancellations based on weather and environmental alerts.",
+          "Implement air quality monitoring for outdoor activities and communicate risks clearly to staff, athletes, and participants."
+        ]
+      },
+      {
+        "heading": "Adapt facilities and infrastructure",
+        "items": [
+          "Install or increase shaded areas, cooling zones, and access to water (fountains, misting systems) in sports and play spaces; promote hydration and UV-protective clothing and equipment.",
+          "Where possible, incorporate or advocate for heat-resilient, climate-proof infrastructure — e.g. permeable surfaces to reduce flooding, materials that minimise heat retention, and green solutions like tree planting and natural shade in facility planning."
+        ]
+      },
+      {
+        "heading": "Build awareness and community resilience",
+        "items": [
+          "Educate coaches, staff, athletes, and families on climate risks and adaptive behaviours through training and awareness programmes."
+        ]
+      }
     ],
     "cooperation_guidance": [
-      "Partner with regional environmental non-profits, weather monitoring agencies, and conservation groups to co-host climate awareness events and access precise localized tracking data.",
-      "Collaborate closely with municipal park departments and urban planners to advocate for the public installation of water stations, shaded seating, and heat-safe green barriers around recreational infrastructure."
+      "Reach out to environmental organisations to collaborate on initiatives and events to raise awareness on the effects of climate change.",
+      "Collaborate with local authorities, partners and the community to advocate for policies and urban design approaches that support heat-safe spaces, improved air quality monitoring, and accessible cooling stations.",
+      "Involve members, volunteers, and local residents in the community to shape and implement climate resilience — for example, gathering input on where shade or water points are most needed, or having them volunteer in local tree-planting."
     ],
     "image_ideas": [
-      "A striking photograph of young athletes maintaining high-focus training drills on a pitch during heavy rain conditions, wearing weather-resistant athletic gear.",
-      "A clean architectural rendering of a climate-resilient outdoor sports hub utilizing natural tree shade, green roofing, and permeable surfaces to mitigate heatwaves and heavy downpours."
+      "Picture of athletes continuing practice in heavy rain"
     ],
     "case_example": {
-      "organization": "Climate-Adaptive Youth Sports Network",
+      "organization": "World Athletics — ‘Running for Clean Air’",
       "location": "Global",
-      "context": "Comprehensive global public health reviews on children's active outdoor play emphasize that rising ambient temperatures and deteriorating air quality heavily suppress youth activity levels, widening health inequalities unless sports organizations dynamically adjust training environments.",
+      "context": "World Athletics uses city marathons as a platform to measure and raise awareness of urban air pollution. With more than a million marathon participants globally each year, the project leverages existing running communities to spark positive transformations within cities and increase awareness of air quality issues. Frequent runners are disproportionately exposed to air pollution — they spend more time outdoors, breathe more air, and tend to mouth-breathe during exertion, bypassing the nose’s natural filtration, so more pollutants reach the lungs, heart, and brain.",
       "key_approaches": [
-        "Pivoting training times entirely out of standard afternoon blocks to early mornings during high-temperature months.",
-        "Integrating nature-based cooling designs, like structural green spaces and strategic tree shade, into sports park renovations.",
-        "Normalizing bad-weather training adjustments rather than defaulting to immediate project cancellations."
+        "World Athletics installs air quality monitoring devices in selected cities for six months, gathering hyperlocal data specifically reflecting the air exercising individuals are exposed to — measured at around 2 metres in height, unlike most existing sensors which focus on traffic monitoring or regulatory compliance.",
+        "For six months before the marathon, a fixed device records background pollution trends at a location chosen with local stakeholders and informed by running-app data, targeting existing outdoor exercise hotspots like parks, riversides, or promenades.",
+        "During the marathon itself, a device attached to a bicycle follows the route in real time to capture fluctuations along the course and at the finish line.",
+        "Pollutant gases and particulates, alongside climate data (temperature, humidity, dew point, wind direction, wet bulb globe temperature), are translated into an Air Quality Index and Heat Stress Index that are reported live online for local stakeholders."
       ],
-      "outcome": "Clubs utilizing flexible scheduling frameworks and green infrastructure upgrades maintained steady participation rates, ensuring children continued playing safely throughout extreme summer heatwaves.",
-      "quote": "Sport organisations can enhance safety and comfort by integrating environmental modifications such as shaded areas, water features, and climate-resilient infrastructure in sports facilities."
+      "outcome": "Key cooperations: Clean Air Fund (funding), Kunak Technologies (air monitoring equipment) and Strava Metro (monitoring data)."
     },
     "sources_and_resources": [
       {
-        "title": "Ambient environmental conditions and active outdoor play in the context of climate change: A systematic review and meta-synthesis (Lee et al., 2025)",
-        "url": "https://doi.org/10.1016/j.envres.2025.118843"
+        "title": "Read about the Running for Clean Air project",
+        "url": "https://worldathletics.org/organisation/better-world/air-quality-program"
+      },
+      {
+        "title": "Lee, E-Y. et al. (2025). Ambient environmental conditions and active outdoor play in the context of climate change: a systematic review and meta-synthesis.",
+        "url": ""
+      },
+      {
+        "title": "World’s largest study of global climate-related mortality links 5 million deaths a year to abnormal temperatures (Monash University)",
+        "url": "https://www.monash.edu/news/articles/worlds-largest-study-of-global-climate-related-mortality-links-5-million-deaths-a-year-to-abnormal-temperatures"
+      },
+      {
+        "title": "Sustainability cost estimation tool with its support guide (Sustainable Sport Management project)",
+        "url": ""
+      },
+      {
+        "title": "Good practices from outdoor youth camps across Europe to respect and protect the environment while being active in nature (Dare2Move4Nature)",
+        "url": ""
+      },
+      {
+        "title": "Toolkit to support organisations in helping camp participants to connect with nature while being active (Dare2Move4Nature)",
+        "url": ""
       }
     ]
   },
   {
-  "id": "12",
-  "category": "FACILITIES",
-  "tags": [
-    "Preparation for Crisis",
-    "Response to Crisis"
-  ],
-  "development_area": [
-    "facilities",
-    "governance",
-    "financial stability",
-    "participation"
-  ],
-  "crysis_type": [
-    "natural disasters"
-  ],
-  "target_group": [
-    "Children",
-    "Women",
-    "Refugees and migrants",
-    "Low income",
-    "People with physical disability"
-  ],
-  "title": "Preparing for and recovering from a natural disaster",
-  "overview": "Sport organizations must strengthen structural and operational resilience by preparing detailed disaster recovery frameworks that prioritize the rapid mobilization of members and volunteers. Empirical research indicates that clubs facing natural disaster shocks recover significantly faster when they proactively pursue government grants, emergency subsidies, and timely insurance claims. Grassroots clubs must secure comprehensive insurance policies, particularly for exposed outdoor assets. Additionally, clubs must evaluate the distinct risk profiles associated with facility ownership versus rental models, as facility owners face much heavier reconstruction burdens. Mitigating these risks requires improving resource substitutability through detailed role documentation, diversified funding, and pre-established reciprocal facility sharing networks.",
-  "guidelines": [
-    "Establish reliable, redundant communication channels (e.g., cloud-based group messaging, off-site email lists) to instantly organize, inform, and deploy volunteers and club members during post-disaster cleanups.",
-    "Proactively research and map out municipal, regional, and national emergency government grants and disaster relief subsidies prior to any crisis event.",
-    "Secure comprehensive insurance coverage tailored specifically to high-risk assets, ensuring outdoor playing fields, structural boundaries, and equipment storage units are fully covered.",
-    "Evaluate the organizational vulnerabilities of the club's facility model, acknowledging that property-owning clubs must budget for independent rebuilding, whereas renting clubs must manage external lease dependencies.",
-    "Recognize and account for sport-specific recovery timelines, allocating larger emergency cash reserves for highly specialized sports (such as motorsport, equestrian, and golf) that face inherently slower recovery paths.",
-    "Eliminate single points of failure by standardizing and archiving written job descriptions, operational manuals, and administrative credentials to ensure seamless role substitution during volunteer displacement.",
-    "Diversify the club's revenue portfolio by actively combining membership fees, small-scale local sponsorships, crowd-funded donations, and philanthropic grants to minimize total financial collapse.",
-    "Maintain consistent digital communication, community outreach, and member engagement initiatives even when active physical sports operations are completely halted to drastically minimize member dropout rates."
-  ],
-  "cooperation_guidance": [
-    "Maintain active contact with national and state sport governing bodies to routinely audit available emergency relief funds, legal assistance programs, and disaster-recovery resources.",
-    "Build reciprocal sharing agreements and mutual aid pacts with neighboring sports organizations, schools, and community centers to secure guaranteed access to alternative training spaces if primary venues are compromised."
-  ],
-  "image_ideas": [
-    "An inspiring photograph showing a diverse team of community sports club volunteers working together to clear debris and clean a sports hall after a localized flood event.",
-    "A structured business continuity diagram mapping out backup facility partners, diversified funding pillars, and volunteer coordination streams."
-  ],
-  "case_example": {
-    "organization": "Community Sport Recovery Network",
-    "location": "Global / Australia Focus",
-    "context": "Academic research into community sport clubs impacted by severe natural disasters shows that human capital mobilization and rapid institutional adaptability directly predict organizational survival. Clubs that rely on single assets or unmapped volunteer pools experience prolonged operational paralysis.",
-    "key_approaches": [
-      "Transitioning loose community helping hands into an organized, pre-registered disaster volunteer task force.",
-      "Utilizing written operational toolkits to easily hand over administrative coaching tasks when staff are displaced.",
-      "Pre-negotiating facility sharing arrangements with indoor community venues before seasonal storm periods."
+    "id": "12",
+    "category": "FACILITIES",
+    "tags": [
+      "Preparation for Crisis",
+      "Response to Crisis"
     ],
-    "outcome": "Clubs with diversified facility partnerships and active emergency communication strategies successfully maintained member retention and resumed athletic programming months ahead of unorganized peer organizations.",
-    "quote": "Human resources are the most used resource in recovery and capacity to mobilize members and volunteers is critical to club functioning, especially after disasters."
+    "development_area": [
+      "facilities",
+      "governance",
+      "financial stability",
+      "participation"
+    ],
+    "crysis_type": [
+      "natural disasters"
+    ],
+    "target_group": [
+      "Children",
+      "Women",
+      "Refugees and migrants",
+      "Low income"
+    ],
+    "title": "Preparing for disaster recovery",
+    "overview": "Sport organisations should strengthen organisational resilience by preparing for disaster recovery. Ensuring that the organisation can mobilise members and volunteers may be central to recovery efforts. Research on disaster recovery in grassroots sport shows that organisations facing crisis should proactively pursue government grants and subsidies, as well as ensure timely access to financial support, which has a significant positive effect on recovery outcomes. Clubs are encouraged to secure appropriate insurance coverage, particularly for high-risk assets like outdoor facilities, since this resource is often underutilised. Organisations should also consider the implications of facility ownership versus rental, as clubs responsible for their own facilities may face greater reconstruction challenges. Improving the substitutability of resources through role documentation, diversified income sources, and access to alternative facilities can reduce dependency on single points of failure and support more effective recovery.\n\nClubs should also continue communicating and engaging with their members and local community, even when activity is not possible, to minimise drop-out rates and so that recovery is quick and smooth once activity may resume.",
+    "guidelines": [
+      {
+        "heading": "",
+        "items": [
+          "Human resources are the most used resource in recovery, and capacity to mobilise members and volunteers is critical to club functioning, especially after disasters. Establish communication channels to inform and engage your volunteers and members in recovery efforts.",
+          "Proactively pursue government grants and subsidies in case of a natural disaster and ensure suitable insurance coverage, particularly for likely impacted areas (e.g. outdoor facilities).",
+          "In order to prepare for potential crises, consider that facility ownership significantly affects recovery: clubs responsible for their own facilities may face greater recovery challenges since they must manage reconstruction, while facilities owned by governments or private entities may be repaired by those entities.",
+          "Recognise differences in recovery across sport types. Research shows that some sports may face greater barriers to recovery from a natural disaster — examples might include motor sports, equestrian, and golf clubs that are prone to a slower recovery.",
+          "Dependence on single resources (people, funding, facilities) may weaken recovery capacity. Improve substitutability of resources to reduce dependence on specific individuals or resources: use written job descriptions and manuals for human resources, diversify income (e.g. donations, sponsorship) for financial resources, and build relationships with partners for access to alternative facilities."
+        ]
+      }
+    ],
+    "cooperation_guidance": [
+      "Connect with national/state sport organisations to inquire about available support in case of a natural disaster.",
+      "Build relationships with other sport organisations and community spaces for access to alternative facilities."
+    ],
+    "image_ideas": [
+      "An inspiring photograph showing a diverse team of community sports club volunteers working together to clear debris and clean a sports hall after a localized flood event.",
+      "A structured business continuity diagram mapping out backup facility partners, diversified funding pillars, and volunteer coordination streams."
+    ],
+    "case_example": {
+      "organization": "Glenmore Lodge — Scotland’s National Outdoor Training Centre",
+      "location": "Cairngorms National Park, Scotland",
+      "context": "In July 2026, a major wildfire broke out in the Cairngorms National Park in Scotland, putting Glenmore Lodge — the national outdoor training centre — inside the evacuation zone for several weeks. The multi-agency response successfully protected the lodge itself, and the facility officially reopened despite the loss of ancient woodland and landscapes.",
+      "key_approaches": [
+        "The sport centre referred to emergency services rather than making independent safety calls. They told clients not to travel to the area and to follow official fire service advice.",
+        "Staff from Glenmore Lodge stayed on-site during the closure to assist emergency crews and coordinate customer communications.",
+        "They accepted an extended, open-ended closure rather than committing to a fixed reopening date, as safety conditions — not a set schedule — determined when it was safe to reopen.",
+        "They managed a high volume of cancellations and refunds transparently, keeping clients updated as the situation evolved.",
+        "They reopened only once a multi-agency safety assessment confirmed it was safe, over three weeks after the fire began.",
+        "They supported the emergency services and local community by providing shelter and meals for those fighting the fires."
+      ]
+    },
+    "sources_and_resources": [
+      {
+        "title": "Glenmore Lodge open following wildfire in the Cairngorms",
+        "url": "https://www.glenmorelodge.org.uk/glenmore-lodge-open-following-wildfire-in-cairngorms/"
+      },
+      {
+        "title": "Wicker, P., Filo, K., & Cuskelly, G. (2013). Organisational resilience of community sport clubs impacted by natural disasters. Journal of Sport Management, 27(6), 510–525.",
+        "url": ""
+      }
+    ]
   },
-  "sources_and_resources": [
-    {
-      "title": "Organisational Resilience of Community Sport Clubs Impacted by Natural Disasters (Wicker, Filo, & Cuskelly, 2013)",
-      "url": "https://doi.org/10.1123/jsm.27.6.510"
-    }
-  ]
-}
+  {
+    "id": "13",
+    "category": "COACHING",
+    "tags": [
+      "Response to Crisis"
+    ],
+    "image_url": "",
+    "development_area": [
+      "coaching",
+      "social support",
+      "participation"
+    ],
+    "crysis_type": [
+      "pandemics",
+      "economic crises",
+      "conflict",
+      "natural disasters"
+    ],
+    "target_group": [
+      "Children",
+      "Women",
+      "Refugees and migrants",
+      "Low income"
+    ],
+    "title": "Focus on play and fun",
+    "overview": "Declining mental health and wellbeing is a common side effect of crises. This means that it is all the more important to ensure sport is a place of safety, reprieve and fun. Even sport can become overly serious — more focused on maintaining structure, safety, and logistics than on the enjoyment that draws people to it in the first place. Yet play and fun are one of the most direct ways to support wellbeing when participants are under stress. Playful, low-pressure activity offers a sense of relief, connection, and normality precisely when routines have been disrupted.\n\nPrioritising fun during a crisis also helps sustain participation. When sport starts to feel like an obligation or another source of pressure, dropout can increase. Keeping activities light, flexible, and genuinely enjoyable makes it easier for people to stay engaged, or to return after a break.",
+    "guidelines": [
+      {
+        "heading": "Adapt the format of activities",
+        "items": [
+          "Reduce emphasis on competition, performance, and results during crisis periods; shift toward participation-focused and game-based formats.",
+          "Introduce variety and novelty — new games, informal formats, or mixed-age/mixed-ability sessions — to keep the content of sessions engaging rather than routine.",
+          "Allow flexibility in how sessions run (shorter, more frequent, or less structured) to accommodate participants’ changing circumstances and energy levels."
+        ]
+      },
+      {
+        "heading": "Equip coaches to lead with a playful mindset",
+        "items": [
+          "Train coaches and volunteers to recognise when a group needs lighter, more playful sessions. Playful and fun sessions do not need to be without structure.",
+          "Encourage coaches to model enjoyment and warmth, not just discipline and performance, especially during stressful periods."
+        ]
+      },
+      {
+        "heading": "Involve participants in shaping activities",
+        "items": [
+          "Ask participants (including children and young people) what kinds of activities they’d enjoy, and build some sessions around their input.",
+          "Create space for participant-led games or informal activity, giving people a sense of ownership and control — something often lost during a crisis."
+        ]
+      },
+      {
+        "heading": "Make participation low-barrier",
+        "items": [
+          "Reduce pressure to attend every session or perform at a certain level; welcome participants back without penalty after gaps in attendance.",
+          "Offer “come and try” or drop-in style sessions that lower the commitment needed to take part."
+        ]
+      },
+      {
+        "heading": "Check in on wellbeing, not just attendance",
+        "items": [
+          "Use light-touch, informal check-ins (not formal assessments) to gauge how participants are coping, and adjust the tone of sessions accordingly.",
+          "Celebrate effort, enjoyment, and participation rather than only results or achievement."
+        ]
+      }
+    ],
+    "cooperation_guidance": [
+      "Partner with play and youth-work specialists (e.g. local youth services, play associations) that can offer coaches practical tools and training for running engaging, low-pressure sessions.",
+      "Collaborate with other local clubs for joint sessions or activity days to introduce novelty and social connection, while sharing the load of programming during a period when staff and volunteer capacity may be stretched.",
+      "Work with schools and community centres who have existing relationships with children and families; partnering with them can help identify participants who may benefit most from playful, welcoming activities and support outreach to those who’ve disengaged.",
+      "Engage mental health or psychosocial support organisations to help strike the right balance between fun-focused activity and awareness of participants who may need additional support beyond what sport alone can offer."
+    ],
+    "image_ideas": [
+      "Mixed group and ages laughing while doing handstands or other playful activity"
+    ],
+    "case_example": {},
+    "sources_and_resources": [
+      {
+        "title": "Learning through Play: Sport and Play-based Early Childhood Development",
+        "url": "https://www.sportanddev.org/research-and-learning/resource-library/learning-through-play-sport-and-play-based-early-childhood"
+      },
+      {
+        "title": "Here is a radical new philosophy: making sport fun again (The Guardian, 2023)",
+        "url": "https://www.theguardian.com/sport/blog/2023/jun/26/here-is-a-radical-new-philosophy-making-sport-fun-again"
+      },
+      {
+        "title": "Making sport fun again could keep more girls in the game, say Surrey researchers (University of Surrey)",
+        "url": "https://www.surrey.ac.uk/news/making-sport-fun-again-could-keep-more-girls-game-say-surrey-researchers"
+      },
+      {
+        "title": "Wicker, P., Filo, K., & Cuskelly, G. (2013). Organisational resilience of community sport clubs impacted by natural disasters. Journal of Sport Management, 27(6), 510–525.",
+        "url": ""
+      }
+    ]
+  }
 ]

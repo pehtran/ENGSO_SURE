@@ -190,7 +190,7 @@ createApp({
     // was well received in user testing, so the score ring, meter and left
     // border for each competency are coloured by tier rather than by the
     // competency's own brand colour (that colour is reserved for the action
-    // links, which carry it through into the Club Guide ribbons).
+    // links, which carry it through into the Crisis Resilience Guide ribbons).
     tierColor(tierClassName) {
       if (tierClassName === "is-priority") return "#dc3545";
       if (tierClassName === "is-building") return "#e0a800";
@@ -433,7 +433,7 @@ createApp({
           actionsHTML += `<div class="result-actions-label">${primaryLabel}</div>
           <div class="result-actions">${primary.slice(0, 2).map((a) => this.actionPillHTML(a)).join("")}</div>`;
         }
-        actionsHTML += `<a href="good.html?category=${encodeURIComponent(cat)}" target="_blank" rel="noopener" class="result-explore-all">See more recommendations on developing ${cat} in the Club Guide &rarr;</a>`;
+        actionsHTML += `<a href="good.html?category=${encodeURIComponent(cat)}" target="_blank" rel="noopener" class="result-explore-all">See more recommendations on developing ${cat} in the Crisis Resilience Guide &rarr;</a>`;
 
         html += `
       <article class="result-row" style="--cat-color:${ragColor}">
