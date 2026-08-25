@@ -878,6 +878,12 @@
   max-width: 420px;
 }
 
+@media (min-width: 576px) {
+  .site-footer-content {
+    max-width: 700px;
+  }
+}
+
 .site-footer-logo {
   max-width: 100%;
   height: auto;
