@@ -28,7 +28,7 @@
     {
       "Question_ID": "2.1",
       "Competency": "Coaching",
-      "Question_Text": "Coaches know who they should speak to within the organisation if a participant needs any additional support to be able to participate fully.",
+      "Question_Text": "Coaches who to contact within the organisation to get additional support for a participant.",
       "Weight": 15,
       "Max_Score": "RS_5_STANDARD",
       "Result": null
@@ -86,7 +86,7 @@
     {
       "Question_ID": "4.2",
       "Competency": "Financial Stability",
-      "Question_Text": "The organisation can support people who are financially disadvantaged to participate. E.g. waiving or subsidisng membership fees, providing sports kit and equipment or providing transport.",
+      "Question_Text": "The organisation can support people who are financially disadvantaged to participate. e.g. waiving or subsidising membership fees, providing sports kit and equipment or providing transport.",
       "Weight": 15,
       "Max_Score": "RS_5_STANDARD",
       "Result": null
