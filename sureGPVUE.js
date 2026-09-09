@@ -17,6 +17,14 @@ createApp({
         FACILITIES: "#0f766e",
         GOVERNANCE: "#be185d",
       },
+      categoryHeaderImages: {
+        "SOCIAL SUPPORT": "images/headers/social support.png",
+        COACHING: "images/headers/coaching.png",
+        "FINANCIAL STABILITY": "images/headers/financial stability.png",
+        PARTICIPATION: "images/headers/participation.png",
+        FACILITIES: "images/headers/facilities.png",
+        GOVERNANCE: "images/headers/governance.png",
+      },
       dev_areas: {
         "SOCIAL SUPPORT": true,
         COACHING: true,
@@ -131,6 +139,9 @@ createApp({
     },
     getCategoryColor(category) {
       return this.categoryColors[category?.toUpperCase()] || "#6b7280";
+    },
+    getHeaderImage(category) {
+      return this.categoryHeaderImages[category?.toUpperCase()] || null;
     },
     // Several actions in actions.json have no case example yet - hide the whole
     // card rather than showing an empty "Case Example" heading.

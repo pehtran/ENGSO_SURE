@@ -221,7 +221,8 @@
 
                     <div v-if="modal_data" :style="{ '--hero-color': getCategoryColor(modal_data.category) }">
                         <div class="modal-hero">
-                            <img v-if="modal_data.image_url" :src="modal_data.image_url" :alt="modal_data.title">
+                            <img v-if="getHeaderImage(modal_data.category)" :src="getHeaderImage(modal_data.category)"
+                                :alt="modal_data.title">
                             <div v-else class="modal-hero-placeholder">
                                 <svg class="modal-hero-icon" width="52" height="52" viewBox="0 0 24 24" fill="none"
                                     stroke="currentColor" stroke-width="1.4" aria-hidden="true">
