@@ -492,18 +492,6 @@ createApp({
       form.submit();
       document.body.removeChild(form);
     },
-    fillRandomTest() {
-      // Testing helper: randomly answers every question and jumps to results.
-      this.questions.forEach((q) => {
-        q.Result = Math.floor(Math.random() * 5) + 1;
-      });
-      this.currentStep = this.questions.length;
-      this.maxStepReached = this.questions.length;
-      nextTick(() => {
-        this.renderSpiderChart();
-        this.renderResultSummary();
-      });
-    },
     reset_form() {
       this.questions.forEach((q) => {
         q.Result = null;
